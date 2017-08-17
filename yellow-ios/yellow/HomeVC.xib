@@ -26,9 +26,12 @@
                             <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                             <state key="normal" title="Button 1"/>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-7o-dfI" userLabel="Button2">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-7o-dfI" userLabel="Post Button">
                             <rect key="frame" x="125" y="0.0" width="125" height="44"/>
-                            <state key="normal" title="Button 2"/>
+                            <state key="normal" title="Post"/>
+                            <connections>
+                                <action selector="openPostView:" destination="-1" eventType="touchUpInside" id="9ki-st-czV"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="37S-Eo-plF" userLabel="Button3">
                             <rect key="frame" x="250" y="0.0" width="125" height="44"/>

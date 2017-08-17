@@ -12,6 +12,16 @@
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
+		CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */; };
+		CD571EC61F457E6F00ECB9C8 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */; };
+		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
+		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
+		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
+		CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECE1F457ED800ECB9C8 /* MyProfileVC.xib */; };
+		CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ED51F45837400ECB9C8 /* MapVC.swift */; };
+		CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ED61F45837400ECB9C8 /* MapVC.xib */; };
+		CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */; };
+		CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */; };
 		CF6CEC02EBF880DF649857F0 /* Pods_yellow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E88B4F2083490B48879FED /* Pods_yellow.framework */; };
 /* End PBXBuildFile section */
 
@@ -26,6 +36,16 @@
 		CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3DB4801F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3DB4821F45664D00A0F0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
+		CD571EC91F457EC000ECB9C8 /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
+		CD571ECA1F457EC000ECB9C8 /* PostVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
+		CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
+		CD571ECE1F457ED800ECB9C8 /* MyProfileVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyProfileVC.xib; sourceTree = "<group>"; };
+		CD571ED51F45837400ECB9C8 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
+		CD571ED61F45837400ECB9C8 /* MapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
+		CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +80,7 @@
 		CD3DB46A1F45664D00A0F0F8 = {
 			isa = PBXGroup;
 			children = (
+				CD571EDC1F4584C800ECB9C8 /* resources */,
 				CD3DB4751F45664D00A0F0F8 /* yellow */,
 				CD3DB4741F45664D00A0F0F8 /* Products */,
 				B5E9C0C4BCD4578F5E3B5F2E /* Pods */,
@@ -84,8 +105,25 @@
 				CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */,
 				CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */,
 				CD3DB4821F45664D00A0F0F8 /* Info.plist */,
+				CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */,
+				CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */,
+				CD571EC91F457EC000ECB9C8 /* PostVC.swift */,
+				CD571ECA1F457EC000ECB9C8 /* PostVC.xib */,
+				CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */,
+				CD571ECE1F457ED800ECB9C8 /* MyProfileVC.xib */,
+				CD571ED51F45837400ECB9C8 /* MapVC.swift */,
+				CD571ED61F45837400ECB9C8 /* MapVC.xib */,
+				CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */,
+				CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */,
 			);
 			path = yellow;
+			sourceTree = "<group>";
+		};
+		CD571EDC1F4584C800ECB9C8 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +189,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
+				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* LoginVC.xib in Resources */,
 				CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */,
+				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
+				CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */,
 				CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */,
 				CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */,
 			);
@@ -212,8 +255,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
+				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
 				CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
+				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

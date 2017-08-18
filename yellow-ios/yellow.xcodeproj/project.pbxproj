@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
 		CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */; };
 		CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4781F45664D00A0F0F8 /* ViewController.swift */; };
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
@@ -26,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51B8CAB31F46A72B00E701A1 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.release.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.release.xcconfig"; sourceTree = "<group>"; };
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +62,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51B8CAB11F46A72B00E701A1 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				51B8CAB21F46A72B00E701A1 /* Geohash */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		51B8CAB21F46A72B00E701A1 /* Geohash */ = {
+			isa = PBXGroup;
+			children = (
+				51B8CAB31F46A72B00E701A1 /* Geohash.swift */,
+			);
+			path = Geohash;
+			sourceTree = "<group>";
+		};
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -99,6 +117,7 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				51B8CAB11F46A72B00E701A1 /* Library */,
 				CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */,
 				CD3DB4781F45664D00A0F0F8 /* ViewController.swift */,
 				CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */,
@@ -262,6 +281,7 @@
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
+				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

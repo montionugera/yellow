@@ -7,9 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+<<<<<<< HEAD
 		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
+=======
+		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
+		51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */; };
+		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
+		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
+		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
+>>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 		CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */; };
-		CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4781F45664D00A0F0F8 /* ViewController.swift */; };
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
@@ -31,13 +38,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51B8CAB31F46A72B00E701A1 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
+		51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		51B8CAB71F46AF7000E701A1 /* DefineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineData.swift; sourceTree = "<group>"; };
+		51B8CABA1F46B0AF00E701A1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility_AkeKit.swift; sourceTree = "<group>"; };
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.release.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.release.xcconfig"; sourceTree = "<group>"; };
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoViewController.xib; path = yellow/VideoViewController.xib; sourceTree = "<group>"; };
 		CD3DB4731F45664D00A0F0F8 /* yellow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yellow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		CD3DB4781F45664D00A0F0F8 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CD3DB47B1F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3DB4801F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,6 +81,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		51B8CAB11F46A72B00E701A1 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */,
+				51B8CAB21F46A72B00E701A1 /* Geohash */,
+			);
+			path = Library;
+			sourceTree = "<group>";
+		};
+		51B8CAB21F46A72B00E701A1 /* Geohash */ = {
+			isa = PBXGroup;
+			children = (
+				51B8CAB31F46A72B00E701A1 /* Geohash.swift */,
+			);
+			path = Geohash;
+			sourceTree = "<group>";
+		};
+		51B8CAB91F46B0AF00E701A1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				51B8CABA1F46B0AF00E701A1 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -109,10 +145,16 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+<<<<<<< HEAD
 				CD3DB4821F45664D00A0F0F8 /* Info.plist */,
 				CD9766041F46B66800A62917 /* swiftyCam */,
+=======
+				51B8CAB91F46B0AF00E701A1 /* Model */,
+				51B8CAB11F46A72B00E701A1 /* Library */,
+>>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 				CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */,
-				CD3DB4781F45664D00A0F0F8 /* ViewController.swift */,
+				51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */,
+				51B8CAB71F46AF7000E701A1 /* DefineData.swift */,
 				CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */,
 				CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */,
 				CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */,
@@ -185,7 +227,7 @@
 				TargetAttributes = {
 					CD3DB4721F45664D00A0F0F8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8J8JM2E96L;
+						DevelopmentTeam = JGZC6Q8Q3Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -255,7 +297,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7C7E73D05B393A43BEE0D0C9 /* [CP] Copy Pods Resources */ = {
@@ -282,15 +324,27 @@
 			files = (
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
+<<<<<<< HEAD
 				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
 				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
 				CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
 				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
+=======
+				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
+				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
+>>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
+				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
+<<<<<<< HEAD
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
+=======
+				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
+				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
+>>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,10 +468,11 @@
 			baseConfigurationReference = 874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow.yellow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -428,10 +483,11 @@
 			baseConfigurationReference = AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow.yellow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

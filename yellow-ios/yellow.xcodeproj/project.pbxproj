@@ -161,7 +161,7 @@
 				TargetAttributes = {
 					CD3DB4721F45664D00A0F0F8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = 8J8JM2E96L;
+						DevelopmentTeam = JGZC6Q8Q3Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -230,7 +230,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7C7E73D05B393A43BEE0D0C9 /* [CP] Copy Pods Resources */ = {
@@ -385,10 +385,11 @@
 			baseConfigurationReference = 874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow.yellow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -399,10 +400,11 @@
 			baseConfigurationReference = AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow.yellow;
+				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

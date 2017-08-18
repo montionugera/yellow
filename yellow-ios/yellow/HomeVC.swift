@@ -21,6 +21,11 @@ class HomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func LoginView(_ sender: Any) {
+        let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+        self.present(loginVC,animated: true,completion: nil)
+    }
+    
     @IBAction func openPostView(_ sender: Any) {
         self.present(PostVC(),animated: true,completion: nil)
     }

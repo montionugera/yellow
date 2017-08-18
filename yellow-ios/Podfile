@@ -6,10 +6,12 @@ target 'yellow' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 
   # Pods for yellow
-  pod 'AFNetworking', '~> 3.0'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  pod 'Alamofire', '~> 4.4'
+  pod 'Alamofire', '~> 4.5'
+  pod 'AlamofireImage', '~> 3.2'
+  pod 'SVProgressHUD'
+  pod 'HanekeSwift', :git => 'https://github.com/jasonnoahchoi/HanekeSwift', :branch => 'swift3'
   
 end

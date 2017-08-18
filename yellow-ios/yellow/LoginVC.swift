@@ -9,7 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 
-class LoginVC: UIViewController,FBSDKLoginButtonDelegate {
+class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var fbLogin_view: FBSDKLoginButton!
     
@@ -43,7 +43,7 @@ class LoginVC: UIViewController,FBSDKLoginButtonDelegate {
             print("Cancelled")
         } else {
             print("LoggedIn")
-            //self.showLoding()
+            self.showLoding()
             Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(LoginVC.delayDissmissFB), userInfo: nil, repeats: false)
         }
     }
@@ -52,10 +52,10 @@ class LoginVC: UIViewController,FBSDKLoginButtonDelegate {
     }
     func callGraphAPIUserFB(fb_token_string:String){
         print(fb_token_string)
-        //sejf hide
+        
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large)"])
             .start(completionHandler:  { (connection, result, error) in
-               
+               self.hideLoding()
                 if (error != nil) {
                     let alertController = UIAlertController(title: "Yellow", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
@@ -81,22 +81,26 @@ class LoginVC: UIViewController,FBSDKLoginButtonDelegate {
                         gender_data = fb_data?.object(forKey: "gender") as! String
                     }
                     
-                    
-                   
-                    
-                    let alert = UIAlertController(title: fb_data?.object(forKey: "email") as? String, message: "", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                    {
-                        (result : UIAlertAction) -> Void in
-                        
-                        self.dismiss(animated: true, completion: nil)
+                    var user_profile_pic = ""
+                    if fb_data?.object(forKey: "picture") != nil {
+                        let picData = fb_data?.object(forKey: "picture") as! [String : AnyObject]
+                        user_profile_pic = picData["data"]?["url"] as! String
                     }
-                    alert.addAction(okAction)
-                    self.present(alert, animated: true, completion: {
-                        
-                    })
                     
+                    print(fb_data)
                     
+                    let user_data_save = [
+                                            "user_id" : fb_data?.object(forKey: "id") ,
+                                            "user_email" : fb_data?.object(forKey: "email") ,
+                                            "user_name" : fb_data?.object(forKey: "name") ,
+                                            "user_profile" : user_profile_pic
+                                         ]
+                    
+                    UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
+                   
+                    self.dismiss(animated: true, completion: nil)
+
+
                     
 //                    self.login_now(emailSocial: fb_data?.object(forKey: "email") as! String,
 //                                   username: fb_data?.object(forKey: "name") as! String,

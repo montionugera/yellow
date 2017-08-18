@@ -23,18 +23,21 @@ PODS:
   - Bolts/Tasks (1.8.4)
   - FBSDKCoreKit (4.24.0):
     - Bolts (~> 1.7)
+  - SwiftyCam (2.4.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 3.0)
   - Alamofire (~> 4.4)
   - FBSDKCoreKit (~> 4.9)
+  - SwiftyCam
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
   FBSDKCoreKit: f8c9eb0dd34a9cd277c7b60da4b32226d142502d
+  SwiftyCam: cb83b9a8e181f70fb741d30cea724c6b045a4549
 
-PODFILE CHECKSUM: 5d947bd7ad9ccedc1455a04610a0060c031e0f2a
+PODFILE CHECKSUM: 2b871b73eba857c874e20864e64a43ba06dfb7bf
 
 COCOAPODS: 1.2.0

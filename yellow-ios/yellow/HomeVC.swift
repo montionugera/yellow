@@ -8,13 +8,23 @@
 
 import UIKit
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,UITabBarControllerDelegate  {
 
+    let tabbarTC = UITabBarController()
+    let mapVC = MapVC()
+    let postVC = PostVC()
+    let myProfileVC = MyProfileVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        self.tabbarTC.delegate = self
+        self.tabbarTC.view.frame = self.view.frame
+        self.view.addSubview(self.tabbarTC.view)
+        self.setTabbar()
+        
+        
+        // Do any additional setup after loading the view.
         if let (lat, lon) = Geohash.decode(hash: "u4pruydqqvj") {
             print(lat)
             print(lon)
@@ -23,11 +33,20 @@ class HomeVC: UIViewController {
             // lon.min == 10.407439023256302
             // lon.max == 10.407440364360809
         }
-        
         let s = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
         // s == "u4pruydqqv"
 
         
+    }
+    
+    func setTabbar(){
+        self.mapVC.title = "Home"
+        self.postVC.title = "Post"
+        self.myProfileVC.title = "Profile"
+        
+        let controllers = [self.mapVC,self.postVC,self.myProfileVC]
+        self.tabbarTC.viewControllers = controllers
+
     }
     
     override func viewWillAppear(_ animated: Bool){
@@ -50,10 +69,6 @@ class HomeVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    
-    @IBAction func openPostView(_ sender: Any) {
-        self.present(PostVC(),animated: true,completion: nil)
-    }
 
     /*
     // MARK: - Navigation

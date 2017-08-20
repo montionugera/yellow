@@ -9,13 +9,21 @@
 import UIKit
 
 class MyProfileVC: UIViewController {
-
+    @IBOutlet weak var name_lb: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        
     }
 
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        
+        self.name_lb.text = UserModel.currentUser.user_name
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

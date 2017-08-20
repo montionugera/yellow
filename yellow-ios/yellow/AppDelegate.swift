@@ -17,20 +17,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         UserModel.currentUser.getAsDatabase(completionHandler: {
         
-            print("IN IN IN")
             
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let homeViewController = HomeVC()
-            homeViewController.view.backgroundColor = UIColor.red
-            
-            // setup facebook
-            FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
-            
-            self.window!.rootViewController = homeViewController
-            self.window!.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let homeViewController = HomeVC()
+        homeViewController.view.backgroundColor = UIColor.red
+        
+        // setup facebook
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        
+        self.window!.rootViewController = homeViewController
+        self.window!.makeKeyAndVisible()
             
             
             

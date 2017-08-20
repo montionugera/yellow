@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
-=======
 		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
 		51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */; };
 		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
 		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
 		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
->>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 		CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */; };
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
@@ -145,13 +142,10 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				CD3DB4821F45664D00A0F0F8 /* Info.plist */,
 				CD9766041F46B66800A62917 /* swiftyCam */,
-=======
 				51B8CAB91F46B0AF00E701A1 /* Model */,
 				51B8CAB11F46A72B00E701A1 /* Library */,
->>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 				CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */,
 				51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */,
 				51B8CAB71F46AF7000E701A1 /* DefineData.swift */,
@@ -324,27 +318,20 @@
 			files = (
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
-<<<<<<< HEAD
 				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
 				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
 				CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
 				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
-=======
 				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
->>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
-<<<<<<< HEAD
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
-=======
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
->>>>>>> 6fc249cc9f8073ca715e19450e5fb66d56ae983c
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

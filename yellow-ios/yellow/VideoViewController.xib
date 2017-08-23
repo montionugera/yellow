@@ -4,13 +4,13 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoViewController" customModule="yellow" customModuleProvider="target">
             <connections>
+                <outlet property="postDetailContainerView" destination="1pm-Rv-EIN" id="oZi-FO-CiH"/>
                 <outlet property="vdoContainerView" destination="jz0-kY-r5Q" id="CVs-74-RWr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1U0-a6-xaE"/>
             </connections>
@@ -25,27 +25,39 @@
                     <state key="normal" title="Cancel"/>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-rw-toN">
-                    <rect key="frame" x="335" y="20" width="40" height="30"/>
+                    <rect key="frame" x="327" y="20" width="48" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="mGz-3x-KUW"/>
                     </constraints>
                     <state key="normal" title="POST"/>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1pm-Rv-EIN" userLabel="PostDetail Container">
+                    <rect key="frame" x="0.0" y="58" width="375" height="60"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="lightTextColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="LtK-Ir-LOS"/>
+                    </constraints>
+                </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-kY-r5Q" userLabel="vdoContainer">
-                    <rect key="frame" x="0.0" y="58" width="375" height="609"/>
+                    <rect key="frame" x="0.0" y="118" width="375" height="549"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.90980392160000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="2OB-31-exz"/>
+                <constraint firstItem="YGQ-to-f6D" firstAttribute="height" secondItem="gyq-rw-toN" secondAttribute="height" id="9pN-KV-HzZ"/>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="leading" secondItem="YGQ-to-f6D" secondAttribute="leading" id="B54-GP-CaR"/>
-                <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="gyq-rw-toN" secondAttribute="bottom" constant="8" id="UGj-QC-jmI"/>
+                <constraint firstItem="YGQ-to-f6D" firstAttribute="baseline" secondItem="gyq-rw-toN" secondAttribute="baseline" id="Lwy-ZH-Ch2"/>
+                <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="gyq-rw-toN" secondAttribute="bottom" constant="68" id="UGj-QC-jmI"/>
+                <constraint firstItem="1pm-Rv-EIN" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Uja-VB-buo"/>
                 <constraint firstItem="gyq-rw-toN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" id="ZuF-Ly-lLn"/>
+                <constraint firstAttribute="trailing" secondItem="1pm-Rv-EIN" secondAttribute="trailing" id="aV3-f6-IX1"/>
                 <constraint firstAttribute="trailing" secondItem="jz0-kY-r5Q" secondAttribute="trailing" id="e7E-yb-aKa"/>
+                <constraint firstItem="1pm-Rv-EIN" firstAttribute="top" secondItem="gyq-rw-toN" secondAttribute="bottom" constant="8" id="ef5-rL-4MC"/>
                 <constraint firstAttribute="bottom" secondItem="jz0-kY-r5Q" secondAttribute="bottom" id="fGB-oL-huf"/>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="trailing" secondItem="gyq-rw-toN" secondAttribute="trailing" id="fIe-Lk-3Yf"/>
-                <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="YGQ-to-f6D" secondAttribute="bottom" constant="8" symbolic="YES" id="nlo-QZ-JMY"/>
+                <constraint firstItem="YGQ-to-f6D" firstAttribute="width" secondItem="gyq-rw-toN" secondAttribute="width" id="pnH-3W-IDr"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

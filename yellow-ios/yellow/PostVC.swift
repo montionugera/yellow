@@ -16,6 +16,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: SwiftyRecordButton!
+    var requireLoadNewUI = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
         shouldUseDeviceOrientation = true
         allowAutoRotate = true
         audioEnabled = true
-        addButtons()
+        requireLoadNewUI = true
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -36,6 +37,9 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if(requireLoadNewUI){
+            addButtons()
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {

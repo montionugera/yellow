@@ -12,6 +12,8 @@
 		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
 		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
 		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
+		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
+		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
 		CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24F4C31F46D97A001FBA86 /* LoginVC.swift */; };
 		CD24F4C61F46D97A001FBA86 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C41F46D97A001FBA86 /* LoginVC.xib */; };
@@ -31,14 +33,10 @@
 		CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */; };
 		CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */; };
 		CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */; };
-		CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */; };
-		CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */; };
-		CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766021F46B63500A62917 /* SwiftyCamButton.swift */; };
 		CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */; };
 		CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92411F4D2A9700A7EDE7 /* User.swift */; };
 		CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */; };
-		CDDC92471F4D5AED00A7EDE7 /* BusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */; };
 		CF6CEC02EBF880DF649857F0 /* Pods_yellow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E88B4F2083490B48879FED /* Pods_yellow.framework */; };
 /* End PBXBuildFile section */
 
@@ -51,6 +49,7 @@
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.release.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.release.xcconfig"; sourceTree = "<group>"; };
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		CD24F4C31F46D97A001FBA86 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CD24F4C41F46D97A001FBA86 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -70,10 +69,8 @@
 		CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProfileViewController.swift; sourceTree = "<group>"; };
 		CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostProfileViewController.xib; sourceTree = "<group>"; };
-		CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyRecordButton.swift; path = yellow/SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD9765FD1F46B5D600A62917 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
-		CD9766021F46B63500A62917 /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyCamButton.swift; path = yellow/SwiftyCamButton.swift; sourceTree = "<group>"; };
 		CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		CDDC92411F4D2A9700A7EDE7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
@@ -200,8 +197,7 @@
 		CD9766041F46B66800A62917 /* swiftyCam */ = {
 			isa = PBXGroup;
 			children = (
-				CD9766021F46B63500A62917 /* SwiftyCamButton.swift */,
-				CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */,
+				CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */,
 				51B8CAB91F46B0AF00E701A1 /* Model */,
 			);
 			name = swiftyCam;
@@ -361,17 +357,15 @@
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
 				CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */,
-				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
-				CDDC92471F4D5AED00A7EDE7 /* BusinessService.swift in Sources */,
-				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
+				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
-				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,

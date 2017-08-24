@@ -16,21 +16,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     var initialViewController :UIViewController?
 
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UserModel.currentUser.getAsDatabase()
+        UserModel.currentUser.getAsDatabase(completionHandler: {
         
         FirebaseApp.configure()
         
-        window = UIWindow(frame: UIScreen.main.bounds)
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = HomeVC()
         homeViewController.view.backgroundColor = UIColor.red
         
         // setup facebook
         self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
         
-        window!.rootViewController = homeViewController
-        window!.makeKeyAndVisible()
+        self.window!.rootViewController = homeViewController
+        self.window!.makeKeyAndVisible()
+            
+            
+            
+            
+            
+        })
         return true
     }
     func setUpFacebook(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){

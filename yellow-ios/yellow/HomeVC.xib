@@ -25,9 +25,6 @@
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KzH-nC-EE8" userLabel="Button1">
                             <rect key="frame" x="0.0" y="0.0" width="125" height="44"/>
                             <state key="normal" title="Button 1"/>
-                            <connections>
-                                <action selector="LoginView:" destination="-1" eventType="touchUpInside" id="DN6-EX-VqS"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO7-7o-dfI" userLabel="Post Button">
                             <rect key="frame" x="125" y="0.0" width="125" height="44"/>

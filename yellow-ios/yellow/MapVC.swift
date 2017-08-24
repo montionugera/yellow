@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import MapKit
 class MapVC: UIViewController {
 
     override func viewDidLoad() {

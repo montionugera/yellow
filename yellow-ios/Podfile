@@ -8,7 +8,6 @@ target 'yellow' do
   # Pods for yellow
   pod 'SwiftyCam'
   
-  pod 'FBSDKShareKit'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.2'
   pod 'SVProgressHUD'
@@ -18,6 +17,7 @@ target 'yellow' do
   pod 'Bolts'
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
   
   # Pods for Firebase
   pod 'Firebase/Core'

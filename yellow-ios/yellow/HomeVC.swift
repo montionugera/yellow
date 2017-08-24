@@ -10,13 +10,23 @@ import UIKit
 import FBSDKLoginKit
 import Firebase
 
-class HomeVC: UIViewController,FBSDKLoginButtonDelegate {
+class HomeVC: UIViewController,UITabBarControllerDelegate,FBSDKLoginButtonDelegate  {
 
+    let tabbarTC = UITabBarController()
+    let mapVC = MapVC()
+    let postVC = PostVC()
+    let myProfileVC = MyProfileVC()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
+        self.tabbarTC.delegate = self
+        self.tabbarTC.view.frame = self.view.frame
+        self.view.addSubview(self.tabbarTC.view)
+        self.setTabbar()
+        
+        
+        // Do any additional setup after loading the view.
         if let (lat, lon) = Geohash.decode(hash: "u4pruydqqvj") {
             print(lat)
             print(lon)
@@ -44,7 +54,6 @@ class HomeVC: UIViewController,FBSDKLoginButtonDelegate {
         }
         
     }
-    
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!)
     {
         if error != nil{
@@ -94,20 +103,36 @@ class HomeVC: UIViewController,FBSDKLoginButtonDelegate {
         
     }
 
+    func setTabbar(){
+        self.mapVC.title = "Home"
+        self.postVC.title = "Post"
+        self.myProfileVC.title = "Profile"
+        
+        let controllers = [self.mapVC,self.postVC,self.myProfileVC]
+        self.tabbarTC.viewControllers = controllers
+
+    }
+    
+    override func viewWillAppear(_ animated: Bool){
+        super.viewWillAppear(animated)
+        
+        
+    }
+    override func viewDidAppear(_ animated: Bool){
+        super.viewDidAppear(animated)
+        
+        if UserModel.currentUser.isLogined() == false {
+            let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+            self.present(loginVC,animated: true,completion: nil)
+        }
+    }
+    
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    @IBAction func LoginView(_ sender: Any) {
-        let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
-        self.present(loginVC,animated: true,completion: nil)
-    }
-    
-    @IBAction func openPostView(_ sender: Any) {
-        self.present(PostVC(),animated: true,completion: nil)
-    }
 
     /*
     // MARK: - Navigation

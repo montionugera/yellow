@@ -21,7 +21,7 @@ class UserModel: NSObject{
         struct Static {
             static let instance = UserModel()
         }
-        Static.instance.getAsDatabase()
+        Static.instance.getAsDatabase(completionHandler: {})
         return Static.instance
     }
     
@@ -48,12 +48,18 @@ class UserModel: NSObject{
         self.cache.set(value: ditoData as Data, key: dataBaseKey)
         updateFromProp(dic: dict)
     }
-    func getAsDatabase(){
+    func getAsDatabase(completionHandler:@escaping () -> ()){
             // do some task
         let result = self.cache.fetch(key: self.dataBaseKey).onSuccess { data in
             let dicfromData:NSDictionary? = Utility_AkeKit().DatatoDictionary(data: data as NSData?)
             self.updateFromProp(dic: dicfromData! as! [String : AnyObject])
+            completionHandler()
         }
+        
+        _ = self.cache.fetch(key: self.dataBaseKey).onFailure { data in
+            completionHandler()
+        }
+        
         print(result)
 
     }

@@ -26,6 +26,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
         allowAutoRotate = true
         audioEnabled = true
         requireLoadNewUI = true
+        videoQuality = .low
     }
     
     override var prefersStatusBarHidden: Bool {

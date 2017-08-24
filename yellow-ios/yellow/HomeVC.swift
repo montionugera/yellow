@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import FBSDKLoginKit
+import Firebase
 
-class HomeVC: UIViewController {
+class HomeVC: UIViewController,FBSDKLoginButtonDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,11 +26,74 @@ class HomeVC: UIViewController {
             // lon.max == 10.407440364360809
         }
         
-        let s = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
+        let _ = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
         // s == "u4pruydqqv"
-
+        
+        
+        let loginButton = FBSDKLoginButton()
+        view.addSubview(loginButton)
+        loginButton.frame = CGRect(x: 16 , y: 50, width: view.frame.width - 32  , height: 50)
+        
+        loginButton.delegate = self
+        loginButton.readPermissions = ["email", "public_profile", "user_friends"]
+        
+        if let user = Auth.auth().currentUser {
+            print(user.uid)
+            print(user.displayName)
+            print(user.photoURL)
+        }
         
     }
+    
+    public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!)
+    {
+        if error != nil{
+            print(error)
+        }
+        else{
+            print("User is SUccessfully Logged in....")
+            let accessToken = FBSDKAccessToken.current()
+            guard let accessTokenString = accessToken?.tokenString! else {
+                return
+            }
+            let credentials =
+                FacebookAuthProvider.credential(withAccessToken: accessTokenString )
+            
+            Auth.auth().signIn(with: credentials, completion: { (user, error) in
+                
+                
+                if error != nil{
+                    print(error!)
+                    
+                }
+                print(user!)
+            })
+            
+            FBSDKGraphRequest(graphPath: "/me", parameters: ["fields": "id, name, email"]).start(completionHandler: { (connection, result, err) in
+                
+                if err != nil{
+                    print("FBSDK request failed", err!)
+                }
+                else{
+                    print(result!)
+                }
+                
+            })
+            
+            
+            
+        }
+    }
+    
+    
+    
+    public func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!)
+    {
+        
+        print("User SUccessfully Logged out")
+        
+    }
+
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

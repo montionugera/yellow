@@ -36,6 +36,9 @@
 		CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */; };
 		CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766021F46B63500A62917 /* SwiftyCamButton.swift */; };
 		CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */; };
+		CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92411F4D2A9700A7EDE7 /* User.swift */; };
+		CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */; };
+		CDDC92471F4D5AED00A7EDE7 /* BusinessService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */; };
 		CF6CEC02EBF880DF649857F0 /* Pods_yellow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E88B4F2083490B48879FED /* Pods_yellow.framework */; };
 /* End PBXBuildFile section */
 
@@ -72,6 +75,10 @@
 		CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CD9766021F46B63500A62917 /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyCamButton.swift; path = yellow/SwiftyCamButton.swift; sourceTree = "<group>"; };
 		CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDDC92411F4D2A9700A7EDE7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
+		CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessService.swift; sourceTree = "<group>"; };
+		CDDC92481F4D5B4E00A7EDE7 /* pg.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pg.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,7 +139,9 @@
 		CD3DB46A1F45664D00A0F0F8 = {
 			isa = PBXGroup;
 			children = (
-				CD571EDC1F4584C800ECB9C8 /* resources */,
+				CDDC92481F4D5B4E00A7EDE7 /* pg.playground */,
+				CDDC92451F4D5ACF00A7EDE7 /* Services */,
+				CDDC92401F4D2A7200A7EDE7 /* Models */,
 				CD3DB4751F45664D00A0F0F8 /* yellow */,
 				CD3DB4741F45664D00A0F0F8 /* Products */,
 				B5E9C0C4BCD4578F5E3B5F2E /* Pods */,
@@ -176,13 +185,6 @@
 			path = yellow;
 			sourceTree = "<group>";
 		};
-		CD571EDC1F4584C800ECB9C8 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = resources;
-			sourceTree = "<group>";
-		};
 		CD7A89B61F4C2C55000966FE /* Post */ = {
 			isa = PBXGroup;
 			children = (
@@ -204,6 +206,23 @@
 			);
 			name = swiftyCam;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		CDDC92401F4D2A7200A7EDE7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC92411F4D2A9700A7EDE7 /* User.swift */,
+				CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CDDC92451F4D5ACF00A7EDE7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,7 +362,9 @@
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
 				CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */,
 				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
+				CDDC92471F4D5AED00A7EDE7 /* BusinessService.swift in Sources */,
 				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
+				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
@@ -357,6 +378,7 @@
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
+				CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

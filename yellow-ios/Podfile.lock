@@ -8,6 +8,7 @@ PODS:
   - Bolts/AppLinks (1.8.4):
     - Bolts/Tasks
   - Bolts/Tasks (1.8.4)
+  - Cluster (1.0.9)
   - FBSDKCoreKit (4.25.0):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.25.0):
@@ -21,6 +22,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5)
   - AlamofireImage (~> 3.2)
+  - Cluster
   - FBSDKCoreKit
   - FBSDKLoginKit
   - FBSDKShareKit
@@ -42,6 +44,7 @@ SPEC CHECKSUMS:
   Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   AlamofireImage: 157ed682cc81d3b9db4fb90c1f12180ac552d93b
   Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  Cluster: 8959fee4ab878609009a5bab88501f8ae2114415
   FBSDKCoreKit: 53e3f4bfb64e80c5f229dd30ae33ff57fbbbd2d1
   FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
   FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
@@ -49,6 +52,6 @@ SPEC CHECKSUMS:
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyCam: cb83b9a8e181f70fb741d30cea724c6b045a4549
 
-PODFILE CHECKSUM: d387a837dda1ff7658280fcf9685b5b82fa800cb
+PODFILE CHECKSUM: 31c0113aed88353eb493d39dace87f40045a2ce3
 
 COCOAPODS: 1.2.1.rc.1

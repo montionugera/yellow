@@ -7,12 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
+		51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ACC8BE1F4EBB3700091644 /* Extensions.swift */; };
 		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
 		51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */; };
 		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
 		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
 		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
+		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
 		CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */; };
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
@@ -35,6 +36,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		51ACC8BE1F4EBB3700091644 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		51B8CAB31F46A72B00E701A1 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		51B8CAB71F46AF7000E701A1 /* DefineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineData.swift; sourceTree = "<group>"; };
@@ -81,6 +83,7 @@
 		51B8CAB11F46A72B00E701A1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				51ACC8BE1F4EBB3700091644 /* Extensions.swift */,
 				51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */,
 				51B8CAB21F46A72B00E701A1 /* Geohash */,
 			);
@@ -320,7 +323,6 @@
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
 				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
 				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
-				CD3DB4791F45664D00A0F0F8 /* ViewController.swift in Sources */,
 				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
@@ -328,6 +330,7 @@
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
+				51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,

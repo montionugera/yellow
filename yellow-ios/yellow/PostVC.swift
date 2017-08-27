@@ -21,12 +21,12 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         cameraDelegate = self
-        maximumVideoDuration = 10.0
+//        maximumVideoDuration = 3600.0
         shouldUseDeviceOrientation = true
-        allowAutoRotate = true
+        allowAutoRotate = false
         audioEnabled = true
         requireLoadNewUI = true
-        videoQuality = .low
+        videoQuality = .medium
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -37,10 +37,11 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
         if(requireLoadNewUI){
             addButtons()
+            requireLoadNewUI = false
         }
+        super.viewDidAppear(animated)
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {

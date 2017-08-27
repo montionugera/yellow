@@ -14,7 +14,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate,FBSDKLoginButtonDelega
 
     let tabbarTC = UITabBarController()
     let mapVC = MapVC()
-    let postVC = PostVC()
+    let postVC = PostDummyVC()
     let myProfileVC = MyProfileVC()
     
     override func viewDidLoad() {
@@ -53,6 +53,14 @@ class HomeVC: UIViewController,UITabBarControllerDelegate,FBSDKLoginButtonDelega
             print(user.photoURL)
         }
         
+    }
+    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool{
+        if( viewController == postVC){
+            let realPostVC = PostVC()
+            self.tabbarTC.present(realPostVC, animated: true, completion: nil)
+           return false
+        }
+        return true
     }
     public func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!)
     {

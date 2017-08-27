@@ -33,6 +33,10 @@
 		CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */; };
 		CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */; };
 		CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */; };
+		CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81792C1F529248007BDD60 /* PostDummyVC.swift */; };
+		CD81792F1F529248007BDD60 /* PostDummyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD81792D1F529248007BDD60 /* PostDummyVC.xib */; };
+		CD8179321F532CD8007BDD60 /* DummyHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD8179301F532CD8007BDD60 /* DummyHomeVC.swift */; };
+		CD8179331F532CD8007BDD60 /* DummyHomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD8179311F532CD8007BDD60 /* DummyHomeVC.xib */; };
 		CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */; };
 		CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */; };
 		CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92411F4D2A9700A7EDE7 /* User.swift */; };
@@ -69,6 +73,10 @@
 		CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProfileViewController.swift; sourceTree = "<group>"; };
 		CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostProfileViewController.xib; sourceTree = "<group>"; };
+		CD81792C1F529248007BDD60 /* PostDummyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDummyVC.swift; sourceTree = "<group>"; };
+		CD81792D1F529248007BDD60 /* PostDummyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostDummyVC.xib; sourceTree = "<group>"; };
+		CD8179301F532CD8007BDD60 /* DummyHomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyHomeVC.swift; sourceTree = "<group>"; };
+		CD8179311F532CD8007BDD60 /* DummyHomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DummyHomeVC.xib; sourceTree = "<group>"; };
 		CD9765FD1F46B5D600A62917 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
 		CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -178,6 +186,10 @@
 				CD571ED61F45837400ECB9C8 /* MapVC.xib */,
 				CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */,
 				CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */,
+				CD81792C1F529248007BDD60 /* PostDummyVC.swift */,
+				CD81792D1F529248007BDD60 /* PostDummyVC.xib */,
+				CD8179301F532CD8007BDD60 /* DummyHomeVC.swift */,
+				CD8179311F532CD8007BDD60 /* DummyHomeVC.xib */,
 			);
 			path = yellow;
 			sourceTree = "<group>";
@@ -294,6 +306,8 @@
 				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
 				CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */,
 				CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */,
+				CD8179331F532CD8007BDD60 /* DummyHomeVC.xib in Resources */,
+				CD81792F1F529248007BDD60 /* PostDummyVC.xib in Resources */,
 				CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */,
 				CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */,
 			);
@@ -361,6 +375,7 @@
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				CD8179321F532CD8007BDD60 /* DummyHomeVC.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
@@ -369,6 +384,7 @@
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
+				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,

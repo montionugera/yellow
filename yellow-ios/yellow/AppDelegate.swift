@@ -23,7 +23,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         FirebaseApp.configure()
         
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let homeViewController = HomeVC()
+//        let homeViewController = HomeVC()
+            let homeViewController = PostVC()
         homeViewController.view.backgroundColor = UIColor.red
         
         // setup facebook

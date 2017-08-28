@@ -36,7 +36,9 @@ class HomeVC: UIViewController,UITabBarControllerDelegate,FBSDKLoginButtonDelega
             // lon.max == 10.407440364360809
         }
         
-        let _ = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
+        let hashloc = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
+        
+        print("hash loc : "+hashloc)
         // s == "u4pruydqqv"
         
         

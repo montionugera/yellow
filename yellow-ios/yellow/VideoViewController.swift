@@ -96,17 +96,28 @@ class VideoViewController: UIViewController {
         let uid = UUID().uuidString
         let mediaRef = storageRef.child("media/"+user.uid+"/"+uid+"."+fileExt)
         // Upload the file to the path "images/dummy.mov"
-        let uploadTask = mediaRef.putFile(from:self.videoURL, metadata: nil) { (metadata, error) in
+        let _ = mediaRef.putFile(from:self.videoURL, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
                 // Uh-oh, an error occurred!
                 return
             }
             // Metadata contains file metadata such as size, content-type, and download URL.
-            let mediaURL = metadata.downloadURL()
-            let postDesc = "ข้างหน้าเป็นยังไงบ้างครับ ติดมากไหม"
-            let mediaType = fileExt
-            let addedByUser = fileExt
+            var ref: DatabaseReference!
             
+            ref = Database.database().reference()
+            let postDesc = "ข้างหน้าเป็นยังไงบ้างครับ ติดมากไหม"
+            let addedByUser = uid
+            let mediaType = fileExt
+            let mediaURL = metadata.downloadURL()!.absoluteString
+            let love = 0
+            let lochash = "u4pruydqqv"
+            let postData = ["postDesc":postDesc,
+                            "addedByUser":addedByUser,
+                            "mediaType":mediaType,
+                            "mediaURL":mediaURL,
+                            "love":love,
+                            "lochash":lochash] as [String : Any]
+            ref.child("posts").setValue(postData)
         }
         
         

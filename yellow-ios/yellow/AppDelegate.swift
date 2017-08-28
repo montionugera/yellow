@@ -33,10 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = homeViewController
         self.window!.makeKeyAndVisible()
             
-            
-            
-            
-            
         })
         return true
     }

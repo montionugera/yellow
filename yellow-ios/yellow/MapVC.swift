@@ -32,9 +32,9 @@ class MapVC: UIViewController {
             let annotation = Annotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-            annotation.type = .color(color, radius: 25)
+            //annotation.type = .color(color, radius: 25)
             // or
-            //annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
+            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
             
             return annotation
         }
@@ -81,14 +81,23 @@ extension MapVC: MKMapViewDelegate {
             var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
             if let view = view {
                 view.annotation = annotation
+            
             } else {
                 view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                
+                let vv =  UIImageView()
+                vv.frame = CGRect(x:0,y:0,width:20,height:40)
+                vv.image = UIImage(named: "pin")?.filled(with: .green)
+                view?.addSubview(vv)
             }
-            if #available(iOS 9.0, *), case let .color(color, _) = type {
-                view?.pinTintColor =  color
-            } else {
-                view?.pinColor = .green
-            }
+            
+//            if #available(iOS 9.0, *), case let .color(color, _) = type {
+//                view?.pinTintColor =  color
+//            } else {
+//                view?.pinColor = .green
+//            }
+            
+           
             return view
         }
     }
@@ -137,14 +146,37 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
     }
     
     override func configure(with type: ClusterAnnotationType) {
-        super.configure(with: type)
+//        super.configure(with: type)
+        
+        guard let annotation = annotation as? ClusterAnnotation else { return }
         
         switch type {
-        case .image:
+        case let .image(image):
+            let count = annotation.annotations.count
+            countLabel.text = "\(count)"
+            
+            backgroundColor = .clear
+            self.image = image
+            
             layer.borderWidth = 0
-        case .color:
+        case let .color(color, radius):
+            let count = annotation.annotations.count
+            backgroundColor	= color
+            var diameter = radius * 2
+            switch count {
+            case _ where count < 8:
+                diameter *= 0.6
+            case _ where count < 16:
+                diameter *= 0.8
+            default: break
+            }
+            frame = CGRect(origin: frame.origin, size: CGSize(width: diameter, height: diameter))
+            countLabel.text = "\(count)"
+            
             layer.borderColor = borderColor.cgColor
             layer.borderWidth = 2
         }
     }
+    
+    
 }

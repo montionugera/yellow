@@ -9,7 +9,7 @@
 import UIKit
 import SwiftyCam
 
-class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate {
+class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCamButtonDelegate {
     
     
     

@@ -15,6 +15,7 @@
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
 		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */; };
+		CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383431F53BD3500CB049E /* StringUtils.swift */; };
 		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
 		CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24F4C31F46D97A001FBA86 /* LoginVC.swift */; };
 		CD24F4C61F46D97A001FBA86 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C41F46D97A001FBA86 /* LoginVC.xib */; };
@@ -54,6 +55,7 @@
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
+		CD1383431F53BD3500CB049E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
 		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		CD24F4C31F46D97A001FBA86 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CD24F4C41F46D97A001FBA86 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
@@ -139,6 +141,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CD1383421F53BD1D00CB049E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CD1383431F53BD3500CB049E /* StringUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		CD3DB46A1F45664D00A0F0F8 = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +173,7 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				CD1383421F53BD1D00CB049E /* Utils */,
 				CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */,
 				CD7A89B61F4C2C55000966FE /* Post */,
 				CD24F4C31F46D97A001FBA86 /* LoginVC.swift */,
@@ -372,6 +383,7 @@
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,

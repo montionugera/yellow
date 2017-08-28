@@ -116,8 +116,14 @@ class VideoViewController: UIViewController {
                             "mediaType":mediaType,
                             "mediaURL":mediaURL,
                             "love":love,
+                            "emo": "happy",
+                            "postDttmInt": Date().timeIntervalSince1970,
+                            "postDttmStr": getStandardAppDateString(dttm: Date()),
                             "lochash":lochash] as [String : Any]
-            ref.child("posts").setValue(postData)
+            
+            let postRef = ref.child("posts")
+            let newPostRef = postRef.childByAutoId()
+            newPostRef.setValue(postData)
         }
         
         

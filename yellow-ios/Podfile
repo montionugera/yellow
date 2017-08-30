@@ -6,10 +6,8 @@ target 'yellow' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
 
   # Pods for yellow
-  pod "SwiftyCam"
-  pod 'FBSDKCoreKit'
-  pod 'FBSDKLoginKit'
-  pod 'FBSDKShareKit'
+  pod 'SwiftyCam'
+  
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.2'
   pod 'SVProgressHUD'
@@ -17,4 +15,15 @@ target 'yellow' do
   pod 'Cluster'
   pod 'Pulley'
   
+  # Pods for Facebook
+  pod 'Bolts'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  
+  # Pods for Firebase
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
 end

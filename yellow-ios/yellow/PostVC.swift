@@ -10,12 +10,13 @@ import UIKit
 import SwiftyCam
 
 class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCamButtonDelegate {
-
+    
     
     
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: SwiftyRecordButton!
+    var requireLoadNewUI = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,8 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
         shouldUseDeviceOrientation = true
         allowAutoRotate = true
         audioEnabled = true
-        addButtons()
+        requireLoadNewUI = true
+        videoQuality = .medium
     }
     
     override var prefersStatusBarHidden: Bool {
@@ -33,9 +35,12 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     @objc func cancel() {
         dismiss(animated: true, completion: nil)
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        if(requireLoadNewUI){
+            addButtons()
+        }
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
@@ -115,7 +120,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
         
         captureButton = SwiftyRecordButton(frame: CGRect(x: view.frame.midX - 37.5, y: view.frame.height - 100.0, width: 75.0, height: 75.0))
         self.view.addSubview(captureButton)
-        captureButton.delegate = self 
+        captureButton.delegate = self
         
         flipCameraButton = UIButton(frame: CGRect(x: (((view.frame.width / 2 - 37.5) / 2) - 15.0), y: view.frame.height - 74.0, width: 30.0, height: 23.0))
         flipCameraButton.setImage(#imageLiteral(resourceName: "flipCamera"), for: UIControlState())

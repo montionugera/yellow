@@ -22,6 +22,10 @@ xcuserdata/
 *.xccheckout
 *.xcscmblueprint
 *.xcuserstate
+./yellow-ios/GoogleService-Info.plist
+./yellow-ios/Pods
 
-./Pods
-Pods
+./yellow-ios/Pods/*
+yellow-ios/Pods
+Podfile.lock
+Manifest.lock

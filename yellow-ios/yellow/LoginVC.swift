@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import Firebase
 
 class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
 
@@ -36,6 +37,8 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
     func loginButtonWillLogin(_ loginButton: FBSDKLoginButton!) -> Bool{
         return true
     }
+    
+    
     func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
         if error != nil {
             print(FBSDKAccessToken.current())
@@ -52,6 +55,22 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
     }
     func callGraphAPIUserFB(fb_token_string:String){
         print(fb_token_string)
+        
+        let accessToken = FBSDKAccessToken.current()
+        guard let accessTokenString = accessToken?.tokenString! else {
+            return
+        }
+        let credentials =
+            FacebookAuthProvider.credential(withAccessToken: accessTokenString )
+        
+        Auth.auth().signIn(with: credentials, completion: { (user, error) in
+
+            if error != nil{
+                print(error!)
+                
+            }
+            print(user!)
+        })
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large)"])
             .start(completionHandler:  { (connection, result, error) in

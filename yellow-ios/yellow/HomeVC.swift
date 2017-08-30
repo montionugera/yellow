@@ -8,11 +8,12 @@
 
 import UIKit
 import Pulley
+
 class HomeVC: UIViewController,UITabBarControllerDelegate  {
 
     let tabbarTC = UITabBarController()
     let mapVC = MapVC()
-    let postVC = PostVC()
+    let postVC = PostDummyVC()
     let myProfileVC = MyProfileVC()
     
     override func viewDidLoad() {
@@ -33,10 +34,21 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
             // lon.min == 10.407439023256302
             // lon.max == 10.407440364360809
         }
-        let s = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
-        // s == "u4pruydqqv"
-
         
+        let hashloc = Geohash.encode(latitude: 57.64911063015461, longitude: 10.40743969380855, length: 10)
+        
+        print("hash loc : "+hashloc)
+        // s == "u4pruydqqv"
+        
+        
+    }
+    public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool{
+        if( viewController == postVC){
+            let realPostVC = PostVC()
+            self.tabbarTC.present(realPostVC, animated: true, completion: nil)
+           return false
+        }
+        return true
     }
     
     func setTabbar(){

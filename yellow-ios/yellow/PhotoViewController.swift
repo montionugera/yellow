@@ -16,6 +16,7 @@ LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF
 import UIKit
 
 class PhotoViewController: UIViewController {
+    var requireLoadNewUI = false
 
 	override var prefersStatusBarHidden: Bool {
 		return true
@@ -33,19 +34,27 @@ class PhotoViewController: UIViewController {
 	}
 
 	override func viewDidLoad() {
-		super.viewDidLoad()
-		self.view.backgroundColor = UIColor.gray
-		let backgroundImageView = UIImageView(frame: view.frame)
-		backgroundImageView.contentMode = UIViewContentMode.scaleAspectFit
-		backgroundImageView.image = backgroundImage
-		view.addSubview(backgroundImageView)
-		let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
-		cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
-		cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-		view.addSubview(cancelButton)
+        super.viewDidLoad()
+        requireLoadNewUI = true
 	}
 
     @objc func cancel() {
 		dismiss(animated: true, completion: nil)
-	}
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        if(requireLoadNewUI){
+            
+            self.view.backgroundColor = UIColor.gray
+            let backgroundImageView = UIImageView(frame: view.frame)
+            backgroundImageView.contentMode = UIViewContentMode.scaleAspectFit
+            backgroundImageView.image = backgroundImage
+            view.addSubview(backgroundImageView)
+            let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
+            cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
+            cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
+            view.addSubview(cancelButton)
+        }
+    }
 }

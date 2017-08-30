@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,23 +20,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserModel.currentUser.getAsDatabase(completionHandler: {
         
-            
+        FirebaseApp.configure()
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = HomeVC()
+//            let homeViewController = PostVC()
         homeViewController.view.backgroundColor = UIColor.red
         
         // setup facebook
-        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+        self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
         
         self.window!.rootViewController = homeViewController
         self.window!.makeKeyAndVisible()
             
-            
-            
-            
-            
         })
         return true
+    }
+    func setUpFacebook(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
+        
+        FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
@@ -76,13 +79,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
         
-        let path:String = url.absoluteString
-        if path.lowercased().range(of:"fb1902362993336105://") != nil {
-            return FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options:options)
-        }
-        else{
-            return true
-        }
+        let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
+        return handled
+        
     }
     
 

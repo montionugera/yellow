@@ -13,13 +13,19 @@
 		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
 		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
 		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
+		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
+		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
+		CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */; };
+		CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383431F53BD3500CB049E /* StringUtils.swift */; };
 		CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */; };
+		CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD24F4C31F46D97A001FBA86 /* LoginVC.swift */; };
+		CD24F4C61F46D97A001FBA86 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD24F4C41F46D97A001FBA86 /* LoginVC.xib */; };
 		CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */; };
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
-		CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */; };
-		CD571EC61F457E6F00ECB9C8 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */; };
+		CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
 		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
 		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
@@ -28,10 +34,14 @@
 		CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ED61F45837400ECB9C8 /* MapVC.xib */; };
 		CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */; };
 		CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */; };
-		CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */; };
-		CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
+		CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */; };
+		CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */; };
+		CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD81792C1F529248007BDD60 /* PostDummyVC.swift */; };
+		CD81792F1F529248007BDD60 /* PostDummyVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD81792D1F529248007BDD60 /* PostDummyVC.xib */; };
 		CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */; };
-		CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9766021F46B63500A62917 /* SwiftyCamButton.swift */; };
+		CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */; };
+		CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92411F4D2A9700A7EDE7 /* User.swift */; };
+		CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */; };
 		CF6CEC02EBF880DF649857F0 /* Pods_yellow.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B9E88B4F2083490B48879FED /* Pods_yellow.framework */; };
 /* End PBXBuildFile section */
 
@@ -45,15 +55,18 @@
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.release.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.release.xcconfig"; sourceTree = "<group>"; };
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = VideoViewController.xib; path = yellow/VideoViewController.xib; sourceTree = "<group>"; };
+		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
+		CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
+		CD1383431F53BD3500CB049E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
+		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
+		CD24F4C31F46D97A001FBA86 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		CD24F4C41F46D97A001FBA86 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CD3DB4731F45664D00A0F0F8 /* yellow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yellow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD3DB47B1F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CD3DB4801F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CD3DB4821F45664D00A0F0F8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		CD571EC91F457EC000ECB9C8 /* PostVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostVC.swift; sourceTree = "<group>"; };
 		CD571ECA1F457EC000ECB9C8 /* PostVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostVC.xib; sourceTree = "<group>"; };
 		CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyProfileVC.swift; sourceTree = "<group>"; };
@@ -62,10 +75,17 @@
 		CD571ED61F45837400ECB9C8 /* MapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
 		CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
-		CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyRecordButton.swift; path = yellow/SwiftyRecordButton.swift; sourceTree = "<group>"; };
-		CD9765FD1F46B5D600A62917 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = VideoViewController.swift; path = yellow/VideoViewController.swift; sourceTree = "<group>"; };
-		CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PhotoViewController.swift; path = yellow/PhotoViewController.swift; sourceTree = "<group>"; };
-		CD9766021F46B63500A62917 /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SwiftyCamButton.swift; path = yellow/SwiftyCamButton.swift; sourceTree = "<group>"; };
+		CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostProfileViewController.swift; sourceTree = "<group>"; };
+		CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostProfileViewController.xib; sourceTree = "<group>"; };
+		CD81792C1F529248007BDD60 /* PostDummyVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostDummyVC.swift; sourceTree = "<group>"; };
+		CD81792D1F529248007BDD60 /* PostDummyVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PostDummyVC.xib; sourceTree = "<group>"; };
+		CD9765FD1F46B5D600A62917 /* VideoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoViewController.swift; sourceTree = "<group>"; };
+		CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
+		CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		CDDC92411F4D2A9700A7EDE7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PostContent.swift; sourceTree = "<group>"; };
+		CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessService.swift; sourceTree = "<group>"; };
+		CDDC92481F4D5B4E00A7EDE7 /* pg.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = pg.playground; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +123,8 @@
 			children = (
 				51B8CABA1F46B0AF00E701A1 /* UserModel.swift */,
 			);
-			path = Model;
+			name = Model;
+			path = yellow/Model;
 			sourceTree = "<group>";
 		};
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
@@ -123,10 +144,20 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CD1383421F53BD1D00CB049E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CD1383431F53BD3500CB049E /* StringUtils.swift */,
+			);
+			name = Utils;
+			sourceTree = "<group>";
+		};
 		CD3DB46A1F45664D00A0F0F8 = {
 			isa = PBXGroup;
 			children = (
-				CD571EDC1F4584C800ECB9C8 /* resources */,
+				CDDC92481F4D5B4E00A7EDE7 /* pg.playground */,
+				CDDC92451F4D5ACF00A7EDE7 /* Services */,
+				CDDC92401F4D2A7200A7EDE7 /* Models */,
 				CD3DB4751F45664D00A0F0F8 /* yellow */,
 				CD3DB4741F45664D00A0F0F8 /* Products */,
 				B5E9C0C4BCD4578F5E3B5F2E /* Pods */,
@@ -145,9 +176,13 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				CD1383421F53BD1D00CB049E /* Utils */,
+				CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */,
+				CD7A89B61F4C2C55000966FE /* Post */,
+				CD24F4C31F46D97A001FBA86 /* LoginVC.swift */,
+				CD24F4C41F46D97A001FBA86 /* LoginVC.xib */,
 				CD3DB4821F45664D00A0F0F8 /* Info.plist */,
 				CD9766041F46B66800A62917 /* swiftyCam */,
-				51B8CAB91F46B0AF00E701A1 /* Model */,
 				51B8CAB11F46A72B00E701A1 /* Library */,
 				CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */,
 				51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */,
@@ -155,8 +190,6 @@
 				CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */,
 				CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */,
 				CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */,
-				CD571EC31F457E6F00ECB9C8 /* LoginVC.swift */,
-				CD571EC41F457E6F00ECB9C8 /* LoginVC.xib */,
 				CD571EC91F457EC000ECB9C8 /* PostVC.swift */,
 				CD571ECA1F457EC000ECB9C8 /* PostVC.xib */,
 				CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */,
@@ -165,28 +198,50 @@
 				CD571ED61F45837400ECB9C8 /* MapVC.xib */,
 				CD571EDD1F4585A600ECB9C8 /* HomeVC.swift */,
 				CD571EDE1F4585A600ECB9C8 /* HomeVC.xib */,
+				CD81792C1F529248007BDD60 /* PostDummyVC.swift */,
+				CD81792D1F529248007BDD60 /* PostDummyVC.xib */,
 			);
 			path = yellow;
 			sourceTree = "<group>";
 		};
-		CD571EDC1F4584C800ECB9C8 /* resources */ = {
+		CD7A89B61F4C2C55000966FE /* Post */ = {
 			isa = PBXGroup;
 			children = (
+				CD9765FD1F46B5D600A62917 /* VideoViewController.swift */,
+				CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */,
+				CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */,
+				CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */,
+				CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */,
 			);
-			path = resources;
+			name = Post;
 			sourceTree = "<group>";
 		};
 		CD9766041F46B66800A62917 /* swiftyCam */ = {
 			isa = PBXGroup;
 			children = (
-				CD9766021F46B63500A62917 /* SwiftyCamButton.swift */,
-				CD9765FC1F46B5D600A62917 /* SwiftyRecordButton.swift */,
-				CD9765FD1F46B5D600A62917 /* VideoViewController.swift */,
-				CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */,
-				CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */,
+				CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */,
+				CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */,
+				51B8CAB91F46B0AF00E701A1 /* Model */,
 			);
 			name = swiftyCam;
 			path = ..;
+			sourceTree = "<group>";
+		};
+		CDDC92401F4D2A7200A7EDE7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC92411F4D2A9700A7EDE7 /* User.swift */,
+				CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		CDDC92451F4D5ACF00A7EDE7 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC92461F4D5AED00A7EDE7 /* BusinessService.swift */,
+			);
+			name = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -252,13 +307,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD24F4C61F46D97A001FBA86 /* LoginVC.xib in Resources */,
+				CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */,
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
-				CD571EC61F457E6F00ECB9C8 /* LoginVC.xib in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */,
+				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
 				CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */,
 				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
 				CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */,
 				CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */,
+				CD81792F1F529248007BDD60 /* PostDummyVC.xib in Resources */,
 				CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */,
 				CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */,
 			);
@@ -321,20 +380,27 @@
 			files = (
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
-				CD9766031F46B63500A62917 /* SwiftyCamButton.swift in Sources */,
-				CD9766001F46B5D600A62917 /* VideoViewController.swift in Sources */,
-				CD9765FF1F46B5D600A62917 /* SwiftyRecordButton.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* LoginVC.swift in Sources */,
+				CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */,
+				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
+				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
+				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
+				CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
+				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
+				CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

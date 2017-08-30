@@ -10,10 +10,14 @@ import UIKit
 import MapKit
 import Cluster
 import Pulley
+import FirebaseDatabase
 
 class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
+    
+    var firebaseAPI : FirebaseAPI!
+    let feedViewModel = FeedViewModel()
     
     let manager = ClusterManager()
     
@@ -41,6 +45,11 @@ class MapVC: UIViewController {
         }
         manager.add(annotations)
         mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+        
+        
+        
+        feedViewModel.delegate = self
+        feedViewModel.initilization()
     
     }
 
@@ -60,6 +69,22 @@ class MapVC: UIViewController {
     }
     */
 
+}
+
+extension MapVC : FeedViewModelDelegate {
+    func didFinishUpdate(indexPath: IndexPath, product: FeedContent) {
+
+    }
+    
+    func didAppendData(indexPath: IndexPath) {
+  
+    }
+    func didFinishLoadDataOnInitilization() {
+     
+    }
+    func didRemoveData(indexPath: IndexPath) {
+      
+    }
 }
 
 extension MapVC: MKMapViewDelegate {

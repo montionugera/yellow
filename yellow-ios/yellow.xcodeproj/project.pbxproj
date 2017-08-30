@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B644F1F567F22008AB0EA /* FirebaseAPI.swift */; };
+		519B64521F5680EF008AB0EA /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64511F5680EF008AB0EA /* FeedViewModel.swift */; };
+		519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64531F5681FF008AB0EA /* FeedContent.swift */; };
 		51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ACC8BE1F4EBB3700091644 /* Extensions.swift */; };
 		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
 		51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */; };
@@ -24,8 +27,8 @@
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
-		CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		CD571EC51F457E6F00ECB9C8 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		CD571EC61F457E6F00ECB9C8 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
 		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
 		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
@@ -46,6 +49,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		519B644F1F567F22008AB0EA /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
+		519B64511F5680EF008AB0EA /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = yellow/Model/FeedViewModel.swift; sourceTree = "<group>"; };
+		519B64531F5681FF008AB0EA /* FeedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedContent.swift; path = yellow/Model/FeedContent.swift; sourceTree = "<group>"; };
 		51ACC8BE1F4EBB3700091644 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		51B8CAB31F46A72B00E701A1 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +153,7 @@
 		CD1383421F53BD1D00CB049E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				519B644F1F567F22008AB0EA /* FirebaseAPI.swift */,
 				CD1383431F53BD3500CB049E /* StringUtils.swift */,
 			);
 			name = Utils;
@@ -230,6 +237,8 @@
 		CDDC92401F4D2A7200A7EDE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				519B64531F5681FF008AB0EA /* FeedContent.swift */,
+				519B64511F5680EF008AB0EA /* FeedViewModel.swift */,
 				CDDC92411F4D2A9700A7EDE7 /* User.swift */,
 				CDDC92431F4D2AEE00A7EDE7 /* PostContent.swift */,
 			);
@@ -311,7 +320,7 @@
 				CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */,
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
-				CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* (null) in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
 				CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */,
 				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
@@ -378,14 +387,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				519B64521F5680EF008AB0EA /* FeedViewModel.swift in Sources */,
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
 				CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */,
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
@@ -397,6 +408,7 @@
 				51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
+				519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,

@@ -15,5 +15,6 @@ target 'yellow' do
   pod 'SVProgressHUD'
   pod 'HanekeSwift', :git => 'https://github.com/jasonnoahchoi/HanekeSwift', :branch => 'swift3'
   pod 'Cluster'
+  pod 'Pulley'
   
 end

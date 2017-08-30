@@ -16,6 +16,7 @@ PODS:
   - FBSDKShareKit (4.25.0):
     - FBSDKCoreKit
   - HanekeSwift (0.10.1)
+  - Pulley (1.5.1)
   - SVProgressHUD (2.1.2)
   - SwiftyCam (2.4.0)
 
@@ -27,6 +28,7 @@ DEPENDENCIES:
   - FBSDKLoginKit
   - FBSDKShareKit
   - HanekeSwift (from `https://github.com/jasonnoahchoi/HanekeSwift`, branch `swift3`)
+  - Pulley
   - SVProgressHUD
   - SwiftyCam
 
@@ -49,9 +51,10 @@ SPEC CHECKSUMS:
   FBSDKLoginKit: f628c09684dae9c17f071cf90b014e886f5093ea
   FBSDKShareKit: aea699d3cac749af08e360f4e949b82ffa8813f5
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
+  Pulley: 31ea6b7e5704700f1c9e51ed6b0a49a773e2bfab
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyCam: cb83b9a8e181f70fb741d30cea724c6b045a4549
 
-PODFILE CHECKSUM: 31c0113aed88353eb493d39dace87f40045a2ce3
+PODFILE CHECKSUM: 8eea3ba46968d58fe149289ad7bba543f06377e8
 
 COCOAPODS: 1.2.1.rc.1

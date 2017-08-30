@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 import Cluster
+import Pulley
 
 class MapVC: UIViewController {
 
@@ -179,4 +180,24 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
     }
     
     
+}
+
+extension MapVC: PulleyPrimaryContentControllerDelegate {
+    
+    func makeUIAdjustmentsForFullscreen(progress: CGFloat)
+    {
+       // controlsContainer.alpha = 1.0 - progress
+    }
+    
+    func drawerChangedDistanceFromBottom(drawer: PulleyViewController, distance: CGFloat)
+    {
+        if distance <= 268.0
+        {
+            //temperatureLabelBottomConstraint.constant = distance + temperatureLabelBottomDistance
+        }
+        else
+        {
+           // temperatureLabelBottomConstraint.constant = 268.0 + temperatureLabelBottomDistance
+        }
+    }
 }

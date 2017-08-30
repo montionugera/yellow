@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Pulley
 class MyProfileVC: UIViewController {
     @IBOutlet weak var name_lb: UILabel!
     override func viewDidLoad() {
@@ -40,4 +40,31 @@ class MyProfileVC: UIViewController {
     }
     */
 
+}
+
+extension MyProfileVC: PulleyDrawerViewControllerDelegate {
+    
+    func collapsedDrawerHeight() -> CGFloat
+    {
+        return 108.0
+    }
+    
+    func partialRevealDrawerHeight() -> CGFloat
+    {
+        return 564.0
+    }
+    
+    func supportedDrawerPositions() -> [PulleyPosition] {
+        return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
+    }
+    
+    func drawerPositionDidChange(drawer: PulleyViewController)
+    {
+//        tableView.isScrollEnabled = drawer.drawerPosition == .open
+        
+        if drawer.drawerPosition != .open
+        {
+//            searchBar.resignFirstResponder()
+        }
+    }
 }

@@ -97,6 +97,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FBSDKLoginKit/FBSDKLoginKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FBSDKShareKit/FBSDKShareKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HanekeSwift/Haneke.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Pulley/Pulley.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyCam/SwiftyCam.framework"
 fi
@@ -109,6 +110,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/FBSDKLoginKit/FBSDKLoginKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/FBSDKShareKit/FBSDKShareKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/HanekeSwift/Haneke.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/Pulley/Pulley.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SwiftyCam/SwiftyCam.framework"
 fi

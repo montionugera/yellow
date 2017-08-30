@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import Pulley
 class HomeVC: UIViewController,UITabBarControllerDelegate  {
 
     let tabbarTC = UITabBarController()
@@ -40,11 +40,14 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     }
     
     func setTabbar(){
-        self.mapVC.title = "Home"
+        //self.mapVC.title = "Home"
         self.postVC.title = "Post"
         self.myProfileVC.title = "Profile"
         
-        let controllers = [self.mapVC,self.postVC,self.myProfileVC]
+        let pulleyController = PulleyViewController(contentViewController: self.mapVC, drawerViewController: self.myProfileVC)
+        pulleyController.title = "Home"
+        
+        let controllers = [pulleyController,self.postVC,self.myProfileVC]
         self.tabbarTC.viewControllers = controllers
 
     }

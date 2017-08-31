@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		514813551F580C27001EE830 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514813541F580C27001EE830 /* CoreLocation.framework */; };
 		519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B644F1F567F22008AB0EA /* FirebaseAPI.swift */; };
 		519B64521F5680EF008AB0EA /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64511F5680EF008AB0EA /* FeedViewModel.swift */; };
 		519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64531F5681FF008AB0EA /* FeedContent.swift */; };
@@ -49,6 +50,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		514813541F580C27001EE830 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		519B644F1F567F22008AB0EA /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		519B64511F5680EF008AB0EA /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = yellow/Model/FeedViewModel.swift; sourceTree = "<group>"; };
 		519B64531F5681FF008AB0EA /* FeedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedContent.swift; path = yellow/Model/FeedContent.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				514813551F580C27001EE830 /* CoreLocation.framework in Frameworks */,
 				CF6CEC02EBF880DF649857F0 /* Pods_yellow.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -136,6 +139,7 @@
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				514813541F580C27001EE830 /* CoreLocation.framework */,
 				B9E88B4F2083490B48879FED /* Pods_yellow.framework */,
 			);
 			name = Frameworks;

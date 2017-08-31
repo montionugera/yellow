@@ -33,6 +33,8 @@ class FeedViewModel: NSObject {
 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
 //                let product = Product(id: data.key, dict: value)
 //                the.products.append(product)
+                
+                print(item)
             }
             the.initialDataHasBeenLoaded = true
             the.delegate?.didFinishLoadDataOnInitilization()

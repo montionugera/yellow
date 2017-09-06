@@ -10,7 +10,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileVC" customModule="yellow" customModuleProvider="target">
             <connections>
+                <outlet property="logout_bt" destination="B9M-Ea-MvR" id="Yju-zk-J14"/>
                 <outlet property="name_lb" destination="kmt-o5-mfy" id="UAo-sP-OpR"/>
+                <outlet property="profile_img" destination="CKl-gW-bOV" id="Ozl-2j-9wg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,15 +21,44 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-o5-mfy">
-                    <rect key="frame" x="58" y="77" width="258" height="21"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CKl-gW-bOV">
+                    <rect key="frame" x="147" y="228" width="80" height="80"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="CrS-sF-H0e"/>
+                        <constraint firstAttribute="height" constant="80" id="v1b-lZ-z2U"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmt-o5-mfy">
+                    <rect key="frame" x="0.0" y="316" width="375" height="35"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="zgz-Px-F4E"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9M-Ea-MvR">
+                    <rect key="frame" x="137" y="385" width="101" height="30"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="3rO-4E-MbE"/>
+                        <constraint firstAttribute="width" constant="101" id="dyf-4q-Mcb"/>
+                    </constraints>
+                    <state key="normal" title="Logout"/>
+                    <connections>
+                        <action selector="logoutClick:" destination="-1" eventType="touchUpInside" id="azl-hW-IW0"/>
+                    </connections>
+                </button>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.42153684209999998" blue="0.40809885600000001" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="kmt-o5-mfy" secondAttribute="trailing" id="Eg3-Xc-Rs5"/>
+                <constraint firstItem="B9M-Ea-MvR" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="FmC-Rm-YFh"/>
+                <constraint firstItem="kmt-o5-mfy" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="LA0-CC-DWV"/>
+                <constraint firstItem="kmt-o5-mfy" firstAttribute="top" secondItem="CKl-gW-bOV" secondAttribute="bottom" constant="8" id="Wv7-Pn-GSn"/>
+                <constraint firstItem="kmt-o5-mfy" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="d2V-0P-x8g"/>
+                <constraint firstItem="B9M-Ea-MvR" firstAttribute="top" secondItem="kmt-o5-mfy" secondAttribute="bottom" constant="34" id="hNJ-LB-yu0"/>
+                <constraint firstItem="CKl-gW-bOV" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="tqo-pu-8Fs"/>
+                <constraint firstItem="kmt-o5-mfy" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="yQm-Fs-ZyF"/>
+            </constraints>
             <point key="canvasLocation" x="25.5" y="51.5"/>
         </view>
     </objects>

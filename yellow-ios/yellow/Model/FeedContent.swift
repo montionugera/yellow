@@ -16,13 +16,15 @@ struct FeedContent {
     let ref: DatabaseReference?
     var mediaURL: String
     var mediaType: String
-    
-    init(postDesc: String, addedByUser: String, mediaURL: String, mediaType: String, key: String = "") {
+    var lochash: String
+
+    init(postDesc: String, addedByUser: String, mediaURL: String, mediaType: String , lochash: String, key: String = "") {
         self.key = key
         self.postDesc = postDesc
         self.addedByUser = addedByUser
         self.mediaURL = mediaURL
         self.mediaType = mediaType
+        self.lochash = lochash
         self.ref = nil
     }
     
@@ -33,6 +35,7 @@ struct FeedContent {
         addedByUser = snapshotValue["addedByUser"] as! String
         mediaURL = snapshotValue["mediaURL"] as! String
         mediaType = snapshotValue["mediaType"] as! String
+        lochash = snapshotValue["lochash"] as! String
         ref = snapshot.ref
     }
     

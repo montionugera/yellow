@@ -28,11 +28,13 @@ class FeedViewModel: NSObject {
             guard let the = self else {
                 return
             }
-            print(snapshot.value)
+//            print(snapshot.value)
+            
             for item in snapshot.children {
 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
-//                let product = Product(id: data.key, dict: value)
-//                the.products.append(product)
+                
+                let feedContent = FeedContent(snapshot:item as! DataSnapshot)
+                the.feedContents.append(feedContent)
                 
                 print(item)
             }
@@ -40,24 +42,6 @@ class FeedViewModel: NSObject {
             the.delegate?.didFinishLoadDataOnInitilization()
         })
         
-        firebaseAPI.storageRef.observe(.childChanged, with: {[weak self] (snapshot) in
-            guard let the = self else {
-                return
-            }
-            if the.initialDataHasBeenLoaded {
-                
-//                guard let index = the.products.index(where: { (p) -> Bool in
-//                    p.id == snapshot.key
-//                }) else {
-//                    return
-//                }
-//                let value = snapshot.value as! Dictionary<String, AnyObject> // 2
-//                print("Edit\(value)")
-//                let product = Product(id: snapshot.key, dict: value)
-//                the.products[index] = product
-//                the.delegate?.didFinishUpdate(indexPath: IndexPath(item: index, section: 0), product: product)
-            }
-            }, withCancel: nil)
         self.observingOnStorageAdd()
     }
     func observingOnStorageAdd()  {
@@ -65,12 +49,12 @@ class FeedViewModel: NSObject {
             guard let the = self else {
                 return
             }
-            print("onAdd:\(snapshot)")
             if the.initialDataHasBeenLoaded {
-//                let value = snapshot.value as! Dictionary<String, AnyObject> // 2
-//                let product = Product(id: snapshot.key, dict: value)
-//                the.products.append(product)
-//                the.delegate?.didAppendData(indexPath: IndexPath(item: the.products.count - 1 , section: 0))
+                
+                print("onAdd:\(snapshot)")
+                let feedContent = FeedContent(snapshot:snapshot)
+                the.feedContents.append(feedContent)
+                the.delegate?.didAppendData(indexPath: IndexPath(item: the.feedContents.count - 1 , section: 0))
             }
         })
     }

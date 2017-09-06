@@ -7,21 +7,55 @@
 //
 
 import UIKit
-import Pulley
+import AlamofireImage
 class MyProfileVC: UIViewController {
+    @IBOutlet weak var profile_img: UIImageView!
+    
     @IBOutlet weak var name_lb: UILabel!
+    @IBOutlet weak var logout_bt: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
-        
-        
+
     }
 
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
         
         self.name_lb.text = UserModel.currentUser.user_name
+        
+        if let profile_url = UserModel.currentUser.user_profile {
+            self.profile_img.af_setImage(
+                withURL: URL(string: profile_url)!,
+                placeholderImage:  UIImage(named: "focus")!,
+                filter: AspectScaledToFillSizeWithRoundedCornersFilter(
+                    size: self.profile_img.frame.size,
+                    radius: self.profile_img.frame.size.width/2
+                )
+            )
+        }
+        
+    }
+    
+    @IBAction func logoutClick(_ sender: Any) {
+        if UserModel.currentUser.isLogined() == true {
+            UserModel.currentUser.setAsLogOut()
+            self.name_lb.text = ""
+            self.logout_bt.setTitle("Login", for: .normal)
+        }else{
+//            let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+//            self.present(loginVC,animated: true , completion: nil)
+
+            DispatchQueue.main.async(execute: { () -> Void in
+                let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+                self.present(loginVC, animated: true, completion: nil)
+            })
+            
+            self.logout_bt.setTitle("Logout", for: .normal)
+            
+            
+        }
     }
     
     override func didReceiveMemoryWarning() {
@@ -40,31 +74,4 @@ class MyProfileVC: UIViewController {
     }
     */
 
-}
-
-extension MyProfileVC: PulleyDrawerViewControllerDelegate {
-    
-    func collapsedDrawerHeight() -> CGFloat
-    {
-        return 108.0
-    }
-    
-    func partialRevealDrawerHeight() -> CGFloat
-    {
-        return 564.0
-    }
-    
-    func supportedDrawerPositions() -> [PulleyPosition] {
-        return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
-    }
-    
-    func drawerPositionDidChange(drawer: PulleyViewController)
-    {
-//        tableView.isScrollEnabled = drawer.drawerPosition == .open
-        
-        if drawer.drawerPosition != .open
-        {
-//            searchBar.resignFirstResponder()
-        }
-    }
 }

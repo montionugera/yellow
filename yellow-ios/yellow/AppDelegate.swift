@@ -31,6 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
         
         self.window!.rootViewController = homeViewController
+            
         self.window!.makeKeyAndVisible()
             
         })

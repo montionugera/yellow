@@ -8,11 +8,11 @@
 
 import UIKit
 import Pulley
-import CoreLocation
+//import CoreLocation
 
 class HomeVC: UIViewController,UITabBarControllerDelegate  {
 
-    let tabbarTC = UITabBarController()
+    let tabbarTC = CustomUITabBarController()
     let mapVC = MapVC()
     let postVC = PostDummyVC()
     let myProfileVC = MyProfileVC()
@@ -25,7 +25,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
         self.view.addSubview(self.tabbarTC.view)
         self.setTabbar()
         
-        
+        /*
         // Do any additional setup after loading the view.
         if let (lat, lon) = Geohash.decode(hash: "u4pruydqqvj") {
             print(lat)
@@ -55,7 +55,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
         // s == u4pruydqqv
         
         
-        
+        */
     }
     public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool{
         if( viewController == postVC){
@@ -67,16 +67,22 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     }
     
     func setTabbar(){
-        //self.mapVC.title = "Home"
-        self.postVC.title = "Post"
-        self.myProfileVC.title = "Profile"
+        let pulleyController = PulleyViewController(contentViewController: self.mapVC, drawerViewController: FeedListVC())
+        let homeTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icoHome"), selectedImage: UIImage(named: "icoHome"))
+        homeTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);
+        pulleyController.tabBarItem = homeTabbarItem
         
-        let pulleyController = PulleyViewController(contentViewController: self.mapVC, drawerViewController: self.myProfileVC)
-        pulleyController.title = "Home"
+        let postTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "btNewPost"), selectedImage: UIImage(named: "btNewPost"))
+        postTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);
+        self.postVC.tabBarItem = postTabbarItem
+        
+        
+        let profileTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icoProfile"), selectedImage: UIImage(named: "icoProfile"))
+        profileTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);
+        self.myProfileVC.tabBarItem = profileTabbarItem
         
         let controllers = [pulleyController,self.postVC,self.myProfileVC]
         self.tabbarTC.viewControllers = controllers
-
     }
     
     override func viewWillAppear(_ animated: Bool){

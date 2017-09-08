@@ -139,8 +139,9 @@ class FeedCollectionView: UICollectionView {
         return v
     }()
     func reloadDataAdvance() {
+        self.reloadData()
         self.performBatchUpdates({
-            self.reloadData()
+            //Once it done hit first cell
         }) { (isDone) in
             if self.delegateFeedTarget != nil  {
                 if let cell = self.cellForItem(at: IndexPath(item: 0, section: 0 )) {
@@ -148,6 +149,11 @@ class FeedCollectionView: UICollectionView {
                 }
             }
         }
+        //if self.delegateFeedTarget != nil  {
+        //  if let cell = self.cellForItem(at: IndexPath(item: 0, section: 0 )) {
+        //                self.delegateFeedTarget?.feedHitPoint(cell: cell)
+        //   }
+        //        }
     }
     func sharedInitilization()  {
         self.delegate = self

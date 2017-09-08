@@ -10,13 +10,10 @@ import UIKit
 import Pulley
 
 class FeedListVC: BaseViewController {
-
+    
     @IBOutlet weak var feed: FeedCollectionView!
     @IBOutlet weak var test_lb: UILabel!
-    
-    
     var feedContents : [FeedContent] = []
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         feed.registerAdvance(FeedCell.self, nib: UINib(nibName: "FeedCell", bundle: nil))
@@ -26,18 +23,16 @@ class FeedListVC: BaseViewController {
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
     }
-
+    
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] {
             // do something with your image
-            
             self.test_lb.text = "\(feedContents.count)"
-            
             if (feedContents.count == 1){
                 self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
             }
             self.feedContents = feedContents
-            feed.reloadData()
+            feed.reloadDataAdvance()
         }
     }
     deinit {
@@ -48,17 +43,17 @@ class FeedListVC: BaseViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 extension FeedListVC: PulleyDrawerViewControllerDelegate {
     
@@ -111,7 +106,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
         return cell
     }
     func feedFetchMoreDataOnScrollDown(){
-//        self.feed.doneFetching(isAnimiated: true, shallStopFetching: true, completion: nil)
+        //        self.feed.doneFetching(isAnimiated: true, shallStopFetching: true, completion: nil)
     }
     func feedFetchMoreDataOnPulling(){
         

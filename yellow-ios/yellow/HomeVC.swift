@@ -11,20 +11,16 @@ import Pulley
 //import CoreLocation
 
 class HomeVC: UIViewController,UITabBarControllerDelegate  {
-
     let tabbarTC = CustomUITabBarController()
     let mapVC = MapVC()
     let postVC = PostDummyVC()
     let myProfileVC = MyProfileVC()
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.tabbarTC.delegate = self
         self.tabbarTC.view.frame = self.view.frame
         self.view.addSubview(self.tabbarTC.view)
         self.setTabbar()
-        
         /*
         // Do any additional setup after loading the view.
         if let (lat, lon) = Geohash.decode(hash: "u4pruydqqvj") {
@@ -98,22 +94,16 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
             self.present(loginVC,animated: true,completion: nil)
         }
     }
-    
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-
     /*
     // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
     */
-
 }

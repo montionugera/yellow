@@ -164,6 +164,30 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		BE0443001F6279FB00A85AFC /* Controls */ = {
+			isa = PBXGroup;
+			children = (
+				BE0443021F62818F00A85AFC /* AVPlayerManager */,
+				BE0443011F62816600A85AFC /* FeedCollectionView */,
+			);
+			path = Controls;
+			sourceTree = "<group>";
+		};
+		BE0443011F62816600A85AFC /* FeedCollectionView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = FeedCollectionView;
+			sourceTree = "<group>";
+		};
+		BE0443021F62818F00A85AFC /* AVPlayerManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AVPlayerManager;
+			path = AVPlayerManater;
+			sourceTree = "<group>";
+		};
 		CD1383421F53BD1D00CB049E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -198,6 +222,7 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				BE0443001F6279FB00A85AFC /* Controls */,
 				CD1383421F53BD1D00CB049E /* Utils */,
 				CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */,
 				CD7A89B61F4C2C55000966FE /* Post */,
@@ -382,7 +407,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7C7E73D05B393A43BEE0D0C9 /* [CP] Copy Pods Resources */ = {

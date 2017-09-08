@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Pulley
 
 class FeedListVC: BaseViewController {
 
@@ -59,12 +58,12 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     
     func collapsedDrawerHeight() -> CGFloat
     {
-        return 108.0
+        return 128.0
     }
     
     func partialRevealDrawerHeight() -> CGFloat
     {
-        return 564.0
+        return UIScreen.main.bounds.height - 100
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {

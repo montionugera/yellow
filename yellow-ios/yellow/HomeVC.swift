@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Pulley
 //import CoreLocation
 
 class HomeVC: UIViewController,UITabBarControllerDelegate  {
@@ -68,13 +67,9 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     
     func setTabbar(){
         let feedListVC = FeedListVC(nibName: "FeedListVC", bundle: nil)
-        feedListVC.view.alpha = 1
-        feedListVC.view.backgroundColor = UIColor.clear
         
         let pulleyController = PulleyViewController(contentViewController: self.mapVC, drawerViewController: feedListVC)
         pulleyController.drawerCornerRadius = 0
-
-        pulleyController.drawerContentViewController.view.backgroundColor = UIColor.red
         
         let homeTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icoHome"), selectedImage: UIImage(named: "icoHome"))
         homeTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);

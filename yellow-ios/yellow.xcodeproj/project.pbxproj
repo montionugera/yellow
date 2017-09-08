@@ -39,6 +39,10 @@
 		51C728481F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728361F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf */; };
 		51C728491F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728371F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf */; };
 		51C7284A1F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */; };
+		51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7284C1F628D0F0058596F /* PulleyPassthroughScrollView.swift */; };
+		51C728511F628D0F0058596F /* PulleyViewController+Nested.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7284D1F628D0F0058596F /* PulleyViewController+Nested.swift */; };
+		51C728521F628D0F0058596F /* PulleyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7284E1F628D0F0058596F /* PulleyViewController.swift */; };
+		51C728531F628D0F0058596F /* UIView+constrainToParent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C7284F1F628D0F0058596F /* UIView+constrainToParent.swift */; };
 		51DFD48D1F5E9F49008D1A16 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DFD48B1F5E9F49008D1A16 /* CustomAnnotation.swift */; };
 		51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6A8481F5D31BF0023DC1C /* Utilities.swift */; };
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
@@ -106,6 +110,10 @@
 		51C728361F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBoldItali.ttf"; sourceTree = "<group>"; };
 		51C728371F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLight.ttf"; sourceTree = "<group>"; };
 		51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLightItal.ttf"; sourceTree = "<group>"; };
+		51C7284C1F628D0F0058596F /* PulleyPassthroughScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyPassthroughScrollView.swift; sourceTree = "<group>"; };
+		51C7284D1F628D0F0058596F /* PulleyViewController+Nested.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "PulleyViewController+Nested.swift"; sourceTree = "<group>"; };
+		51C7284E1F628D0F0058596F /* PulleyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PulleyViewController.swift; sourceTree = "<group>"; };
+		51C7284F1F628D0F0058596F /* UIView+constrainToParent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+constrainToParent.swift"; sourceTree = "<group>"; };
 		51DFD48B1F5E9F49008D1A16 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		51F6A8481F5D31BF0023DC1C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -160,6 +168,7 @@
 		51B8CAB11F46A72B00E701A1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				51C7284B1F628D0F0058596F /* PulleyLib */,
 				51AC91771F61585C00605510 /* BadgeSwift.swift */,
 				51ACC8BE1F4EBB3700091644 /* Extensions.swift */,
 				51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */,
@@ -208,6 +217,17 @@
 				51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		51C7284B1F628D0F0058596F /* PulleyLib */ = {
+			isa = PBXGroup;
+			children = (
+				51C7284C1F628D0F0058596F /* PulleyPassthroughScrollView.swift */,
+				51C7284D1F628D0F0058596F /* PulleyViewController+Nested.swift */,
+				51C7284E1F628D0F0058596F /* PulleyViewController.swift */,
+				51C7284F1F628D0F0058596F /* UIView+constrainToParent.swift */,
+			);
+			path = PulleyLib;
 			sourceTree = "<group>";
 		};
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
@@ -491,9 +511,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				519B64521F5680EF008AB0EA /* FeedViewModel.swift in Sources */,
+				51C728531F628D0F0058596F /* UIView+constrainToParent.swift in Sources */,
 				5177D0E51F5EBE98000569AA /* FeedListVC.swift in Sources */,
+				51C728511F628D0F0058596F /* PulleyViewController+Nested.swift in Sources */,
 				CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */,
 				CD571EDF1F4585A600ECB9C8 /* HomeVC.swift in Sources */,
+				51C728521F628D0F0058596F /* PulleyViewController.swift in Sources */,
 				CD7A89B91F4C2C79000966FE /* PostProfileViewController.swift in Sources */,
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
@@ -501,6 +524,7 @@
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */,
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,

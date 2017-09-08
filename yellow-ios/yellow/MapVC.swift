@@ -269,9 +269,7 @@ extension MapVC: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
-        print("regionDidChangeAnimated")
     }
-    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
         

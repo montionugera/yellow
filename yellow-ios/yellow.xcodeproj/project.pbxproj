@@ -41,6 +41,10 @@
 		51C7284A1F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */; };
 		51DFD48D1F5E9F49008D1A16 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DFD48B1F5E9F49008D1A16 /* CustomAnnotation.swift */; };
 		51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6A8481F5D31BF0023DC1C /* Utilities.swift */; };
+		BE0443041F62849500A85AFC /* FeedCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443031F62849500A85AFC /* FeedCollectionView.swift */; };
+		BE0443061F62849C00A85AFC /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443051F62849C00A85AFC /* AVPlayerManager.swift */; };
+		BE04430A1F6284CD00A85AFC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443081F6284CD00A85AFC /* FeedCell.swift */; };
+		BE04430B1F6284CD00A85AFC /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0443091F6284CD00A85AFC /* FeedCell.xib */; };
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
 		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */; };
@@ -111,6 +115,10 @@
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
 		AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.release.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.release.xcconfig"; sourceTree = "<group>"; };
 		B9E88B4F2083490B48879FED /* Pods_yellow.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_yellow.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE0443031F62849500A85AFC /* FeedCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCollectionView.swift; sourceTree = "<group>"; };
+		BE0443051F62849C00A85AFC /* AVPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
+		BE0443081F6284CD00A85AFC /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
+		BE0443091F6284CD00A85AFC /* FeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		CD1383431F53BD3500CB049E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -240,6 +248,7 @@
 		BE0443011F62816600A85AFC /* FeedCollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				BE0443031F62849500A85AFC /* FeedCollectionView.swift */,
 			);
 			path = FeedCollectionView;
 			sourceTree = "<group>";
@@ -247,9 +256,18 @@
 		BE0443021F62818F00A85AFC /* AVPlayerManager */ = {
 			isa = PBXGroup;
 			children = (
+				BE0443051F62849C00A85AFC /* AVPlayerManager.swift */,
 			);
-			name = AVPlayerManager;
-			path = AVPlayerManater;
+			path = AVPlayerManager;
+			sourceTree = "<group>";
+		};
+		BE0443071F6284B500A85AFC /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				BE0443081F6284CD00A85AFC /* FeedCell.swift */,
+				BE0443091F6284CD00A85AFC /* FeedCell.xib */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 		CD1383421F53BD1D00CB049E /* Utils */ = {
@@ -286,12 +304,10 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
-
+				BE0443071F6284B500A85AFC /* Cells */,
 				BE0443001F6279FB00A85AFC /* Controls */,
-
 				51C728261F6265DB0058596F /* Fonts */,
 				51AC91791F615DA700605510 /* DataConfig.swift */,
-
 				CD1383421F53BD1D00CB049E /* Utils */,
 				CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */,
 				CD7A89B61F4C2C55000966FE /* Post */,
@@ -446,6 +462,7 @@
 				51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
 				5177D0E61F5EBE98000569AA /* FeedListVC.xib in Resources */,
+				BE04430B1F6284CD00A85AFC /* FeedCell.xib in Resources */,
 				51C728451F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf in Resources */,
 				CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */,
 				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
@@ -532,16 +549,19 @@
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
+				BE0443041F62849500A85AFC /* FeedCollectionView.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
 				51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */,
 				CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */,
+				BE04430A1F6284CD00A85AFC /* FeedCell.swift in Sources */,
 				5192D59D1F5FC01B00951EB9 /* CustomUITabBarController.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
 				51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
 				51AC91781F61585C00605510 /* BadgeSwift.swift in Sources */,
+				BE0443061F62849C00A85AFC /* AVPlayerManager.swift in Sources */,
 				519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51AC917A1F615DA700605510 /* DataConfig.swift in Sources */,

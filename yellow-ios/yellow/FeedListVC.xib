@@ -5,11 +5,13 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedListVC" customModule="yellow" customModuleProvider="target">
             <connections>
+                <outlet property="feed" destination="43H-MU-wCC" id="qIo-FX-2RL"/>
                 <outlet property="test_lb" destination="jo4-5b-KdC" id="Xtd-pA-Uan"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -19,15 +21,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bgYellow" translatesAutoresizingMaskIntoConstraints="NO" id="BOB-a3-I0m">
-                    <rect key="frame" x="-10" y="-6" width="396" height="59"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SnL-eJ-QOA">
-                    <rect key="frame" x="0.0" y="42" width="375" height="625"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" red="1" green="0.80784313725490198" blue="0.1803921568627451" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-5b-KdC">
                     <rect key="frame" x="131" y="32" width="112" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -35,12 +28,35 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0P5-Ex-M8r">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="0P5-Ex-M8r" secondAttribute="height" multiplier="125:19" id="eCH-xY-2R9"/>
+                    </constraints>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="43H-MU-wCC" customClass="FeedCollectionView" customModule="yellow" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="57" width="375" height="610"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Pl-QK-gh7">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="0P5-Ex-M8r" secondAttribute="trailing" id="3vZ-LI-FDe"/>
+                <constraint firstAttribute="trailing" secondItem="43H-MU-wCC" secondAttribute="trailing" id="7rI-sc-qPV"/>
+                <constraint firstItem="0P5-Ex-M8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9ve-jV-7Ie"/>
+                <constraint firstItem="0P5-Ex-M8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VFM-1v-iAd"/>
+                <constraint firstAttribute="bottom" secondItem="43H-MU-wCC" secondAttribute="bottom" id="c6b-a3-gnZ"/>
+                <constraint firstItem="43H-MU-wCC" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" id="df4-Mm-g3o"/>
+                <constraint firstItem="43H-MU-wCC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sVi-2w-QZt"/>
+            </constraints>
             <point key="canvasLocation" x="9.5" y="76.5"/>
         </view>
     </objects>
-    <resources>
-        <image name="bgYellow" width="392" height="58"/>
-    </resources>
 </document>

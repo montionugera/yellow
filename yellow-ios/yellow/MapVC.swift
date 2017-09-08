@@ -37,6 +37,10 @@ class MapVC: UIViewController {
         mapView.showsCompass = false
         mapView.delegate = self
 
+//        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scale))
+//        pinchRecognizer.delegate = self
+//        mapView.addGestureRecognizer(pinchRecognizer)
+        
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.requestAlwaysAuthorization()
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -84,6 +88,58 @@ class MapVC: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+    
+}
+
+extension MapVC : UIGestureRecognizerDelegate {
+    func scale(_ gesture: UIPinchGestureRecognizer) {
+        if (gesture.state != .changed) {
+            return;
+        }
+        
+        let aMapView = gesture.view as! MKMapView;
+        
+//        for annotation in aMapView.annotations {
+//            if(annotation .isKind(of: MKUserLocation)){
+//                return
+//            }
+//        }
+//        
+//        for (id <MKAnnotation>annotation in aMapView.annotations) {
+//            // if it's the user location, just return nil.
+//            if ([annotation isKindOfClass:[MKUserLocation class]])
+//            return;
+//            
+//            // handle our custom annotations
+//            //
+//            if ([annotation isKindOfClass:[MKPointAnnotation class]])
+//            {
+//                // try to retrieve an existing pin view first
+//                MKAnnotationView *pinView = [aMapView viewForAnnotation:annotation];
+//                //Format the pin view
+//                [self formatAnnotationView:pinView forMapView:aMapView];
+//            }
+//        }
+        
+//        - (void)formatAnnotationView:(MKAnnotationView *)pinView forMapView:(MKMapView *)aMapView {
+//            if (pinView)
+//            {
+//                double zoomLevel = [aMapView zoomLevel];
+//                double scale = -1 * sqrt((double)(1 - pow((zoomLevel/20.0), 2.0))) + 1.1; // This is a circular scale function where at zoom level 0 scale is 0.1 and at zoom level 20 scale is 1.1
+//                
+//                // Option #1
+//                pinView.transform = CGAffineTransformMakeScale(scale, scale);
+//                
+//                // Option #2
+//                UIImage *pinImage = [UIImage imageNamed:@"YOUR_IMAGE_NAME_HERE"];
+//                pinView.image = [pinImage resizedImage:CGSizeMake(pinImage.size.width * scale, pinImage.size.height * scale) interpolationQuality:kCGInterpolationHigh];
+//            }
+//        }
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
     
 }
 
@@ -164,10 +220,10 @@ extension MapVC : FeedViewModelDelegate {
             annotation.title = pinContent.postDesc
             annotation.coordinate = CLLocationCoordinate2DMake(dd.latitude, dd.longitude)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-            annotation.type = .color(color, radius: 25)
+//            annotation.type = .color(color, radius: 25)
             annotation.pinContent = pinContent
             // or
-//            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
+            annotation.type = .image(UIImage(named: "pinOrange")) //?.filled(with: color)) // custom image
             annotations.append(annotation)
         }
         
@@ -198,31 +254,22 @@ extension MapVC: MKMapViewDelegate {
         } else {
             guard let annotation = annotation as? CustomAnnotation, let type = annotation.type else { return nil }
             let identifier = "Pin"
-            var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView
+            var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             if let view = view {
                 view.annotation = annotation
             
             } else {
-                view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//                let vv =  UIImageView()
-//                vv.frame = CGRect(x:0,y:0,width:20,height:40)
-//                vv.image = UIImage(named: "pin")?.filled(with: .green)
-//                view?.addSubview(vv)
+                view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             }
         
-        
-            if #available(iOS 9.0, *), case let .color(color, _) = type {
-                view?.pinTintColor =  color
-            } else {
-                view?.pinColor = .green
-            }
-
+            view?.image =  UIImage(named: "pinGreen")
             return view
         }
     }
     
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
+        print("regionDidChangeAnimated")
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
@@ -248,8 +295,10 @@ extension MapVC: MKMapViewDelegate {
 //            mapView.setVisibleMapRect(zoomRect, animated: true)
             print(">>> : " , cluster.annotations.count)
         }else{
-            if let ppContent = (annotation as! CustomAnnotation).pinContent , annotation .isKind(of: CustomAnnotation.self){
-                feedContents.append(ppContent)
+            if(annotation.isKind(of: CustomAnnotation.self)){
+                if let ppContent = (annotation as! CustomAnnotation).pinContent {
+                    feedContents.append(ppContent)
+                }
             }
         }
         
@@ -288,12 +337,16 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
         switch type {
         case let .image(image):
             let count = annotation.annotations.count
-            countLabel.text = "\(count)"
+//            self.countLabel.text = "\(count)"
+//            self.countLabel.textColor = UIColor.black
             
             backgroundColor = .clear
             self.image = image
             
             layer.borderWidth = 0
+            
+            createBadge(cc: count)
+            
         case let .color(color, radius):
             let count = annotation.annotations.count
             backgroundColor	= color
@@ -313,6 +366,72 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
         }
     }
     
+    private func createBadge(cc : Int) {
+        if let bb = self.viewWithTag(12345) as? BadgeSwift {
+            bb.removeFromSuperview()
+            print("removeBagd")
+        }
+    
+        let badge = BadgeSwift()
+        badge.tag = 12345
+        self.addSubview(badge)
+        
+        //configureBadge
+        // Text
+        badge.text = "\(cc)"
+        
+        // Insets
+        badge.insets = CGSize(width: 0, height: 0)
+        
+        // Font
+        badge.font = UIFont(name: thaiSansNeueUltraBold, size: fontSizeMedium)!
+        
+        // Text color
+        badge.textColor = UIColor.black
+        
+        // Badge color
+        badge.badgeColor = colorSunYellow
+        
+        // Shadow
+        badge.shadowOpacityBadge = 0.5
+        badge.shadowOffsetBadge = CGSize(width: 0, height: 0)
+        badge.shadowRadiusBadge = 1.0
+        badge.shadowColorBadge = UIColor.black
+        
+        // No shadow
+        badge.shadowOpacityBadge = 0
+        
+        // Border width and color
+        badge.borderWidth = 0
+        badge.borderColor = UIColor.magenta
+        
+        //positionBadge
+        badge.translatesAutoresizingMaskIntoConstraints = false
+        var constraints = [NSLayoutConstraint]()
+        
+        // Center the badge vertically in its container
+        constraints.append(NSLayoutConstraint(
+            item: badge,
+            attribute: NSLayoutAttribute.centerY,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: self,
+            attribute: NSLayoutAttribute.top,
+            multiplier: 1, constant: 0)
+        )
+        
+        // Center the badge horizontally in its container
+        constraints.append(NSLayoutConstraint(
+            item: badge,
+            attribute: NSLayoutAttribute.centerX,
+            relatedBy: NSLayoutRelation.equal,
+            toItem: self,
+            attribute: NSLayoutAttribute.centerX,
+            multiplier: 1, constant: 0)
+        )
+        
+        self.addConstraints(constraints)
+    }
+  
     
 }
 

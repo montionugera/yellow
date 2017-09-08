@@ -57,8 +57,29 @@
 		<string>fbshareextension</string>
 	</array>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>55</string>
+	<string>This will improve application&apos;s content to match with your current location.</string>
 	<key>Privacy - Location When In Use Usage Description   </key>
-	<string>555</string>
+	<string>This will improve application&apos;s content to match with your current location.</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>ThaiSansNeue-Black.ttf</string>
+		<string>ThaiSansNeue-BlackItalic.ttf</string>
+		<string>ThaiSansNeue-Bold.ttf</string>
+		<string>ThaiSansNeue-BoldItalic.ttf</string>
+		<string>ThaiSansNeue-ExtraBold.ttf</string>
+		<string>ThaiSansNeue-ExtraBoldItali.ttf</string>
+		<string>ThaiSansNeue-ExtraLight.ttf</string>
+		<string>ThaiSansNeue-ExtraLightItal.ttf</string>
+		<string>ThaiSansNeue-Italic.ttf</string>
+		<string>ThaiSansNeue-Light.ttf</string>
+		<string>ThaiSansNeue-LightItalic.ttf</string>
+		<string>ThaiSansNeue-Regular.ttf</string>
+		<string>ThaiSansNeue-SemiBold.ttf</string>
+		<string>ThaiSansNeue-SemiBoldItalic.ttf</string>
+		<string>ThaiSansNeue-UltraBold.ttf</string>
+		<string>ThaiSansNeue-UltraBoldItali.ttf</string>
+		<string>ThaiSansNeue-UltraLight.ttf</string>
+		<string>ThaiSansNeue-UltraLightItal.ttf</string>
+	</array>
 </dict>
 </plist>

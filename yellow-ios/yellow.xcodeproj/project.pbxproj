@@ -14,12 +14,31 @@
 		519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B644F1F567F22008AB0EA /* FirebaseAPI.swift */; };
 		519B64521F5680EF008AB0EA /* FeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64511F5680EF008AB0EA /* FeedViewModel.swift */; };
 		519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 519B64531F5681FF008AB0EA /* FeedContent.swift */; };
+		51AC91781F61585C00605510 /* BadgeSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC91771F61585C00605510 /* BadgeSwift.swift */; };
+		51AC917A1F615DA700605510 /* DataConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51AC91791F615DA700605510 /* DataConfig.swift */; };
 		51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51ACC8BE1F4EBB3700091644 /* Extensions.swift */; };
 		51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB31F46A72B00E701A1 /* Geohash.swift */; };
 		51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */; };
-		51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CAB71F46AF7000E701A1 /* DefineData.swift */; };
 		51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABA1F46B0AF00E701A1 /* UserModel.swift */; };
 		51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */; };
+		51C728391F6265DC0058596F /* ThaiSansNeue-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728271F6265DB0058596F /* ThaiSansNeue-Black.ttf */; };
+		51C7283A1F6265DC0058596F /* ThaiSansNeue-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728281F6265DB0058596F /* ThaiSansNeue-BlackItalic.ttf */; };
+		51C7283B1F6265DC0058596F /* ThaiSansNeue-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728291F6265DC0058596F /* ThaiSansNeue-Bold.ttf */; };
+		51C7283C1F6265DC0058596F /* ThaiSansNeue-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282A1F6265DC0058596F /* ThaiSansNeue-BoldItalic.ttf */; };
+		51C7283D1F6265DC0058596F /* ThaiSansNeue-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282B1F6265DC0058596F /* ThaiSansNeue-ExtraBold.ttf */; };
+		51C7283E1F6265DC0058596F /* ThaiSansNeue-ExtraBoldItali.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282C1F6265DC0058596F /* ThaiSansNeue-ExtraBoldItali.ttf */; };
+		51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282D1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf */; };
+		51C728401F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282E1F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf */; };
+		51C728411F6265DC0058596F /* ThaiSansNeue-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C7282F1F6265DC0058596F /* ThaiSansNeue-Italic.ttf */; };
+		51C728421F6265DC0058596F /* ThaiSansNeue-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728301F6265DC0058596F /* ThaiSansNeue-Light.ttf */; };
+		51C728431F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728311F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf */; };
+		51C728441F6265DC0058596F /* ThaiSansNeue-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728321F6265DC0058596F /* ThaiSansNeue-Regular.ttf */; };
+		51C728451F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728331F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf */; };
+		51C728461F6265DC0058596F /* ThaiSansNeue-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728341F6265DC0058596F /* ThaiSansNeue-SemiBoldItalic.ttf */; };
+		51C728471F6265DC0058596F /* ThaiSansNeue-UltraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728351F6265DC0058596F /* ThaiSansNeue-UltraBold.ttf */; };
+		51C728481F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728361F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf */; };
+		51C728491F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728371F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf */; };
+		51C7284A1F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */; };
 		51DFD48D1F5E9F49008D1A16 /* CustomAnnotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51DFD48B1F5E9F49008D1A16 /* CustomAnnotation.swift */; };
 		51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51F6A8481F5D31BF0023DC1C /* Utilities.swift */; };
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
@@ -62,12 +81,31 @@
 		519B644F1F567F22008AB0EA /* FirebaseAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirebaseAPI.swift; sourceTree = "<group>"; };
 		519B64511F5680EF008AB0EA /* FeedViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedViewModel.swift; path = yellow/Model/FeedViewModel.swift; sourceTree = "<group>"; };
 		519B64531F5681FF008AB0EA /* FeedContent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FeedContent.swift; path = yellow/Model/FeedContent.swift; sourceTree = "<group>"; };
+		51AC91771F61585C00605510 /* BadgeSwift.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BadgeSwift.swift; sourceTree = "<group>"; };
+		51AC91791F615DA700605510 /* DataConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataConfig.swift; sourceTree = "<group>"; };
 		51ACC8BE1F4EBB3700091644 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		51B8CAB31F46A72B00E701A1 /* Geohash.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Geohash.swift; sourceTree = "<group>"; };
 		51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
-		51B8CAB71F46AF7000E701A1 /* DefineData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefineData.swift; sourceTree = "<group>"; };
 		51B8CABA1F46B0AF00E701A1 /* UserModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utility_AkeKit.swift; sourceTree = "<group>"; };
+		51C728271F6265DB0058596F /* ThaiSansNeue-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Black.ttf"; sourceTree = "<group>"; };
+		51C728281F6265DB0058596F /* ThaiSansNeue-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BlackItalic.ttf"; sourceTree = "<group>"; };
+		51C728291F6265DC0058596F /* ThaiSansNeue-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Bold.ttf"; sourceTree = "<group>"; };
+		51C7282A1F6265DC0058596F /* ThaiSansNeue-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-BoldItalic.ttf"; sourceTree = "<group>"; };
+		51C7282B1F6265DC0058596F /* ThaiSansNeue-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBold.ttf"; sourceTree = "<group>"; };
+		51C7282C1F6265DC0058596F /* ThaiSansNeue-ExtraBoldItali.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraBoldItali.ttf"; sourceTree = "<group>"; };
+		51C7282D1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLight.ttf"; sourceTree = "<group>"; };
+		51C7282E1F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-ExtraLightItal.ttf"; sourceTree = "<group>"; };
+		51C7282F1F6265DC0058596F /* ThaiSansNeue-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Italic.ttf"; sourceTree = "<group>"; };
+		51C728301F6265DC0058596F /* ThaiSansNeue-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Light.ttf"; sourceTree = "<group>"; };
+		51C728311F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-LightItalic.ttf"; sourceTree = "<group>"; };
+		51C728321F6265DC0058596F /* ThaiSansNeue-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-Regular.ttf"; sourceTree = "<group>"; };
+		51C728331F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBold.ttf"; sourceTree = "<group>"; };
+		51C728341F6265DC0058596F /* ThaiSansNeue-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		51C728351F6265DC0058596F /* ThaiSansNeue-UltraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBold.ttf"; sourceTree = "<group>"; };
+		51C728361F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraBoldItali.ttf"; sourceTree = "<group>"; };
+		51C728371F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLight.ttf"; sourceTree = "<group>"; };
+		51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ThaiSansNeue-UltraLightItal.ttf"; sourceTree = "<group>"; };
 		51DFD48B1F5E9F49008D1A16 /* CustomAnnotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomAnnotation.swift; sourceTree = "<group>"; };
 		51F6A8481F5D31BF0023DC1C /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-yellow.debug.xcconfig"; path = "Pods/Target Support Files/Pods-yellow/Pods-yellow.debug.xcconfig"; sourceTree = "<group>"; };
@@ -122,6 +160,7 @@
 		51B8CAB11F46A72B00E701A1 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				51AC91771F61585C00605510 /* BadgeSwift.swift */,
 				51ACC8BE1F4EBB3700091644 /* Extensions.swift */,
 				51B8CABC1F46B0E800E701A1 /* Utility_AkeKit.swift */,
 				51B8CAB21F46A72B00E701A1 /* Geohash */,
@@ -144,6 +183,31 @@
 			);
 			name = Model;
 			path = yellow/Model;
+			sourceTree = "<group>";
+		};
+		51C728261F6265DB0058596F /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				51C728271F6265DB0058596F /* ThaiSansNeue-Black.ttf */,
+				51C728281F6265DB0058596F /* ThaiSansNeue-BlackItalic.ttf */,
+				51C728291F6265DC0058596F /* ThaiSansNeue-Bold.ttf */,
+				51C7282A1F6265DC0058596F /* ThaiSansNeue-BoldItalic.ttf */,
+				51C7282B1F6265DC0058596F /* ThaiSansNeue-ExtraBold.ttf */,
+				51C7282C1F6265DC0058596F /* ThaiSansNeue-ExtraBoldItali.ttf */,
+				51C7282D1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf */,
+				51C7282E1F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf */,
+				51C7282F1F6265DC0058596F /* ThaiSansNeue-Italic.ttf */,
+				51C728301F6265DC0058596F /* ThaiSansNeue-Light.ttf */,
+				51C728311F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf */,
+				51C728321F6265DC0058596F /* ThaiSansNeue-Regular.ttf */,
+				51C728331F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf */,
+				51C728341F6265DC0058596F /* ThaiSansNeue-SemiBoldItalic.ttf */,
+				51C728351F6265DC0058596F /* ThaiSansNeue-UltraBold.ttf */,
+				51C728361F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf */,
+				51C728371F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf */,
+				51C728381F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		AB13A8837EAE38B10C6E0827 /* Frameworks */ = {
@@ -222,7 +286,12 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+
 				BE0443001F6279FB00A85AFC /* Controls */,
+
+				51C728261F6265DB0058596F /* Fonts */,
+				51AC91791F615DA700605510 /* DataConfig.swift */,
+
 				CD1383421F53BD1D00CB049E /* Utils */,
 				CDDC923E1F4D262100A7EDE7 /* GoogleService-Info.plist */,
 				CD7A89B61F4C2C55000966FE /* Post */,
@@ -233,7 +302,6 @@
 				51B8CAB11F46A72B00E701A1 /* Library */,
 				CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */,
 				51B8CAB51F46AE9A00E701A1 /* BaseViewController.swift */,
-				51B8CAB71F46AF7000E701A1 /* DefineData.swift */,
 				CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */,
 				CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */,
 				CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */,
@@ -360,19 +428,37 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				51C728481F6265DC0058596F /* ThaiSansNeue-UltraBoldItali.ttf in Resources */,
+				51C7283A1F6265DC0058596F /* ThaiSansNeue-BlackItalic.ttf in Resources */,
+				51C728491F6265DC0058596F /* ThaiSansNeue-UltraLight.ttf in Resources */,
 				CD24F4C61F46D97A001FBA86 /* LoginVC.xib in Resources */,
 				CD7A89BA1F4C2C79000966FE /* PostProfileViewController.xib in Resources */,
+				51C728471F6265DC0058596F /* ThaiSansNeue-UltraBold.ttf in Resources */,
+				51C728441F6265DC0058596F /* ThaiSansNeue-Regular.ttf in Resources */,
+				51C7283C1F6265DC0058596F /* ThaiSansNeue-BoldItalic.ttf in Resources */,
+				51C728461F6265DC0058596F /* ThaiSansNeue-SemiBoldItalic.ttf in Resources */,
+				51C7283D1F6265DC0058596F /* ThaiSansNeue-ExtraBold.ttf in Resources */,
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
+				51C728421F6265DC0058596F /* ThaiSansNeue-Light.ttf in Resources */,
 				CD571EC61F457E6F00ECB9C8 /* (null) in Resources */,
+				51C728401F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf in Resources */,
+				51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
 				5177D0E61F5EBE98000569AA /* FeedListVC.xib in Resources */,
+				51C728451F6265DC0058596F /* ThaiSansNeue-SemiBold.ttf in Resources */,
 				CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */,
 				CD571ED01F457ED800ECB9C8 /* MyProfileVC.xib in Resources */,
+				51C728391F6265DC0058596F /* ThaiSansNeue-Black.ttf in Resources */,
 				CD571EE01F4585A600ECB9C8 /* HomeVC.xib in Resources */,
 				CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */,
 				CD81792F1F529248007BDD60 /* PostDummyVC.xib in Resources */,
+				51C7283E1F6265DC0058596F /* ThaiSansNeue-ExtraBoldItali.ttf in Resources */,
+				51C7284A1F6265DC0058596F /* ThaiSansNeue-UltraLightItal.ttf in Resources */,
 				CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */,
+				51C728411F6265DC0058596F /* ThaiSansNeue-Italic.ttf in Resources */,
+				51C7283B1F6265DC0058596F /* ThaiSansNeue-Bold.ttf in Resources */,
+				51C728431F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf in Resources */,
 				CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -452,12 +538,13 @@
 				CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */,
 				5192D59D1F5FC01B00951EB9 /* CustomUITabBarController.swift in Sources */,
 				51B8CAB61F46AE9A00E701A1 /* BaseViewController.swift in Sources */,
-				51B8CAB81F46AF7000E701A1 /* DefineData.swift in Sources */,
 				51ACC8BF1F4EBB3700091644 /* Extensions.swift in Sources */,
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
+				51AC91781F61585C00605510 /* BadgeSwift.swift in Sources */,
 				519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
+				51AC917A1F615DA700605510 /* DataConfig.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
 				CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */,

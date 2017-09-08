@@ -33,7 +33,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="35" id="zgz-Px-F4E"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>

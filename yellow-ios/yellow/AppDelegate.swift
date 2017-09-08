@@ -35,6 +35,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.makeKeyAndVisible()
             
         })
+        
+        
+        for familyName in UIFont.familyNames {
+            print("\n-- \(familyName) \n")
+            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+                print(fontName)
+            }
+        }
+
+        
         return true
     }
     func setUpFacebook(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){

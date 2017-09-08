@@ -53,7 +53,7 @@ class AVPlayerManager: UIControl {
         guard  let url = URL(string: urlPath) else {
             return
         }
-        DispatchQueue.global(qos: .userInitiated).async {
+        DispatchQueue.global(qos: .userInteractive).async {
             let asset = AVAsset(url: url)
             let assetKeys = [
                 "playable"

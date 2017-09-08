@@ -28,10 +28,8 @@ class FeedViewModel: NSObject {
             guard let the = self else {
                 return
             }
-//            print(snapshot.value)
-            
             for item in snapshot.children {
-//                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
+                //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
                 
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
                 the.feedContents.append(feedContent)

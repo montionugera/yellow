@@ -10,11 +10,18 @@ import UIKit
 
 class FeedListVC: BaseViewController {
 
+    @IBOutlet weak var feed: FeedCollectionView!
     @IBOutlet weak var test_lb: UILabel!
+    
+    
+    var feedContents : [FeedContent] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        feed.registerAdvance(FeedCell.self, nib: UINib(nibName: "FeedCell", bundle: nil))
+        feed.delegateFeed = self
+        feed.delegateFeedLayout = self
+        feed.delegateFeedTarget = self
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
     }
@@ -28,14 +35,13 @@ class FeedListVC: BaseViewController {
             if (feedContents.count == 1){
                 self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
             }
+            self.feedContents = feedContents
+            feed.reloadData()
         }
-        
     }
-        
     deinit {
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "updateFeedList"), object: nil);
     }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -53,7 +59,6 @@ class FeedListVC: BaseViewController {
     */
 
 }
-
 extension FeedListVC: PulleyDrawerViewControllerDelegate {
     
     func collapsedDrawerHeight() -> CGFloat
@@ -80,3 +85,68 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
         }
     }
 }
+extension FeedListVC : FeedTargetHitDelegate {
+    func feedHitPoint(cell: UICollectionViewCell) {
+        let cell = cell as! FeedCell
+        cell.playerManager.play()
+    }
+    func feedPassPoint(cell: UICollectionViewCell) {
+        let cell = cell as! FeedCell
+        cell.playerManager.pause()
+    }
+}
+extension FeedListVC : FeedCollectionViewDelegate {
+    func feedNumberOfSections (in collectionView: UICollectionView ) -> Int {
+        return 1
+    }
+    func feedNumberOfItemsInSection(_ collectionview : UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return feedContents.count
+    }
+    func feedCellForItem(collectionview: FeedCollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : FeedCell = collectionview.dequeueReusableCellAdvance(forIndexPath: indexPath)
+        let item = feedContents[indexPath.item]
+        cell.lb_userName.text = item.addedByUser
+        cell.playerManager.prepare(urlPath: item.mediaURL )
+        return cell
+    }
+    func feedFetchMoreDataOnScrollDown(){
+//        self.feed.doneFetching(isAnimiated: true, shallStopFetching: true, completion: nil)
+    }
+    func feedFetchMoreDataOnPulling(){
+        
+    }
+    func feedRefresh(){
+        self.feed.finishRefresh()
+    }
+    func feed(didSelectItemat indexPath: IndexPath) {
+        
+    }
+}
+extension FeedListVC : FeedCollectionViewDelegateFlowLayout {
+    func feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, contentRemainingSize: CGSize, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: contentRemainingSize.width, height: contentRemainingSize.height / 1.2)
+    }
+    func  feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    func feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat{
+        return 15
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

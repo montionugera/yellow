@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		514813551F580C27001EE830 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514813541F580C27001EE830 /* CoreLocation.framework */; };
+		5152466A1F654B49002D7DB1 /* MappingPinEmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515246691F654B49002D7DB1 /* MappingPinEmo.swift */; };
 		5177D0E51F5EBE98000569AA /* FeedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177D0E31F5EBE98000569AA /* FeedListVC.swift */; };
 		5177D0E61F5EBE98000569AA /* FeedListVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5177D0E41F5EBE98000569AA /* FeedListVC.xib */; };
 		5192D59D1F5FC01B00951EB9 /* CustomUITabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5192D59C1F5FC01B00951EB9 /* CustomUITabBarController.swift */; };
@@ -60,8 +61,8 @@
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
-		CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		CD571EC51F457E6F00ECB9C8 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		CD571EC61F457E6F00ECB9C8 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
 		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
 		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
@@ -83,6 +84,7 @@
 
 /* Begin PBXFileReference section */
 		514813541F580C27001EE830 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		515246691F654B49002D7DB1 /* MappingPinEmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingPinEmo.swift; sourceTree = "<group>"; };
 		5177D0E31F5EBE98000569AA /* FeedListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListVC.swift; sourceTree = "<group>"; };
 		5177D0E41F5EBE98000569AA /* FeedListVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedListVC.xib; sourceTree = "<group>"; };
 		5192D59C1F5FC01B00951EB9 /* CustomUITabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomUITabBarController.swift; sourceTree = "<group>"; };
@@ -355,6 +357,7 @@
 				CD81792C1F529248007BDD60 /* PostDummyVC.swift */,
 				CD81792D1F529248007BDD60 /* PostDummyVC.xib */,
 				5192D59C1F5FC01B00951EB9 /* CustomUITabBarController.swift */,
+				515246691F654B49002D7DB1 /* MappingPinEmo.swift */,
 			);
 			path = yellow;
 			sourceTree = "<group>";
@@ -477,7 +480,7 @@
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
 				51C728421F6265DC0058596F /* ThaiSansNeue-Light.ttf in Resources */,
-				CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* (null) in Resources */,
 				51C728401F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf in Resources */,
 				51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
@@ -566,15 +569,16 @@
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */,
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
 				BE0443041F62849500A85AFC /* FeedCollectionView.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				5152466A1F654B49002D7DB1 /* MappingPinEmo.swift in Sources */,
 				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
 				51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */,
 				CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */,

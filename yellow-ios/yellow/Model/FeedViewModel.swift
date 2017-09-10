@@ -34,7 +34,7 @@ class FeedViewModel: NSObject {
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
                 the.feedContents.append(feedContent)
                 
-                print(item)
+//                print(item)
             }
             the.initialDataHasBeenLoaded = true
             the.delegate?.didFinishLoadDataOnInitilization()

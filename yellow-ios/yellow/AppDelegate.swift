@@ -37,12 +37,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         
-        for familyName in UIFont.familyNames {
-            print("\n-- \(familyName) \n")
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-                print(fontName)
-            }
-        }
+//        for familyName in UIFont.familyNames {
+//            print("\n-- \(familyName) \n")
+//            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+//                print(fontName)
+//            }
+//        }
 
         
         return true

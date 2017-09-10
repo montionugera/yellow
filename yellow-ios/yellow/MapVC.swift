@@ -11,7 +11,7 @@ import MapKit
 import Cluster
 import FirebaseDatabase
 import CoreLocation
-
+import AlamofireImage
 class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -150,11 +150,14 @@ extension MapVC : CLLocationManagerDelegate {
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last!
+        if(currentLocationYellow == nil){
+            let span = MKCoordinateSpanMake(0.75, 0.75)
+            let viewRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: span)
+            mapView.setRegion(viewRegion, animated: true)
+        }
         
-        let span = MKCoordinateSpanMake(0.75, 0.75)
-        let viewRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: span)
-        mapView.setRegion(viewRegion, animated: true)
         
+        currentLocationYellow = userLocation
     }
 }
 
@@ -239,6 +242,46 @@ extension MapVC : FeedViewModelDelegate {
 extension MapVC: MKMapViewDelegate {
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // user location
+        if annotation.isEqual(mapView.userLocation) {
+            let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "userLocation")
+            annotationView.image = UIImage(named: "pinMe")
+            
+            if let bb = annotationView.viewWithTag(98765) as? UIImageView {
+                bb.removeFromSuperview()
+            }
+            
+            if UserModel.currentUser.isLogined() == true {
+                if let profileURL = UserModel.currentUser.user_profile  {
+                    let imageView = UIImageView(frame: CGRect(x: (annotationView.frame.size.width/2) - 25, y: (annotationView.frame.size.height/2) - 25 - 8, width: 50, height: 50))
+                    imageView.tag = 98765
+                    imageView.af_setImage(
+                        withURL: URL(string: profileURL)!,
+                        placeholderImage:  nil, //UIImage(named: "user_profile")
+                        filter: AspectScaledToFillSizeWithRoundedCornersFilter(
+                            size: imageView.frame.size,
+                            radius: (imageView.frame.size.width)/2
+                        )
+                    )
+                    
+//                    let rectShape = CAShapeLayer()
+//                    rectShape.bounds = imageView.frame
+//                    rectShape.position = imageView.center
+//                    rectShape.path = UIBezierPath(roundedRect: imageView.bounds
+//                        , byRoundingCorners: [.allCorners ],
+//                          cornerRadii: CGSize(width: imageView.bounds.size.width/2, height: imageView.bounds.size.height/2)).cgPath
+//                    
+//                    imageView.layer.backgroundColor = UIColor.green.cgColor
+//                    imageView.layer.mask = rectShape
+                    
+                    annotationView.addSubview(imageView)
+                }
+            }
+            
+            return annotationView
+        }
+        
+        // pin
         if let annotation = annotation as? ClusterAnnotation {
             guard let type = annotation.type else { return nil }
             let identifier = "Cluster"
@@ -259,9 +302,31 @@ extension MapVC: MKMapViewDelegate {
             
             } else {
                 view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+                
+                let imageView = UIImageView(frame:CGRect(x:9,y: 7, width: 20,height: 20))
+                imageView.tag = 54321
+                view?.addSubview(imageView)
+            
             }
         
-            view?.image =  UIImage(named: "pinGreen")
+            if let ppContent = annotation.pinContent {
+                
+                let emoString = ppContent.emo
+                let emoArray = emoString.components(separatedBy: ",")
+                if(emoArray.count == 2){
+                    let colorID = emoArray[0]
+                    let emoID = emoArray[1]
+                    view?.image = MappingPinEmo.shareInstace.mappingPin(colorID: colorID)
+                    
+                    if let bb = view?.viewWithTag(54321) as? UIImageView {
+                        bb.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
+                    }
+                }
+            }
+            
+            
+
+            
             return view
         }
     }
@@ -366,7 +431,7 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
     private func createBadge(cc : Int) {
         if let bb = self.viewWithTag(12345) as? BadgeSwift {
             bb.removeFromSuperview()
-            print("removeBagd")
+//            print("removeBagd")
         }
     
         let badge = BadgeSwift()

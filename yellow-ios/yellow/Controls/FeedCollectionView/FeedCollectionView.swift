@@ -72,7 +72,7 @@ class FeedCollectionView: UICollectionView {
     @IBInspectable
     var inset : CGFloat = 15
     
-    fileprivate var edgeInset : UIEdgeInsets{ get{ return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset) }}
+    fileprivate var edgeInset : UIEdgeInsets{ get{ return UIEdgeInsets(top: inset + 20, left: inset, bottom: inset, right: inset) }}
     
     var numberOfItems : Int = 0
     var atLeastNumberofItemToBeginFetchMore = 4

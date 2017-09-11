@@ -28,7 +28,7 @@ class FeedListVC: BaseViewController {
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] {
             // do something with your image
-
+            
             if (feedContents.count == 1){
                 self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
             }
@@ -89,10 +89,22 @@ extension FeedListVC : FeedTargetHitDelegate {
     }
     func feedPassPoint(cell: UICollectionViewCell) {
         let cell = cell as! FeedCell
-        cell.playerManager.pause()
+        cell.playerManager.play()
+    }
+}
+
+extension FeedListVC : FeedDataSourcePrefetching {
+    func feed(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    func feed(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        
     }
 }
 extension FeedListVC : FeedCollectionViewDelegate {
+    func feed(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int {
         return 1
     }
@@ -103,7 +115,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
         let cell : FeedCell = collectionview.dequeueReusableCellAdvance(forIndexPath: indexPath)
         let item = feedContents[indexPath.item]
         cell.lb_userName.text = item.addedByUser
-        cell.playerManager.prepare(urlPath: item.mediaURL )
+        cell.playerManager.prepare(urlPath: item.mediaURL)
         return cell
     }
     func feedFetchMoreDataOnScrollDown(){

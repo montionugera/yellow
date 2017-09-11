@@ -13,3 +13,9 @@ func FBSnapShotToDictForClassMapping( any :Any ) -> (data : DataSnapshot,value :
     let value = data.value as! [String:AnyObject]
     return (data,value)
 }
+func SYSTEM_VERSION_LESS_THAN(version: String) -> Bool {
+    return UIDevice.current.systemVersion.compare(version,
+                                                          options:  String.CompareOptions.numeric) == ComparisonResult.orderedAscending
+    
+}
+

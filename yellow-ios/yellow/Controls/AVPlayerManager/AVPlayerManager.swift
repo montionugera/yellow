@@ -30,6 +30,8 @@ class AVPlayerManager: UIControl {
     let avLayer : AVPlayerLayer = AVPlayerLayer()
     var playerItem : AVPlayerItem?
     var amountOfTimeToPlay : Int?
+    
+    var operationPrepareVideo : Operation?
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInitilization()
@@ -49,6 +51,7 @@ class AVPlayerManager: UIControl {
         self.layer.addSublayer(avLayer)
     }
     func prepare(urlPath : String)  {
+        
         guard  let url = URL(string: urlPath) else {
             return
         }
@@ -66,25 +69,6 @@ class AVPlayerManager: UIControl {
             self.avPlayer.replaceCurrentItem(with: self.playerItem)
         }
     }
-//    func prepareAndPlay(urlPath : String,amountOfTime : Int? = nil)  {
-//        guard  let url = URL(string: urlPath) else {
-//            return
-//        }
-//        self.amountOfTimeToPlay = amountOfTime
-//        DispatchQueue.global(qos: .userInitiated).async {
-//            let asset = AVAsset(url: url)
-//            let assetKeys = [
-//                "playable"
-//            ]
-//            self.playerItem = AVPlayerItem(asset: asset,
-//                                           automaticallyLoadedAssetKeys: assetKeys)
-////            self.playerItem?.addObserver(self,
-////                                         forKeyPath: #keyPath(AVPlayerItem.status),
-////                                         options: [.old, .new],
-////                                         context: &self.playerItemContext)
-//            self.avPlayer.replaceCurrentItem(with: self.playerItem)
-//        }
-//    }
     func play(amountOfTime : Int? = nil)  {
         avPlayer.play()
         if let amountOfTime = amountOfTime {

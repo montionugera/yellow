@@ -141,9 +141,9 @@ class MappingPinEmo: NSObject {
         let color_id = Int(colorID)!
         switch color_id {
         case 1:
-            return UIImage(named: "bgLightpink")!
-        case 2:
             return UIImage(named: "bgPink")!
+        case 2:
+            return UIImage(named: "bgPinkred")!
         case 3:
             return UIImage(named: "bgRed")!
         case 4:
@@ -163,19 +163,19 @@ class MappingPinEmo: NSObject {
         let color_id = Int(colorID)!
         switch color_id {
         case 1:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 255/255, green: 143/255, blue: 180/255, alpha: 1.0)
         case 2:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 255/255, green: 115/255, blue: 129/255, alpha: 1.0)
         case 3:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 238/255, green: 68/255, blue: 94/255, alpha: 1.0)
         case 4:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 138/255, green: 218/255, blue: 237/255, alpha: 1.0)
         case 5:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 92/255, green: 204/255, blue: 145/255, alpha: 1.0)
         case 6:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 251/255, green: 176/255, blue: 59/255, alpha: 1.0)
         case 7:
-            return UIColor(red: 1/255, green: 1/255, blue: 1/255, alpha: 1.0)
+            return UIColor(red: 144/255, green: 133/255, blue: 224/255, alpha: 1.0)
         default:
             return UIColor(red: 255/255, green: 197/255, blue: 41/255, alpha: 1.0)
         }

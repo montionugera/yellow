@@ -61,11 +61,8 @@ class FeedListVC: BaseViewController {
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){
             var colorID = emoArray[0]
-            colorID = "5"
-//            self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
-            
+            self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID) 
             self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
-        
         }
         
     }

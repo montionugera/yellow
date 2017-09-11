@@ -42,7 +42,7 @@ class MapVC: UIViewController {
         
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
             self.locationManager.distanceFilter = 50.0
             self.locationManager.delegate = self
             self.locationManager.startMonitoringSignificantLocationChanges()
@@ -225,7 +225,7 @@ extension MapVC : FeedViewModelDelegate {
 //            annotation.type = .color(color, radius: 25)
             annotation.pinContent = pinContent
             // or
-            annotation.type = .image(UIImage(named: "pinOrange")) //?.filled(with: color)) // custom image
+            annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
             annotations.append(annotation)
         }
         
@@ -291,7 +291,28 @@ extension MapVC: MKMapViewDelegate {
                 view.configure(with: type)
             } else {
                 view = BorderedClusterAnnotationView(annotation: annotation, reuseIdentifier: identifier, type: type, borderColor: .white)
+                
+                let imageView = UIImageView(frame:CGRect(x:9,y: 7, width: 20,height: 20))
+                imageView.tag = 678
+                view?.addSubview(imageView)
+                view?.sendSubview(toBack: imageView)
             }
+            
+            if let ppContent = (annotation.annotations[0] as! CustomAnnotation).pinContent {
+                
+                let emoString = ppContent.emo
+                let emoArray = emoString.components(separatedBy: ",")
+                if(emoArray.count == 2){
+                    let colorID = emoArray[0]
+                    let emoID = emoArray[1]
+                    view?.image = MappingPinEmo.shareInstace.mappingPin(colorID: colorID)
+                    
+                    if let bb = view?.viewWithTag(678) as? UIImageView {
+                        bb.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
+                    }
+                }
+            }
+            
             return view
         } else {
             guard let annotation = annotation as? CustomAnnotation, let type = annotation.type else { return nil }
@@ -478,7 +499,7 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
             relatedBy: NSLayoutRelation.equal,
             toItem: self,
             attribute: NSLayoutAttribute.top,
-            multiplier: 1, constant: 0)
+            multiplier: 1, constant: -5)
         )
         
         // Center the badge horizontally in its container

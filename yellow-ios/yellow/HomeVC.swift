@@ -70,7 +70,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
         let pulleyController = PulleyViewController(contentViewController: self.mapVC, drawerViewController: feedListVC)
         pulleyController.drawerCornerRadius = 0
 
-        pulleyController.drawerContentViewController.view.backgroundColor = UIColor.red
+//        pulleyController.drawerContentViewController.view.backgroundColor = UIColor.red
         
         let homeTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icoHome"), selectedImage: UIImage(named: "icoHome"))
         homeTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);

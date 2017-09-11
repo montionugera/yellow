@@ -22,12 +22,13 @@ class FeedListVC: BaseViewController {
         feed.delegateFeedTarget = self
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
+        self.view.backgroundColor = UIColor.blue
     }
     
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] {
             // do something with your image
-            self.test_lb.text = "\(feedContents.count)"
+
             if (feedContents.count == 1){
                 self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
             }
@@ -106,7 +107,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
         return cell
     }
     func feedFetchMoreDataOnScrollDown(){
-        //        self.feed.doneFetching(isAnimiated: true, shallStopFetching: true, completion: nil)
+        
     }
     func feedFetchMoreDataOnPulling(){
         

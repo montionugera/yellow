@@ -45,6 +45,7 @@
 		BE0443061F62849C00A85AFC /* AVPlayerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443051F62849C00A85AFC /* AVPlayerManager.swift */; };
 		BE04430A1F6284CD00A85AFC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443081F6284CD00A85AFC /* FeedCell.swift */; };
 		BE04430B1F6284CD00A85AFC /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0443091F6284CD00A85AFC /* FeedCell.xib */; };
+		BE108F771F65B75000EDA590 /* TopCurveFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */; };
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
 		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */; };
@@ -119,6 +120,7 @@
 		BE0443051F62849C00A85AFC /* AVPlayerManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AVPlayerManager.swift; sourceTree = "<group>"; };
 		BE0443081F6284CD00A85AFC /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		BE0443091F6284CD00A85AFC /* FeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
+		BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCurveFloatingView.swift; sourceTree = "<group>"; };
 		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		CD1383431F53BD3500CB049E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -270,6 +272,14 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		BE108F751F65B72900EDA590 /* CustomUI */ = {
+			isa = PBXGroup;
+			children = (
+				BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */,
+			);
+			path = CustomUI;
+			sourceTree = "<group>";
+		};
 		CD1383421F53BD1D00CB049E /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -304,6 +314,7 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				BE108F751F65B72900EDA590 /* CustomUI */,
 				BE0443071F6284B500A85AFC /* Cells */,
 				BE0443001F6279FB00A85AFC /* Controls */,
 				51C728261F6265DB0058596F /* Fonts */,
@@ -549,6 +560,7 @@
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
+				BE108F771F65B75000EDA590 /* TopCurveFloatingView.swift in Sources */,
 				BE0443041F62849500A85AFC /* FeedCollectionView.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,

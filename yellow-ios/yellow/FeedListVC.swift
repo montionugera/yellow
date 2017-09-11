@@ -27,24 +27,26 @@ class FeedListVC: BaseViewController {
     
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] , feedContents.count > 0 {
-            // do something with your image
-//            self.title_lb.text = "\(feedContents.count)"
-//            if (feedContents.count == 1){
-//                self.title_lb.text = self.title_lb.text! + feedContents[0].postDesc
-//            }
+            
+            let isUserLocation : Bool = notification.userInfo?["UserLocaton"] as! Bool
+            let isFirse : Bool = notification.userInfo?["isFirse"] as! Bool
             
             
-            setTitleForm()
-            setTopbarColor(feedContent: feedContents[0])
+            if(isUserLocation == true){
+                setTitleForm()
+            }
+            if(isFirse == false){
+                setTopbarColor(feedContent: feedContents[0],isUserLocation: isUserLocation)
+            }
+            
             self.feedContents = feedContents
             feed.reloadDataAdvance()
-            
-            
-            
         }
     }
     
     func setTitleForm(){
+        self.title_lb.isHidden = true
+        
         let date = Date()
         let calendar = Calendar.current
         
@@ -55,14 +57,35 @@ class FeedListVC: BaseViewController {
         self.title_lb.text = "รอบๆตัวคุณตอนนี้ \(hour):\(minutes)"
     }
         
-    func setTopbarColor(feedContent :FeedContent){
+    func setTopbarColor(feedContent :FeedContent , isUserLocation : Bool){
+        if(isUserLocation == false){
+            self.title_lb.text = feedContent.postDesc
+        }
         
         let emoString = feedContent.emo
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){
             var colorID = emoArray[0]
-            self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID) 
-            self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+
+            if(isUserLocation == true){
+                colorID = "0"
+            }
+            
+            UIView.animate(withDuration: 0.5, animations: {
+               self.view.alpha = 0.0
+            }, completion: { (finish) in
+                
+                self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
+                self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+                self.title_lb.isHidden = false
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.view.alpha = 1.0
+                }, completion: { (finish) in
+                    
+                })
+            })
+            
         }
         
     }
@@ -243,20 +266,5 @@ extension FeedListVC : FeedCollectionViewDelegateFlowLayout {
         return 15
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

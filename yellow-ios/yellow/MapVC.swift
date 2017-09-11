@@ -233,6 +233,11 @@ extension MapVC : FeedViewModelDelegate {
        // self.mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 13.7426883 , longitude:100.5614013)
         
 
+        let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
+                                                "UserLocaton": true as AnyObject ,
+                                                "isFirse": true as AnyObject]
+        // post a notification
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedList"), object: nil, userInfo: feedDataDict)
     }
     func didRemoveData(indexPath: IndexPath) {
       
@@ -359,6 +364,7 @@ extension MapVC: MKMapViewDelegate {
         guard let annotation = view.annotation else { return }
         
         var feedContents : [FeedContent] = [FeedContent]()
+        var isUserLocaton = false
         
         if let cluster = annotation as? ClusterAnnotation {
             var zoomRect = MKMapRectNull
@@ -378,16 +384,24 @@ extension MapVC: MKMapViewDelegate {
 //            mapView.setVisibleMapRect(zoomRect, animated: true)
             print(">>> : " , cluster.annotations.count)
         }else{
-            if(annotation.isKind(of: CustomAnnotation.self)){
+            if annotation.isEqual(mapView.userLocation) {
+                feedContents = self.feedViewModel.feedContents
+                
+                isUserLocaton = true
+            }
+            else if(annotation.isKind(of: CustomAnnotation.self)){
                 if let ppContent = (annotation as! CustomAnnotation).pinContent {
                     feedContents.append(ppContent)
                 }
             }
         }
         
-        let feedDataDict:[String: [FeedContent]] = ["FeedContents": feedContents]
+        let feedDataDict:[String: AnyObject] = ["FeedContents": feedContents as AnyObject ,
+                                                "UserLocaton": isUserLocaton as AnyObject ,
+                                                "isFirse": false as AnyObject]
         // post a notification
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedList"), object: nil, userInfo: feedDataDict)
+        
         
     }
     

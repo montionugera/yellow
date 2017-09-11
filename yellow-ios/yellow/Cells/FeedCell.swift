@@ -19,6 +19,9 @@ class FeedCell: UICollectionViewCell {
     @IBOutlet weak var playerManager: AVPlayerManager!
     @IBOutlet weak var lb_userName: UILabel!
     @IBOutlet weak var lb_title: UILabel!
+    @IBOutlet weak var lb_location: UILabel!
+    @IBOutlet weak var lb_time: UILabel!
+    @IBOutlet weak var img_userProfile: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         sharedInitilization()

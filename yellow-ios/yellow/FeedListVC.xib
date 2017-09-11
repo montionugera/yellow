@@ -5,12 +5,20 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThaiSansNeue-Bold.ttf">
+            <string>ThaiSansNeue-Bold</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedListVC" customModule="yellow" customModuleProvider="target">
             <connections>
                 <outlet property="feed" destination="43H-MU-wCC" id="qIo-FX-2RL"/>
+                <outlet property="title_lb" destination="jo4-5b-KdC" id="8Xf-DV-BEi"/>
+                <outlet property="topbar_bg" destination="RYR-Q8-sw6" id="A0j-Z5-Oah"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,9 +27,9 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="43H-MU-wCC" customClass="FeedCollectionView" customModule="yellow" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="70" width="375" height="597"/>
-                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                <collectionView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="43H-MU-wCC" customClass="FeedCollectionView" customModule="yellow" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="57" width="375" height="610"/>
+                    <color key="backgroundColor" red="1" green="0.77254901960784317" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Pl-QK-gh7">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -29,15 +37,54 @@
                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0P5-Ex-M8r">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bgYellow" translatesAutoresizingMaskIntoConstraints="NO" id="RYR-Q8-sw6">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="57" id="CXv-85-niz"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="RYR-Q8-sw6" firstAttribute="leading" secondItem="0P5-Ex-M8r" secondAttribute="leading" id="Bfp-Uv-49o"/>
+                        <constraint firstAttribute="trailing" secondItem="RYR-Q8-sw6" secondAttribute="trailing" id="KI1-mA-XIw"/>
+                        <constraint firstAttribute="width" secondItem="0P5-Ex-M8r" secondAttribute="height" multiplier="125:19" id="eCH-xY-2R9"/>
+                        <constraint firstAttribute="bottom" secondItem="RYR-Q8-sw6" secondAttribute="bottom" id="iFT-Z7-fed"/>
+                        <constraint firstItem="RYR-Q8-sw6" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="top" id="lT0-Ps-Ldn"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jo4-5b-KdC">
+                    <rect key="frame" x="78" y="37" width="219" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="21" id="9mB-16-B6t"/>
+                        <constraint firstAttribute="width" constant="219" id="bl5-iU-k6E"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ThaiSansNeue-Bold" family="ThaiSans Neue" pointSize="20"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
-            <color key="backgroundColor" red="1" green="0.80784313730000001" blue="0.18039215689999999" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="0P5-Ex-M8r" secondAttribute="trailing" id="3vZ-LI-FDe"/>
                 <constraint firstAttribute="trailing" secondItem="43H-MU-wCC" secondAttribute="trailing" id="7rI-sc-qPV"/>
+                <constraint firstItem="0P5-Ex-M8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9ve-jV-7Ie"/>
+                <constraint firstItem="jo4-5b-KdC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="78" id="CNO-XS-KIj"/>
+                <constraint firstItem="jo4-5b-KdC" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" constant="-20" id="E7g-Bj-3z8"/>
+                <constraint firstItem="0P5-Ex-M8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VFM-1v-iAd"/>
                 <constraint firstAttribute="bottom" secondItem="43H-MU-wCC" secondAttribute="bottom" id="c6b-a3-gnZ"/>
-                <constraint firstItem="43H-MU-wCC" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="70" id="l5c-JM-CW0"/>
+                <constraint firstItem="43H-MU-wCC" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" id="df4-Mm-g3o"/>
                 <constraint firstItem="43H-MU-wCC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sVi-2w-QZt"/>
+                <constraint firstAttribute="trailing" secondItem="jo4-5b-KdC" secondAttribute="trailing" constant="78" id="wjK-mG-eC5"/>
             </constraints>
             <point key="canvasLocation" x="9.5" y="76.5"/>
         </view>
     </objects>
+    <resources>
+        <image name="bgYellow" width="375" height="52"/>
+    </resources>
 </document>

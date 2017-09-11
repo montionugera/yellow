@@ -106,24 +106,31 @@ class VideoViewController: UIViewController {
             
             ref = Database.database().reference()
             let postDesc = "ข้างหน้าเป็นยังไงบ้างครับ ติดมากไหม"
-            let addedByUser = uid
+            let addedByUser = UserModel.currentUser.user_name
+            let addedByUserURL = UserModel.currentUser.user_profile
             let mediaType = fileExt
             let mediaURL = metadata.downloadURL()!.absoluteString
             let love = 0
-            let lochash = "u4pruydqqv"
-            let postData = ["postDesc":postDesc,
-                            "addedByUser":addedByUser,
-                            "mediaType":mediaType,
-                            "mediaURL":mediaURL,
-                            "love":love,
-                            "emo": "happy",
-                            "postDttmInt": Date().timeIntervalSince1970,
-                            "postDttmStr": getStandardAppDateString(dttm: Date()),
-                            "lochash":lochash] as [String : Any]
             
-            let postRef = ref.child("posts")
-            let newPostRef = postRef.childByAutoId()
-            newPostRef.setValue(postData)
+            
+            if let cc = currentLocationYellow {
+                let lochash = Geohash.encode(latitude: cc.coordinate.latitude, longitude: cc.coordinate.longitude, length: 10)
+                let postData = ["postDesc":postDesc,
+                                "addedByUser":addedByUser ?? "",
+                                "addedByUserURL":addedByUserURL ?? "",
+                                "mediaType":mediaType,
+                                "mediaURL":mediaURL,
+                                "love":love,
+                                "emo": "4,2",
+                                "place": "",
+                                "postDttmInt": Date().timeIntervalSince1970,
+                                "postDttmStr": getStandardAppDateString(dttm: Date()),
+                                "lochash":lochash] as [String : Any]
+                
+                let postRef = ref.child("posts")
+                let newPostRef = postRef.childByAutoId()
+                newPostRef.setValue(postData)
+            }
         }
         
         

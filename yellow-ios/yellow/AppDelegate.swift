@@ -9,13 +9,12 @@
 import UIKit
 import FBSDKCoreKit
 import Firebase
-
+import CoreLocation
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var initialViewController :UIViewController?
-
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserModel.currentUser.getAsDatabase(completionHandler: {
@@ -37,12 +36,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         })
         
         
-        for familyName in UIFont.familyNames {
-            print("\n-- \(familyName) \n")
-            for fontName in UIFont.fontNames(forFamilyName: familyName) {
-                print(fontName)
-            }
-        }
+//        for familyName in UIFont.familyNames {
+//            print("\n-- \(familyName) \n")
+//            for fontName in UIFont.fontNames(forFamilyName: familyName) {
+//                print(fontName)
+//            }
+//        }
 
         
         return true
@@ -68,6 +67,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        Alertlocation()
+    }
+    func Alertlocation() {
+            var is_open_setting = true
+            if CLLocationManager.locationServicesEnabled() {
+                switch(CLLocationManager.authorizationStatus()) {
+                case .notDetermined, .restricted, .denied:
+                    print("No access")
+                    is_open_setting = true
+                case .authorizedAlways, .authorizedWhenInUse:
+                    print("Access")
+                    is_open_setting = false
+                }
+            } else {
+                print("Location services are not enabled")
+                
+                is_open_setting = true
+            }
+            
+            
+            if(is_open_setting == true){
+                let alertController = UIAlertController (title: appName, message: "Please open a location in setting", preferredStyle: .alert)
+                
+                let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+                    guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+                        return
+                    }
+                    
+                    if UIApplication.shared.canOpenURL(settingsUrl) {
+                        if #available(iOS 10.0, *) {
+                            UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+                                print("Settings opened: \(success)") // Prints true
+                            })
+                        } else {
+                            UIApplication.shared.openURL(settingsUrl)
+                        }
+                    }
+                }
+                
+                alertController.addAction(settingsAction)
+                self.window!.rootViewController?.present(alertController, animated: true, completion: nil)
+            }
+            
+
     }
 
     func applicationWillTerminate(_ application: UIApplication) {

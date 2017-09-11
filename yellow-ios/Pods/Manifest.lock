@@ -67,7 +67,6 @@ PODS:
     - nanopb/encode (= 0.3.8)
   - nanopb/decode (0.3.8)
   - nanopb/encode (0.3.8)
-  - Pulley (1.5.1)
   - SVProgressHUD (2.1.2)
   - SwiftyCam (2.4.0)
 
@@ -84,7 +83,6 @@ DEPENDENCIES:
   - Firebase/Database
   - Firebase/Storage
   - HanekeSwift (from `https://github.com/jasonnoahchoi/HanekeSwift`, branch `swift3`)
-  - Pulley
   - SVProgressHUD
   - SwiftyCam
 
@@ -118,10 +116,9 @@ SPEC CHECKSUMS:
   HanekeSwift: 4113367892828e7700d24a384027de6ebc79aad1
   leveldb-library: 10fb39c39e243db4af1828441162405bbcec1404
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
-  Pulley: 31ea6b7e5704700f1c9e51ed6b0a49a773e2bfab
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   SwiftyCam: cb83b9a8e181f70fb741d30cea724c6b045a4549
 
-PODFILE CHECKSUM: 132aa615da22ebb27f117f5c3eff9aa336d401c3
+PODFILE CHECKSUM: 005deb59a9725a39cb8ab7e3287819e299c2ecc1
 
-COCOAPODS: 1.2.0
+COCOAPODS: 1.2.1.rc.1

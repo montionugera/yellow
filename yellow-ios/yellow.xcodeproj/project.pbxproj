@@ -378,8 +378,8 @@
 		CD7A89B61F4C2C55000966FE /* Post */ = {
 			isa = PBXGroup;
 			children = (
-				CD9765FD1F46B5D600A62917 /* VideoViewController.swift */,
 				CD9765FE1F46B5D600A62917 /* PhotoViewController.swift */,
+				CD9765FD1F46B5D600A62917 /* VideoViewController.swift */,
 				CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */,
 				CD7A89B71F4C2C79000966FE /* PostProfileViewController.swift */,
 				CD7A89B81F4C2C79000966FE /* PostProfileViewController.xib */,

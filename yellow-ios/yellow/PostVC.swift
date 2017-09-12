@@ -44,8 +44,8 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didTake photo: UIImage) {
-        let newVC = PhotoViewController(image: photo)
-        self.present(newVC, animated: true, completion: nil)
+//        let newVC = PhotoViewController(image: photo)
+//        self.present(newVC, animated: true, completion: nil)
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didBeginRecordingVideo camera: SwiftyCamViewController.CameraSelection) {
@@ -68,7 +68,9 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFinishProcessVideoAt url: URL) {
         let newVC = VideoViewController(videoURL: url)
-        self.present(newVC, animated: true, completion: nil)
+        let nc = UINavigationController(rootViewController: newVC)
+        newVC.navigationController?.navigationBar.isHidden = true
+        self.present(nc, animated: true, completion: nil)
     }
     
     func swiftyCam(_ swiftyCam: SwiftyCamViewController, didFocusAtPoint point: CGPoint) {

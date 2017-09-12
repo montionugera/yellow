@@ -24,40 +24,30 @@ class FeedListVC: BaseViewController {
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
     }
-    
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] , feedContents.count > 0 {
             // do something with your image
 
             if (feedContents.count == 1){
-                self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
+//                self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
             }
-
-            
             setTitleForm()
             setTopbarColor(feedContent: feedContents[0])
 
             self.feedContents = feedContents
             feed.reloadDataAdvance()
-            
-            
-            
         }
     }
-    
     func setTitleForm(){
         let date = Date()
         let calendar = Calendar.current
-        
         let hour = calendar.component(.hour, from: date)
         let minutes = calendar.component(.minute, from: date)
         let seconds = calendar.component(.second, from: date)
-        
         self.title_lb.text = "รอบๆตัวคุณตอนนี้ \(hour):\(minutes)"
     }
         
     func setTopbarColor(feedContent :FeedContent){
-        
         let emoString = feedContent.emo
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){
@@ -65,7 +55,6 @@ class FeedListVC: BaseViewController {
             self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID) 
             self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
         }
-        
     }
     
     deinit {
@@ -159,13 +148,10 @@ extension FeedListVC : FeedCollectionViewDelegate {
                     size: cell.img_userProfile.frame.size,
                     radius: cell.img_userProfile.frame.size.width/2
                 )
-//                    ,
-//                imageTransition: .crossDissolve(0.2)
+
             )
         }
-        
         cell.playerManager.prepare(urlPath: item.mediaURL )
-
         return cell
     }
     

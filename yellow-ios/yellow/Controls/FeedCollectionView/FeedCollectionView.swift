@@ -85,13 +85,13 @@ class FeedCollectionView: UICollectionView {
     var dataSourceFeedPrefetching : FeedDataSourcePrefetching?
     @IBInspectable
     var inset : CGFloat = 15
-
+    
     fileprivate var edgeInset : UIEdgeInsets{ get{ return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset) }}
-
+    
     var numberOfItems : Int = 0
     var atLeastNumberofItemToBeginFetchMore = 4
     var enableFetching = true
-    var bottomInset : CGFloat = 5 {
+    var bottomInset : CGFloat = 50 {
         didSet {
             self.contentInset.bottom = bottomInset
         }

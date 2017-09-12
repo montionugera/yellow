@@ -11,6 +11,7 @@ import UIKit
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int
     func feedNumberOfItemsInSection(_ collectionview : UICollectionView, numberOfItemsInSection section: Int) -> Int
     func feedCellForItem (collectionview : FeedCollectionView,at indexPath : IndexPath ) -> UICollectionViewCell
+    @objc optional func feed(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath)
     func feedFetchMoreDataOnScrollDown()
     func feedFetchMoreDataOnPulling()
     func feedRefresh()
@@ -19,6 +20,10 @@ import UIKit
 protocol FeedTargetHitDelegate {
     func feedHitPoint(cell : UICollectionViewCell)
     func feedPassPoint(cell : UICollectionViewCell)
+}
+protocol FeedDataSourcePrefetching {
+    func feed(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath])
+    func feed(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath])
 }
 @objc protocol FeedCollectionViewDelegateFlowLayout {
     @objc func feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout,contentRemainingSize : CGSize , sizeForItemAt indexPath: IndexPath) -> CGSize
@@ -56,9 +61,19 @@ extension FeedCollectionView : UICollectionViewDataSource,UICollectionViewDelega
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return edgeInset
     }
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        delegateFeed.feed?(collectionView, willDisplay: cell, forItemAt: indexPath)
+    }
 }
-
-
+@available(iOS 10, *)
+extension FeedCollectionView : UICollectionViewDataSourcePrefetching {
+    func collectionView(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        dataSourceFeedPrefetching?.feed(collectionView, prefetchItemsAt: indexPaths)
+    }
+    func collectionView(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        dataSourceFeedPrefetching?.feed(collectionView, cancelPrefetchingForItemsAt: indexPaths)
+    }
+}
 @IBDesignable
 class FeedCollectionView: UICollectionView {
     @IBInspectable
@@ -67,13 +82,12 @@ class FeedCollectionView: UICollectionView {
     var delegateFeed : FeedCollectionViewDelegate!
     var delegateFeedLayout : FeedCollectionViewDelegateFlowLayout!
     var delegateFeedTarget : FeedTargetHitDelegate?
-    
-    
+    var dataSourceFeedPrefetching : FeedDataSourcePrefetching?
     @IBInspectable
     var inset : CGFloat = 15
-    
-    fileprivate var edgeInset : UIEdgeInsets{ get{ return UIEdgeInsets(top: inset + 20, left: inset, bottom: inset, right: inset) }}
-    
+
+    fileprivate var edgeInset : UIEdgeInsets{ get{ return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset) }}
+
     var numberOfItems : Int = 0
     var atLeastNumberofItemToBeginFetchMore = 4
     var enableFetching = true
@@ -92,9 +106,7 @@ class FeedCollectionView: UICollectionView {
     fileprivate let heightForViewLoadingAtBottom : CGFloat = 50
     fileprivate var isBeingFetched : Bool = false
     fileprivate var doesIntendToPullTheBottomForRefetchMoreData : Bool = false
-    
     fileprivate   var previousScrollViewOffset : CGFloat = 0
-    
     fileprivate var properHeightForViewLoadingAtBottom : CGFloat {
         get {
             return  heightForViewLoadingAtBottom - bottomInset <= 0 ? 0 :  heightForViewLoadingAtBottom - bottomInset
@@ -153,10 +165,14 @@ class FeedCollectionView: UICollectionView {
     func sharedInitilization()  {
         self.delegate = self
         self.dataSource = self
+        if #available(iOS 10, *) {
+            self.prefetchDataSource = self
+        }
+        
         viewLoadingAtBottom.backgroundColor = UIColor.clear
         viewLoadingAtBottom.addSubview(activityIndicator)
         self.addSubview(viewLoadingAtBottom)
-        if #available(iOS 10.0, *) {
+        if #available(iOS 10, *) {
             self.refreshControl = refreshFeedControl
         } else {
             self.addSubview(refreshFeedControl)
@@ -172,7 +188,6 @@ class FeedCollectionView: UICollectionView {
     }
     
     func shallFetchMore(_ indexPath : IndexPath){
-        //        print("shallFetchMore inner0 !isBeingFetched:\(!isBeingFetched) isScrollDown:\(isScrollDown) autoFetchingWhenScroll:\(autoFetchingWhenScroll) !shallStopFetchingMore:\(!shallStopFetchingMore)")
         if !isBeingFetched && isScrollDown && autoFetchingWhenScroll && !shallStopFetchingMore {
             //            print("shallFetchMore inner1 numberOfItems:\(numberOfItems) indexPathItem:\(indexPath.item)  \(numberOfItems - indexPath.item <= atLeastNumberofItemToBeginFetchMore) self.contentOffset.y:\(self.contentOffset.y) !isScrollViewPullingAtBottom:\(!isScrollViewPullingAtBottom)")
             if numberOfItems - indexPath.item <= atLeastNumberofItemToBeginFetchMore && self.contentOffset.y > 0
@@ -182,7 +197,6 @@ class FeedCollectionView: UICollectionView {
                 delegateFeed.feedFetchMoreDataOnScrollDown()
             }
         }
-        
     }
     func shallFetchMore(){
         //        print("shallFetchMoreInner0 !isBeingFetched:\(!isBeingFetched) isScrollDown:\(isScrollDown) autoFetchingWhenScroll:\(autoFetchingWhenScroll) !shallStopFetchingMore:\(!shallStopFetchingMore)")

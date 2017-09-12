@@ -177,7 +177,7 @@ class MappingPinEmo: NSObject {
         case 7:
             return UIColor(red: 144/255, green: 133/255, blue: 224/255, alpha: 1.0)
         default:
-            return UIColor(red: 255/255, green: 197/255, blue: 41/255, alpha: 1.0)
+            return UIColor(red: 255/255, green: 206/255, blue: 46/255, alpha: 1.0)
         }
         
     }

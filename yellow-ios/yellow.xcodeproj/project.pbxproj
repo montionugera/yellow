@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		512502831F6681C900E0665C /* Serailizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 512502821F6681C900E0665C /* Serailizable.swift */; };
 		514813551F580C27001EE830 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 514813541F580C27001EE830 /* CoreLocation.framework */; };
 		5152466A1F654B49002D7DB1 /* MappingPinEmo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 515246691F654B49002D7DB1 /* MappingPinEmo.swift */; };
 		5177D0E51F5EBE98000569AA /* FeedListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5177D0E31F5EBE98000569AA /* FeedListVC.swift */; };
@@ -84,6 +85,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		512502821F6681C900E0665C /* Serailizable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Serailizable.swift; path = yellow/Model/Serailizable.swift; sourceTree = "<group>"; };
 		514813541F580C27001EE830 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		515246691F654B49002D7DB1 /* MappingPinEmo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MappingPinEmo.swift; sourceTree = "<group>"; };
 		5177D0E31F5EBE98000569AA /* FeedListVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedListVC.swift; sourceTree = "<group>"; };
@@ -137,7 +139,7 @@
 		CD24F4C11F46D2F1001FBA86 /* VideoViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoViewController.xib; sourceTree = "<group>"; };
 		CD24F4C31F46D97A001FBA86 /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		CD24F4C41F46D97A001FBA86 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
-		CD3DB4731F45664D00A0F0F8 /* yellow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = yellow.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD3DB4731F45664D00A0F0F8 /* Yellow.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yellow.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD3DB4761F45664D00A0F0F8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CD3DB47B1F45664D00A0F0F8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -328,7 +330,7 @@
 		CD3DB4741F45664D00A0F0F8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CD3DB4731F45664D00A0F0F8 /* yellow.app */,
+				CD3DB4731F45664D00A0F0F8 /* Yellow.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -399,6 +401,7 @@
 		CDDC92401F4D2A7200A7EDE7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				512502821F6681C900E0665C /* Serailizable.swift */,
 				519B64531F5681FF008AB0EA /* FeedContent.swift */,
 				519B64511F5680EF008AB0EA /* FeedViewModel.swift */,
 				CDDC92411F4D2A9700A7EDE7 /* User.swift */,
@@ -435,7 +438,7 @@
 			);
 			name = yellow;
 			productName = yellow;
-			productReference = CD3DB4731F45664D00A0F0F8 /* yellow.app */;
+			productReference = CD3DB4731F45664D00A0F0F8 /* Yellow.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -590,6 +593,7 @@
 				BE108F771F65B75000EDA590 /* TopCurveFloatingView.swift in Sources */,
 				BE0443041F62849500A85AFC /* FeedCollectionView.swift in Sources */,
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
+				512502831F6681C900E0665C /* Serailizable.swift in Sources */,
 				5152466A1F654B49002D7DB1 /* MappingPinEmo.swift in Sources */,
 				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
 				51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */,
@@ -737,7 +741,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yellow;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -752,7 +756,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Yellow;
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

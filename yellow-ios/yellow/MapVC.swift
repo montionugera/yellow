@@ -30,7 +30,7 @@ class MapVC: UIViewController {
         // When zoom level is quite close to the pins, disable clustering in order to show individual pins and allow the user to interact with them via callouts.
         manager.zoomLevel = 20
         manager.minimumCountForCluster = 3
-        manager.shouldRemoveInvisibleAnnotations = true
+        manager.shouldRemoveInvisibleAnnotations = false
         
         mapView.showsUserLocation = true
         mapView.showsCompass = false
@@ -162,8 +162,18 @@ extension MapVC : CLLocationManagerDelegate {
 }
 
 extension MapVC : FeedViewModelDelegate {
-    func didFinishUpdate(indexPath: IndexPath, product: FeedContent) {
+    func didFinishUpdate(indexPath: IndexPath, feedContent: FeedContent) {
+        print("didFinishUpdate")
 
+        // update pin variable
+        if let i = self.manager.annotations.index(where: { ($0 as! CustomAnnotation).pinContent?.key == feedContent.key }) {
+            (self.manager.annotations[i] as! CustomAnnotation).pinContent = feedContent
+        }
+        
+        // update feed list display
+        let feedDataDict:[String: AnyObject] = ["FeedContent": feedContent as AnyObject]
+        // post a notification
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedLike"), object: nil, userInfo: feedDataDict)
     }
     
     func didAppendData(indexPath: IndexPath) {
@@ -230,7 +240,7 @@ extension MapVC : FeedViewModelDelegate {
         }
         
         self.manager.add(annotations)
-       // self.mapView.centerCoordinate = CLLocationCoordinate2D(latitude: 13.7426883 , longitude:100.5614013)
+        self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
         
 
         let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
@@ -349,9 +359,6 @@ extension MapVC: MKMapViewDelegate {
                     }
                 }
             }
-            
-            
-
             
             return view
         }
@@ -513,7 +520,7 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
             relatedBy: NSLayoutRelation.equal,
             toItem: self,
             attribute: NSLayoutAttribute.top,
-            multiplier: 1, constant: -5)
+            multiplier: 1, constant: -3)
         )
         
         // Center the badge horizontally in its container
@@ -536,18 +543,10 @@ extension MapVC: PulleyPrimaryContentControllerDelegate {
     
     func makeUIAdjustmentsForFullscreen(progress: CGFloat)
     {
-       // controlsContainer.alpha = 1.0 - progress
     }
     
     func drawerChangedDistanceFromBottom(drawer: PulleyViewController, distance: CGFloat)
     {
-        if distance <= 268.0
-        {
-            //temperatureLabelBottomConstraint.constant = distance + temperatureLabelBottomDistance
-        }
-        else
-        {
-           // temperatureLabelBottomConstraint.constant = 268.0 + temperatureLabelBottomDistance
-        }
+
     }
 }

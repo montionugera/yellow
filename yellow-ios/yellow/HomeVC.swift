@@ -51,6 +51,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
         
         
         */
+        
     }
     public func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool{
         if( viewController == postVC){
@@ -94,6 +95,9 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
             let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
             self.present(loginVC,animated: true,completion: nil)
         }
+        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        appDelegate.Alertlocation()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

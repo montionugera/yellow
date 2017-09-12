@@ -23,15 +23,15 @@ class FeedListVC: BaseViewController {
         feed.delegateFeedTarget = self
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedLike), name: NSNotification.Name(rawValue: "updateFeedLike"), object: nil)
     }
     
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] , feedContents.count > 0 {
-            
+
             let isUserLocation : Bool = notification.userInfo?["UserLocaton"] as! Bool
             let isFirse : Bool = notification.userInfo?["isFirse"] as! Bool
-            
-            
+
             if(isUserLocation == true){
                 setTitleForm()
             }
@@ -40,6 +40,18 @@ class FeedListVC: BaseViewController {
             }
             
             self.feedContents = feedContents
+            feed.reloadDataAdvance()
+        }
+    }
+    
+    func updateFeedLike(_ notification: NSNotification) {
+        if let feedContent = notification.userInfo?["FeedContent"] as? FeedContent {
+            
+            
+            if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
+                self.feedContents[i] = feedContent
+            }
+            
             feed.reloadDataAdvance()
         }
     }
@@ -71,7 +83,7 @@ class FeedListVC: BaseViewController {
                 colorID = "0"
             }
             
-            UIView.animate(withDuration: 0.5, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                self.view.alpha = 0.0
             }, completion: { (finish) in
                 
@@ -123,16 +135,18 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {
-        return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
+        return PulleyPosition.all
+        
     }
     
     func drawerPositionDidChange(drawer: PulleyViewController)
     {
-        //        tableView.isScrollEnabled = drawer.drawerPosition == .open
         
         if drawer.drawerPosition != .open
         {
-            //            searchBar.resignFirstResponder()
+            self.feed.isUserInteractionEnabled = false
+        }else{
+            self.feed.isUserInteractionEnabled = true
         }
     }
 }
@@ -143,10 +157,22 @@ extension FeedListVC : FeedTargetHitDelegate {
     }
     func feedPassPoint(cell: UICollectionViewCell) {
         let cell = cell as! FeedCell
-        cell.playerManager.pause()
+        cell.playerManager.play()
+    }
+}
+
+extension FeedListVC : FeedDataSourcePrefetching {
+    func feed(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        
+    }
+    func feed(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        
     }
 }
 extension FeedListVC : FeedCollectionViewDelegate {
+    func feed(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        
+    }
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int {
         return 1
     }
@@ -156,7 +182,9 @@ extension FeedListVC : FeedCollectionViewDelegate {
     func feedCellForItem(collectionview: FeedCollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
         let cell : FeedCell = collectionview.dequeueReusableCellAdvance(forIndexPath: indexPath)
         let item = feedContents[indexPath.item]
+        cell.feedContent = item
         cell.lb_userName.text = item.addedByUser
+        cell.lb_loveCount.text = "\(item.love)"
         cell.lb_title.text = item.postDesc
         cell.lb_time.text = timeAgoSinceDate(Date(timeIntervalSince1970: TimeInterval(item.postDttmInt)), currentDate: Date(), numericDates: true)
         cell.lb_location.text = item.place
@@ -174,6 +202,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
         }
         
         cell.playerManager.prepare(urlPath: item.mediaURL )
+
         return cell
     }
     

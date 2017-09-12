@@ -16,23 +16,28 @@ struct FeedContent {
     let addedByUserURL: String
     let emo: String
     let place: String
+    let love: Int
     let ref: DatabaseReference?
     var mediaURL: String
     var mediaType: String
     var lochash: String
     var postDttmInt: Double
+    var postDttmStr: String
+    
 
-    init(postDesc: String, addedByUser: String , addedByUserURL: String, mediaURL: String, emo: String, place: String, mediaType: String , lochash: String, postDttmInt: Double, key: String = "") {
+    init(postDesc: String, addedByUser: String , addedByUserURL: String, mediaURL: String, emo: String, love: Int, place: String, mediaType: String , lochash: String, postDttmInt: Double , postDttmStr: String, key: String = "") {
         self.key = key
         self.postDesc = postDesc
         self.addedByUser = addedByUser
         self.addedByUserURL = addedByUserURL
         self.emo = emo
+        self.love = love
         self.place = place
         self.mediaURL = mediaURL
         self.mediaType = mediaType
         self.lochash = lochash
         self.postDttmInt = postDttmInt
+        self.postDttmStr = postDttmStr
         self.ref = nil
     }
     
@@ -47,11 +52,13 @@ struct FeedContent {
             addedByUserURL = ""
         }
         emo = snapshotValue["emo"] as! String
+        love = snapshotValue["love"] as! Int
         place = snapshotValue["place"] as! String
         mediaURL = snapshotValue["mediaURL"] as! String
         mediaType = snapshotValue["mediaType"] as! String
         lochash = snapshotValue["lochash"] as! String
         postDttmInt = snapshotValue["postDttmInt"] as! Double
+        postDttmStr = snapshotValue["postDttmStr"] as! String
         ref = snapshot.ref
     }
     

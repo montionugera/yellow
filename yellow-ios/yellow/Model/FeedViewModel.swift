@@ -12,7 +12,7 @@ protocol FeedViewModelDelegate : class {
     func didAppendData(indexPath : IndexPath)
     func didFinishLoadDataOnInitilization()
     func didRemoveData(indexPath : IndexPath)
-    func didFinishUpdate(indexPath : IndexPath , product : FeedContent )
+    func didFinishUpdate(indexPath : IndexPath , feedContent : FeedContent )
 }
 class FeedViewModel: NSObject {
     var firebaseAPI : FirebaseAPI!
@@ -45,6 +45,31 @@ class FeedViewModel: NSObject {
             the.initialDataHasBeenLoaded = true
             the.delegate?.didFinishLoadDataOnInitilization()
         })
+        
+        firebaseAPI.storageRef.observe(.childChanged, with: {[weak self] (snapshot) in
+            guard let the = self else {
+                return
+            }
+            if the.initialDataHasBeenLoaded {
+                
+                guard let index = the.feedContents.index(where: { (f) -> Bool in
+                    f.key == snapshot.key
+                }) else {
+                    return
+                }
+                let value = snapshot.value as! Dictionary<String, AnyObject> // 2
+//                print("Edit\(value)")
+                
+                let feedContent = FeedContent(snapshot:snapshot)
+                
+                // update main variable
+                if let i = the.feedContents.index(where: { $0.key == feedContent.key }) {
+                    the.feedContents[i] = feedContent
+                }
+                
+                the.delegate?.didFinishUpdate(indexPath: IndexPath(item: index, section: 0), feedContent: feedContent)
+            }
+            }, withCancel: nil)
         
         self.observingOnStorageAdd()
     }

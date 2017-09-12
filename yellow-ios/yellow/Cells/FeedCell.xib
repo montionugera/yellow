@@ -108,8 +108,10 @@
             </constraints>
             <size key="customSize" width="377" height="507"/>
             <connections>
+                <outlet property="img_love" destination="CNh-QJ-Ab9" id="soo-Zd-TfK"/>
                 <outlet property="img_userProfile" destination="mtG-By-AIO" id="ZPn-5l-SEC"/>
                 <outlet property="lb_location" destination="COc-7L-7hj" id="Jeb-eV-edF"/>
+                <outlet property="lb_loveCount" destination="aVD-bX-I0o" id="cWH-hm-QCx"/>
                 <outlet property="lb_time" destination="SKf-Go-jfR" id="byH-0Q-byz"/>
                 <outlet property="lb_title" destination="kaf-Tb-kEE" id="ebp-br-fyc"/>
                 <outlet property="lb_userName" destination="hiG-eq-dnk" id="bsr-Lg-zND"/>

@@ -23,22 +23,40 @@ class FeedListVC: BaseViewController {
         feed.delegateFeedTarget = self
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedLike), name: NSNotification.Name(rawValue: "updateFeedLike"), object: nil)
     }
     func updateFeedList(_ notification: NSNotification) {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] , feedContents.count > 0 {
-            // do something with your image
+            let isUserLocation : Bool = notification.userInfo?["UserLocaton"] as! Bool
+            let isFirse : Bool = notification.userInfo?["isFirse"] as! Bool
 
-            if (feedContents.count == 1){
-//                self.test_lb.text = self.test_lb.text! + feedContents[0].postDesc
+            if(isUserLocation == true){
+                setTitleForm()
             }
-            setTitleForm()
-            setTopbarColor(feedContent: feedContents[0])
-
+            if(isFirse == false){
+                setTopbarColor(feedContent: feedContents[0],isUserLocation: isUserLocation)
+            }
+            
             self.feedContents = feedContents
             feed.reloadDataAdvance()
         }
     }
+    
+    func updateFeedLike(_ notification: NSNotification) {
+        if let feedContent = notification.userInfo?["FeedContent"] as? FeedContent {
+            
+            
+            if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
+                self.feedContents[i] = feedContent
+            }
+            
+            feed.reloadDataAdvance()
+
+        }
+    }
     func setTitleForm(){
+        self.title_lb.isHidden = true
+        
         let date = Date()
         let calendar = Calendar.current
         let hour = calendar.component(.hour, from: date)
@@ -47,13 +65,36 @@ class FeedListVC: BaseViewController {
         self.title_lb.text = "รอบๆตัวคุณตอนนี้ \(hour):\(minutes)"
     }
         
-    func setTopbarColor(feedContent :FeedContent){
+
+    func setTopbarColor(feedContent :FeedContent , isUserLocation : Bool){
+        if(isUserLocation == false){
+            self.title_lb.text = feedContent.postDesc
+        }
+        
         let emoString = feedContent.emo
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){
             var colorID = emoArray[0]
-            self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID) 
-            self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+
+            if(isUserLocation == true){
+                colorID = "0"
+            }
+            
+            UIView.animate(withDuration: 0.3, animations: {
+               self.view.alpha = 0.0
+            }, completion: { (finish) in
+                
+                self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
+                self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+                self.title_lb.isHidden = false
+                
+                UIView.animate(withDuration: 0.5, animations: {
+                    self.view.alpha = 1.0
+                }, completion: { (finish) in
+                    
+                })
+            })
+            
         }
     }
     
@@ -90,16 +131,18 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {
-        return PulleyPosition.all // You can specify the drawer positions you support. This is the same as: [.open, .partiallyRevealed, .collapsed, .closed]
+        return PulleyPosition.all
+        
     }
     
     func drawerPositionDidChange(drawer: PulleyViewController)
     {
-        //        tableView.isScrollEnabled = drawer.drawerPosition == .open
         
         if drawer.drawerPosition != .open
         {
-            //            searchBar.resignFirstResponder()
+            self.feed.isUserInteractionEnabled = false
+        }else{
+            self.feed.isUserInteractionEnabled = true
         }
     }
 }
@@ -135,8 +178,9 @@ extension FeedListVC : FeedCollectionViewDelegate {
     func feedCellForItem(collectionview: FeedCollectionView, at indexPath: IndexPath) -> UICollectionViewCell {
         let cell : FeedCell = collectionview.dequeueReusableCellAdvance(forIndexPath: indexPath)
         let item = feedContents[indexPath.item]
+        cell.feedContent = item
         cell.lb_userName.text = item.addedByUser
-
+        cell.lb_loveCount.text = "\(item.love)"
         cell.lb_title.text = item.postDesc
         cell.lb_time.text = timeAgoSinceDate(Date(timeIntervalSince1970: TimeInterval(item.postDttmInt)), currentDate: Date(), numericDates: true)
         cell.lb_location.text = item.place
@@ -244,20 +288,5 @@ extension FeedListVC : FeedCollectionViewDelegateFlowLayout {
         return 15
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

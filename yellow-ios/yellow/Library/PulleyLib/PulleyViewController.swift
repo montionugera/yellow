@@ -219,7 +219,7 @@ open class PulleyViewController: UIViewController {
     }
     
     /// The inset from the top of the view controller when fully open.
-    @IBInspectable public var topInset: CGFloat = 0.0 {
+    @IBInspectable public var topInset: CGFloat = 30.0 {
         didSet {
             if self.isViewLoaded
             {

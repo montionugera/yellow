@@ -31,9 +31,7 @@ class VideoViewController: UIViewController {
     private var videoURL: URL
     var player: AVPlayer?
     var playerController : AVPlayerViewController?
-    var postprofileController : PostProfileViewController?
     var requireLoadNewUI = false
-    @IBOutlet var postDetailContainerView: UIView!
     
     init(videoURL: URL) {
         self.videoURL = videoURL
@@ -53,9 +51,6 @@ class VideoViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if(requireLoadNewUI){
-            self.postprofileController = PostProfileViewController(nibName: "PostProfileViewController", bundle: nil)
-            self.postDetailContainerView.addSubview((self.postprofileController?.view)!)
-            self.view.backgroundColor = UIColor.gray
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()
             
@@ -63,24 +58,27 @@ class VideoViewController: UIViewController {
                 return
             }
             playerController!.showsPlaybackControls = false
-            
             playerController!.player = player!
             self.addChildViewController(playerController!)
             self.vdoContainerView.addSubview(playerController!.view)
-            playerController!.view.frame = view.frame
+            playerController!.view.frame = vdoContainerView.frame
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
             
-            let cancelButton = UIButton(frame: CGRect(x: 10.0, y: 10.0, width: 30.0, height: 30.0))
-            cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
-            cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
-            view.addSubview(cancelButton)
         }
         player?.play()
     }
     
-    @objc func cancel() {
+    @IBAction func cancel() {
         dismiss(animated: true, completion: nil)
+        //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
+    
+    @IBAction func nextVCT(_ sender: Any) {
+        
+        let postprofileController : PostProfileViewController = PostProfileViewController()
+        self.navigationController?.pushViewController(postprofileController, animated: true)
+    }
+    
     @IBAction func post(_ sender: Any) {
         //Post
         

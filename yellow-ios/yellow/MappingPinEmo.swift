@@ -39,6 +39,9 @@ class MappingPinEmo: NSObject {
         }
 
     }
+    
+    
+    
     func mappingEmo(colorID: String , emoID: String ) -> UIImage {
         let color_id = Int(colorID)!
         let emo_id = Int(emoID)!

@@ -28,7 +28,7 @@ class FeedCell: UICollectionViewCell {
     
     var firebaseAPI : FirebaseAPI!
     var feedContent : FeedContent!
-    
+    weak var operation : Operation?
     override func awakeFromNib() {
         super.awakeFromNib()
         sharedInitilization()
@@ -37,18 +37,17 @@ class FeedCell: UICollectionViewCell {
         self.layer.cornerRadius = 10
         playerManager.config.isReadyOnPlay = false
         self.addSubview(lb_indexPath)
-        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.ClickLove(_:)))
         self.img_love.isUserInteractionEnabled = true
         self.img_love.addGestureRecognizer(tapGesture)
-        
         firebaseAPI = FirebaseAPI()
     }
     override func prepareForReuse() {
         super.prepareForReuse()
         playerManager.releaseObserver()
+        operation?.cancel()
+        operation = nil
     }
-    
     @IBAction func ClickLove(_ sender: UITapGestureRecognizer) {
         if let fc = feedContent {
             self.lb_loveCount.text = "\(Int(self.lb_loveCount.text!)! + 1)"

@@ -41,7 +41,6 @@ class VideoViewController: UIViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,79 +60,30 @@ class VideoViewController: UIViewController {
             playerController!.player = player!
             self.addChildViewController(playerController!)
             self.vdoContainerView.addSubview(playerController!.view)
-            playerController!.view.frame = vdoContainerView.frame
+//            playerController!.view.frame = CGRect(x: 0, y: 0, width: vdoContainerView.bounds.size.width, height: vdoContainerView.bounds.size.height)
+            
+            playerController!.view.frame = CGRect(x: 0, y: (vdoContainerView.bounds.size.height/2 - view.bounds.size.height/2), width: view.bounds.size.width, height: view.bounds.size.height)
+            
+//            playerController!.view.frame = view.frame
+            //playerController!.view.alpha = 0.3
+//            playerController?.view.center = self.vdoContainerView.center
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
             
+           
         }
         player?.play()
     }
     
     @IBAction func cancel() {
+        player?.pause()
         dismiss(animated: true, completion: nil)
         //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @IBAction func nextVCT(_ sender: Any) {
-        
-        let postprofileController : PostProfileViewController = PostProfileViewController()
+        player?.pause()
+        let postprofileController : PostProfileViewController = PostProfileViewController(videoURL: self.videoURL)
         self.navigationController?.pushViewController(postprofileController, animated: true)
-    }
-    
-    @IBAction func post(_ sender: Any) {
-        //Post
-        
-        let user = Auth.auth().currentUser!
-        let fileExt = self.videoURL.pathExtension
-        
-        //// Upload Media
-        // Create a root reference// Get a reference to the storage service using the default Firebase App
-        let storage = Storage.storage()
-        // Create a storage reference from our storage service
-        let storageRef = storage.reference()
-        // Create a reference to "uid"
-        let uid = UUID().uuidString
-        let mediaRef = storageRef.child("media/"+user.uid+"/"+uid+"."+fileExt)
-        // Upload the file to the path "images/dummy.mov"
-        let _ = mediaRef.putFile(from:self.videoURL, metadata: nil) { (metadata, error) in
-            guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
-                return
-            }
-            // Metadata contains file metadata such as size, content-type, and download URL.
-            var ref: DatabaseReference!
-            
-            ref = Database.database().reference()
-            let postDesc = "ข้างหน้าเป็นยังไงบ้างครับ ติดมากไหม"
-            let addedByUser = UserModel.currentUser.user_name
-            let addedByUserURL = UserModel.currentUser.user_profile
-            let mediaType = fileExt
-            let mediaURL = metadata.downloadURL()!.absoluteString
-            let love = 0
-            
-            
-            if let cc = currentLocationYellow {
-                let lochash = Geohash.encode(latitude: cc.coordinate.latitude, longitude: cc.coordinate.longitude, length: 10)
-                let postData = ["postDesc":postDesc,
-                                "addedByUser":addedByUser ?? "",
-                                "addedByUserURL":addedByUserURL ?? "",
-                                "mediaType":mediaType,
-                                "mediaURL":mediaURL,
-                                "love":love,
-                                "emo": "4,2",
-                                "place": "",
-                                "postDttmInt": Date().timeIntervalSince1970,
-                                "postDttmStr": getStandardAppDateString(dttm: Date()),
-                                "lochash":lochash] as [String : Any]
-                
-                let postRef = ref.child("posts")
-                let newPostRef = postRef.childByAutoId()
-                newPostRef.setValue(postData)
-            }
-        }
-        
-        
-        // move to rootView
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {

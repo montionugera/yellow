@@ -7,7 +7,7 @@ target 'yellow' do
 
   # Pods for yellow
   pod 'SwiftyCam'
-  
+  pod 'IHKeyboardAvoiding'
   pod 'Alamofire', '~> 4.5'
   pod 'AlamofireImage', '~> 3.2'
   pod 'SVProgressHUD'
@@ -25,4 +25,5 @@ target 'yellow' do
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
+  pod 'Firebase/Analytics'
 end

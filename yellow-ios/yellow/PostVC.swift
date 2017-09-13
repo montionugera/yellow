@@ -11,8 +11,6 @@ import SwiftyCam
 
 class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCamButtonDelegate {
     
-    
-    
     var flipCameraButton: UIButton!
     var flashButton: UIButton!
     var captureButton: SwiftyRecordButton!
@@ -32,6 +30,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     override var prefersStatusBarHidden: Bool {
         return true
     }
+    
     @objc func cancel() {
         dismiss(animated: true, completion: nil)
     }
@@ -115,7 +114,7 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     }
     
     private func addButtons() {
-        let cancelButton = UIButton(frame: CGRect(x: view.frame.width-30.0-15.0, y: 10.0, width: 30.0, height: 30.0))
+        let cancelButton = UIButton(frame: CGRect(x: 15.0, y: 15.0, width: 40.0, height: 40.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         view.addSubview(cancelButton)

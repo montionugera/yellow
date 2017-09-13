@@ -454,6 +454,7 @@
 					CD3DB4721F45664D00A0F0F8 = {
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = JGZC6Q8Q3Y;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -736,12 +737,15 @@
 			baseConfigurationReference = 874C4C8BCE9AABE422E6070C /* Pods-yellow.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
@@ -751,12 +755,14 @@
 			baseConfigurationReference = AFE0ACB1925F02142F6B8BAE /* Pods-yellow.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = JGZC6Q8Q3Y;
 				INFOPLIST_FILE = yellow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
+				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

@@ -20,7 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UserModel.currentUser.getAsDatabase(completionHandler: {
         
         FirebaseApp.configure()
-        
+        AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
+            
         self.window = UIWindow(frame: UIScreen.main.bounds)
         let homeViewController = HomeVC()
 //            let homeViewController = PostVC()
@@ -32,7 +33,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window!.rootViewController = homeViewController
             
         self.window!.makeKeyAndVisible()
-            
+        
+        
         })
         
         

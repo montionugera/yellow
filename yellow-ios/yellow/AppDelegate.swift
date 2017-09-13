@@ -18,16 +18,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserModel.currentUser.getAsDatabase(completionHandler: {
-            FirebaseApp.configure()
-            self.window = UIWindow(frame: UIScreen.main.bounds)
-            let homeViewController = HomeVC()
-            //let homeViewController = PostVC()
-            homeViewController.view.backgroundColor = UIColor.red
+        
+        FirebaseApp.configure()
+        AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
             
-            //setup facebook
-            self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
-            self.window!.rootViewController = homeViewController
-            self.window!.makeKeyAndVisible()
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        let homeViewController = HomeVC()
+//            let homeViewController = PostVC()
+        homeViewController.view.backgroundColor = UIColor.red
+        
+        // setup facebook
+        self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
+        
+        self.window!.rootViewController = homeViewController
+            
+        self.window!.makeKeyAndVisible()
+        
+    
         })
         //        self.window = UIWindow(frame: UIScreen.main.bounds)
         //        let secondVc = SecondViewController(nibName: "SecondViewController", bundle: nil)

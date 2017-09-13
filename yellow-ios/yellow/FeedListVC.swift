@@ -49,9 +49,12 @@ class FeedListVC: BaseViewController {
             if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
                 self.feedContents[i] = feedContent
                 let indexPath = IndexPath(item: i, section: 0)
-                if let cell : FeedCell? =  feed.cellForItemAdvance(indexPath: indexPath)  {
+//                if let cell : FeedCell = feed.cellForItemAdvance(indexPath: indexPath) as? FeedCell {
                     // update cell
-                }
+                    if let ff = feed {
+                        ff.reloadItems(at: [indexPath])
+                    }
+//                }
             }
         }
     }
@@ -86,7 +89,7 @@ class FeedListVC: BaseViewController {
             }, completion: { (finish) in
                 
                 self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
-                self.feed.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+                self.backgroundViewUnderFeedView.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
                 self.title_lb.isHidden = false
                 
                 UIView.animate(withDuration: 0.5, animations: {

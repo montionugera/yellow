@@ -8,6 +8,11 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThaiSansNeue-UltraLight.ttf">
+            <string>ThaiSansNeue-UltraLight</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoViewController" customModule="Yellow" customModuleProvider="target">
             <connections>
@@ -20,25 +25,32 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGQ-to-f6D">
-                    <rect key="frame" x="0.0" y="17.5" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGQ-to-f6D">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="K5P-Rt-NAK"/>
+                        <constraint firstAttribute="height" constant="60" id="RmK-TV-fqq"/>
+                    </constraints>
                     <state key="normal" image="icoClose"/>
                     <connections>
                         <action selector="cancel" destination="-1" eventType="touchUpInside" id="k15-kn-HDp"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-rw-toN">
-                    <rect key="frame" x="345" y="20" width="30" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-rw-toN">
+                    <rect key="frame" x="314" y="0.0" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="F0E-oQ-JYg"/>
+                        <constraint firstAttribute="height" constant="60" id="MHv-9S-saS"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="ThaiSansNeue-UltraLight" family="ThaiSans Neue" pointSize="30"/>
                     <state key="normal" title="next">
-                        <color key="titleColor" red="0.1215686277" green="0.01176470611" blue="0.42352941630000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <connections>
                         <action selector="nextVCT:" destination="-1" eventType="touchUpInside" id="Dpp-JK-wHg"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-kY-r5Q" userLabel="vdoContainer">
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-kY-r5Q" userLabel="vdoContainer">
                     <rect key="frame" x="0.0" y="72" width="375" height="377"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.90980392160000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
@@ -48,8 +60,12 @@
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="gyq-rw-toN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Eu-18-F6L"/>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QUj-5W-gak"/>
+                <constraint firstAttribute="trailing" secondItem="gyq-rw-toN" secondAttribute="trailing" constant="1" id="az8-Sz-JKs"/>
                 <constraint firstAttribute="trailing" secondItem="jz0-kY-r5Q" secondAttribute="trailing" id="i3S-EU-NFE"/>
+                <constraint firstItem="YGQ-to-f6D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lcp-g9-n4F"/>
+                <constraint firstItem="YGQ-to-f6D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mEX-yI-bue"/>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="rX1-CZ-QI3"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>

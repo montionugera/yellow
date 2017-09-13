@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedCell: UICollectionViewCell {
     
@@ -51,6 +52,14 @@ class FeedCell: UICollectionViewCell {
         if let fc = feedContent {
             self.lb_loveCount.text = "\(Int(self.lb_loveCount.text!)! + 1)"
             self.firebaseAPI.update(feedContent: fc)
+            
+            Analytics.logEvent("share_image", parameters: [
+                "name": "AAAA" as NSObject,
+                "full_text": "BBB" as NSObject
+                ])
+            
+
+            
         }
     }
 }

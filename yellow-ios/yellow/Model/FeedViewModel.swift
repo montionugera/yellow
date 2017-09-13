@@ -9,7 +9,7 @@ import UIKit
 import FirebaseDatabase
 
 protocol FeedViewModelDelegate : class {
-    func didAppendData(indexPath : IndexPath)
+    func didAppendData(indexPath : IndexPath , feedContent: FeedContent)
     func didFinishLoadDataOnInitilization()
     func didRemoveData(indexPath : IndexPath)
     func didFinishUpdate(indexPath : IndexPath , feedContent : FeedContent )
@@ -88,7 +88,7 @@ class FeedViewModel: NSObject {
                 // sort date time
                 the.feedContents.sort { $0.postDttmInt > $1.postDttmInt }
                 
-                the.delegate?.didAppendData(indexPath: IndexPath(item: the.feedContents.count - 1 , section: 0))
+                the.delegate?.didAppendData(indexPath: IndexPath(item: the.feedContents.count - 1 , section: 0) , feedContent: feedContent)
             }
         })
     }

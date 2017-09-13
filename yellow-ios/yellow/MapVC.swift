@@ -12,6 +12,7 @@ import Cluster
 import FirebaseDatabase
 import CoreLocation
 import AlamofireImage
+import Firebase
 class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
@@ -178,11 +179,11 @@ extension MapVC : FeedViewModelDelegate {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedLike"), object: nil, userInfo: feedDataDict)
     }
     
-    func didAppendData(indexPath: IndexPath) {
-  
-        if let pinContent = self.feedViewModel.feedContents[indexPath.row] as? FeedContent , self.feedViewModel.feedContents.count > 0{
+    func didAppendData(indexPath: IndexPath , feedContent: FeedContent) {
+        let pinContent = feedContent
+        if (pinContent != nil) {
             
-            let dd = CLLocationCoordinate2D(geohash: pinContent.lochash)
+            let dd = CLLocationCoordinate2D(geohash: feedContent.lochash)
             //var feedContents : [FeedContent] = [FeedContent]()
             
             //            pinContent.
@@ -411,6 +412,13 @@ extension MapVC: MKMapViewDelegate {
         // post a notification
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedList"), object: nil, userInfo: feedDataDict)
         
+        
+        
+        Analytics.logEvent(AnalyticsEventSelectContent, parameters: [
+            AnalyticsParameterItemID: "id-1234" as NSObject,
+            AnalyticsParameterItemName: "323" as NSObject,
+            AnalyticsParameterContentType: "cont" as NSObject
+            ])
         
     }
     

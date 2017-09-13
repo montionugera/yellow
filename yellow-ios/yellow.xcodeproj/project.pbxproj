@@ -52,6 +52,11 @@
 		BE04430A1F6284CD00A85AFC /* FeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE0443081F6284CD00A85AFC /* FeedCell.swift */; };
 		BE04430B1F6284CD00A85AFC /* FeedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE0443091F6284CD00A85AFC /* FeedCell.xib */; };
 		BE108F771F65B75000EDA590 /* TopCurveFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */; };
+		BE170D031F67F7F200CF6D20 /* FeedOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D021F67F7F200CF6D20 /* FeedOperation.swift */; };
+		BE170D061F68355600CF6D20 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D051F68355600CF6D20 /* SecondViewController.swift */; };
+		BE170D081F68357C00CF6D20 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D071F68357C00CF6D20 /* SecondViewModel.swift */; };
+		BE170D0A1F6835A500CF6D20 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE170D091F6835A500CF6D20 /* SecondViewController.xib */; };
+		BE170D0C1F68363300CF6D20 /* FeedItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */; };
 		CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */; };
 		CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD9765FD1F46B5D600A62917 /* VideoViewController.swift */; };
 		CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */; };
@@ -133,6 +138,11 @@
 		BE0443081F6284CD00A85AFC /* FeedCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedCell.swift; sourceTree = "<group>"; };
 		BE0443091F6284CD00A85AFC /* FeedCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeedCell.xib; sourceTree = "<group>"; };
 		BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCurveFloatingView.swift; sourceTree = "<group>"; };
+		BE170D021F67F7F200CF6D20 /* FeedOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedOperation.swift; sourceTree = "<group>"; };
+		BE170D051F68355600CF6D20 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		BE170D071F68357C00CF6D20 /* SecondViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
+		BE170D091F6835A500CF6D20 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemModel.swift; sourceTree = "<group>"; };
 		CD06B6411F4EB10E00FD0C51 /* SwiftyRecordButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyRecordButton.swift; sourceTree = "<group>"; };
 		CD1383401F53AAE300CB049E /* SwiftyCamButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftyCamButton.swift; sourceTree = "<group>"; };
 		CD1383431F53BD3500CB049E /* StringUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StringUtils.swift; sourceTree = "<group>"; };
@@ -275,6 +285,7 @@
 			isa = PBXGroup;
 			children = (
 				BE0443031F62849500A85AFC /* FeedCollectionView.swift */,
+				BE170D021F67F7F200CF6D20 /* FeedOperation.swift */,
 			);
 			path = FeedCollectionView;
 			sourceTree = "<group>";
@@ -302,6 +313,17 @@
 				BE108F761F65B75000EDA590 /* TopCurveFloatingView.swift */,
 			);
 			path = CustomUI;
+			sourceTree = "<group>";
+		};
+		BE170D041F6834FA00CF6D20 /* ControlsTester */ = {
+			isa = PBXGroup;
+			children = (
+				BE170D051F68355600CF6D20 /* SecondViewController.swift */,
+				BE170D071F68357C00CF6D20 /* SecondViewModel.swift */,
+				BE170D091F6835A500CF6D20 /* SecondViewController.xib */,
+				BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */,
+			);
+			path = ControlsTester;
 			sourceTree = "<group>";
 		};
 		CD1383421F53BD1D00CB049E /* Utils */ = {
@@ -338,6 +360,7 @@
 		CD3DB4751F45664D00A0F0F8 /* yellow */ = {
 			isa = PBXGroup;
 			children = (
+				BE170D041F6834FA00CF6D20 /* ControlsTester */,
 				BE108F751F65B72900EDA590 /* CustomUI */,
 				BE0443071F6284B500A85AFC /* Cells */,
 				BE0443001F6279FB00A85AFC /* Controls */,
@@ -513,6 +536,7 @@
 				51C728411F6265DC0058596F /* ThaiSansNeue-Italic.ttf in Resources */,
 				51C7283B1F6265DC0058596F /* ThaiSansNeue-Bold.ttf in Resources */,
 				51C728431F6265DC0058596F /* ThaiSansNeue-LightItalic.ttf in Resources */,
+				BE170D0A1F6835A500CF6D20 /* SecondViewController.xib in Resources */,
 				CD24F4C21F46D2F1001FBA86 /* VideoViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -587,6 +611,8 @@
 				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
 				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */,
+				BE170D061F68355600CF6D20 /* SecondViewController.swift in Sources */,
+				BE170D0C1F68363300CF6D20 /* FeedItemModel.swift in Sources */,
 				CD1383441F53BD3500CB049E /* StringUtils.swift in Sources */,
 				51B8CABD1F46B0E800E701A1 /* Utility_AkeKit.swift in Sources */,
 				CD571ED71F45837400ECB9C8 /* MapVC.swift in Sources */,
@@ -605,11 +631,13 @@
 				CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */,
 				CD81792E1F529248007BDD60 /* PostDummyVC.swift in Sources */,
 				51AC91781F61585C00605510 /* BadgeSwift.swift in Sources */,
+				BE170D031F67F7F200CF6D20 /* FeedOperation.swift in Sources */,
 				BE0443061F62849C00A85AFC /* AVPlayerManager.swift in Sources */,
 				519B64541F5681FF008AB0EA /* FeedContent.swift in Sources */,
 				CD9766011F46B5D600A62917 /* PhotoViewController.swift in Sources */,
 				51AC917A1F615DA700605510 /* DataConfig.swift in Sources */,
 				51B8CABB1F46B0AF00E701A1 /* UserModel.swift in Sources */,
+				BE170D081F68357C00CF6D20 /* SecondViewModel.swift in Sources */,
 				51B8CAB41F46A72B00E701A1 /* Geohash.swift in Sources */,
 				CDDC92421F4D2A9700A7EDE7 /* User.swift in Sources */,
 				51DFD48D1F5E9F49008D1A16 /* CustomAnnotation.swift in Sources */,

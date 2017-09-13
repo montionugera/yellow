@@ -18,4 +18,6 @@ func SYSTEM_VERSION_LESS_THAN(version: String) -> Bool {
                                                           options:  String.CompareOptions.numeric) == ComparisonResult.orderedAscending
     
 }
-
+func printTyler ( _ s : Any?){
+    print("tylerDebug " + String(describing: s) )
+}

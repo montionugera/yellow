@@ -11,6 +11,7 @@ import AlamofireImage
 
 class FeedListVC: BaseViewController {
     
+    @IBOutlet weak var backgroundViewUnderFeedView: UIView!
     @IBOutlet weak var feed: FeedCollectionView!
     @IBOutlet weak var title_lb: UILabel!
     @IBOutlet weak var topbar_bg: UIImageView!
@@ -21,6 +22,7 @@ class FeedListVC: BaseViewController {
         feed.delegateFeed = self
         feed.delegateFeedLayout = self
         feed.delegateFeedTarget = self
+        feed.dataSourceFeedPrefetching = self
         // Do any additional setup after loading the view.
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedList), name: NSNotification.Name(rawValue: "updateFeedList"), object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(FeedListVC.updateFeedLike), name: NSNotification.Name(rawValue: "updateFeedLike"), object: nil)
@@ -29,7 +31,7 @@ class FeedListVC: BaseViewController {
         if let feedContents = notification.userInfo?["FeedContents"] as? [FeedContent] , feedContents.count > 0 {
             let isUserLocation : Bool = notification.userInfo?["UserLocaton"] as! Bool
             let isFirse : Bool = notification.userInfo?["isFirse"] as! Bool
-
+            
             if(isUserLocation == true){
                 setTitleForm()
             }
@@ -44,14 +46,13 @@ class FeedListVC: BaseViewController {
     
     func updateFeedLike(_ notification: NSNotification) {
         if let feedContent = notification.userInfo?["FeedContent"] as? FeedContent {
-            
-            
             if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
                 self.feedContents[i] = feedContent
+                let indexPath = IndexPath(item: i, section: 0)
+                if let cell : FeedCell? =  feed.cellForItemAdvance(indexPath: indexPath)  {
+                    // update cell
+                }
             }
-            
-            feed.reloadDataAdvance()
-
         }
     }
     func setTitleForm(){
@@ -64,8 +65,8 @@ class FeedListVC: BaseViewController {
         let seconds = calendar.component(.second, from: date)
         self.title_lb.text = "รอบๆตัวคุณตอนนี้ \(hour):\(minutes)"
     }
-        
-
+    
+    
     func setTopbarColor(feedContent :FeedContent , isUserLocation : Bool){
         if(isUserLocation == false){
             self.title_lb.text = feedContent.postDesc
@@ -75,13 +76,13 @@ class FeedListVC: BaseViewController {
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){
             var colorID = emoArray[0]
-
+            
             if(isUserLocation == true){
                 colorID = "0"
             }
             
             UIView.animate(withDuration: 0.3, animations: {
-               self.view.alpha = 0.0
+                self.view.alpha = 0.0
             }, completion: { (finish) in
                 
                 self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
@@ -147,27 +148,47 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     }
 }
 extension FeedListVC : FeedTargetHitDelegate {
-    func feedHitPoint(cell: UICollectionViewCell) {
-        let cell = cell as! FeedCell
-        cell.playerManager.play()
+    func feedHitPoint(collectionView: FeedCollectionView, at indexPath: IndexPath) {
+        if let targetCell = collectionView.cellForItemAdvance(indexPath: indexPath) as? FeedCell {
+            targetCell.playerManager.play()
+            let anotherCells =  collectionView.visibleCells.filter { (cell) -> Bool in
+                cell != targetCell
+                } as? [FeedCell]
+            if let cells = anotherCells , cells.count > 0 {
+                for item in cells  {
+                    item.playerManager.pause()
+                }
+            }
+        }
     }
-    func feedPassPoint(cell: UICollectionViewCell) {
-        let cell = cell as! FeedCell
-        cell.playerManager.play()
-    }
+    
+    //    func feedHitPoint(cell: UICollectionViewCell) {
+    //        let cell = cell as! FeedCell
+    //        cell.playerManager.play()
+    //    }
+    //    func feedPassPoint(cell: UICollectionViewCell) {
+    //        let cell = cell as! FeedCell
+    //        cell.playerManager.play()
+    //    }
 }
 
 extension FeedListVC : FeedDataSourcePrefetching {
-    func feed(_ collectionView: UICollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
-        
+    func feed(_ collectionView: FeedCollectionView, prefetchItemsAt indexPaths: [IndexPath]) {
+        for i in indexPaths {
+            
+        }
     }
-    func feed(_ collectionView: UICollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
-        
+    func feed(_ collectionView: FeedCollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
+        for i in indexPaths {
+
+        }
     }
 }
 extension FeedListVC : FeedCollectionViewDelegate {
-    func feed(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        
+    func feed(_ collectionView: FeedCollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        let feedCell = cell as! FeedCell
+        feedCell.playerManager.pause()
+        feedCell.operation?.cancel()
     }
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int {
         return 1
@@ -187,19 +208,20 @@ extension FeedListVC : FeedCollectionViewDelegate {
         if item.addedByUserURL.characters.count > 0 {
             cell.img_userProfile.af_setImage(
                 withURL: URL(string: item.addedByUserURL)!,
-                placeholderImage:  nil, //UIImage(named: "user_profile")
+                placeholderImage:  nil,
                 filter: AspectScaledToFillSizeWithRoundedCornersFilter(
                     size: cell.img_userProfile.frame.size,
                     radius: cell.img_userProfile.frame.size.width/2
                 )
-
             )
         }
-        cell.playerManager.prepare(urlPath: item.mediaURL )
+        let operation = BlockOperation {
+            cell.playerManager.prepare(urlPath: item.mediaURL)
+        }
+        cell.operation = operation
+        collectionview.queueLoadMedia.addOperation(operation)
         return cell
     }
-    
-    
     func timeAgoSinceDate(_ date:Date,currentDate:Date, numericDates:Bool) -> String {
         let calendar = Calendar.current
         let now = currentDate
@@ -265,7 +287,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
     
     
     func feedFetchMoreDataOnScrollDown(){
-        //        self.feed.doneFetching(isAnimiated: true, shallStopFetching: true, completion: nil)
+        self.feed.doneFetching(isAnimiated: false, shallStopFetching: true, completion: nil)
     }
     func feedFetchMoreDataOnPulling(){
         
@@ -279,7 +301,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
 }
 extension FeedListVC : FeedCollectionViewDelegateFlowLayout {
     func feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, contentRemainingSize: CGSize, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: contentRemainingSize.width, height: contentRemainingSize.height / 1.2)
+        return CGSize(width: contentRemainingSize.width, height: contentRemainingSize.height * 1.1 )
     }
     func  feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 15

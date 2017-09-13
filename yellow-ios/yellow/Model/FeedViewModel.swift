@@ -29,9 +29,11 @@ class FeedViewModel: NSObject {
                 return
             }
             for item in snapshot.children {
+                
                 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
                 
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
+
 //                if(self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false){
                     the.feedContents.append(feedContent)
 //                }

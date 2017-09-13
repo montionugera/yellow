@@ -14,9 +14,10 @@
         </array>
     </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedListVC" customModule="yellow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeedListVC" customModule="Yellow" customModuleProvider="target">
             <connections>
-                <outlet property="feed" destination="43H-MU-wCC" id="qIo-FX-2RL"/>
+                <outlet property="backgroundViewUnderFeedView" destination="yqu-bz-c7M" id="J7m-8Q-Jt0"/>
+                <outlet property="feed" destination="VHU-Ym-5Pl" id="2tB-nn-Bfa"/>
                 <outlet property="title_lb" destination="jo4-5b-KdC" id="8Xf-DV-BEi"/>
                 <outlet property="topbar_bg" destination="RYR-Q8-sw6" id="A0j-Z5-Oah"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,16 +28,6 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <collectionView opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="43H-MU-wCC" customClass="FeedCollectionView" customModule="yellow" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="57" width="375" height="610"/>
-                    <color key="backgroundColor" red="1" green="0.77254901960784317" blue="0.16078431372549018" alpha="1" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3Pl-QK-gh7">
-                        <size key="itemSize" width="50" height="50"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0P5-Ex-M8r">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="57"/>
                     <subviews>
@@ -67,18 +58,45 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yqu-bz-c7M">
+                    <rect key="frame" x="0.0" y="56" width="375" height="611"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="VHU-Ym-5Pl" customClass="FeedCollectionView" customModule="Yellow" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="20" width="375" height="591"/>
+                            <color key="backgroundColor" red="0.96948814390000004" green="0.81535047289999996" blue="0.32530337570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3VA-0E-KTF">
+                                <size key="itemSize" width="50" height="50"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="enableFetching" value="NO"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="insetBottom">
+                                    <real key="value" value="100"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" red="0.96948814390000004" green="0.81535047289999996" blue="0.32530337570000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    <constraints>
+                        <constraint firstItem="VHU-Ym-5Pl" firstAttribute="top" secondItem="yqu-bz-c7M" secondAttribute="top" constant="20" id="1kw-bS-zNl"/>
+                        <constraint firstItem="VHU-Ym-5Pl" firstAttribute="leading" secondItem="yqu-bz-c7M" secondAttribute="leading" id="GhF-I1-WWx"/>
+                        <constraint firstAttribute="trailing" secondItem="VHU-Ym-5Pl" secondAttribute="trailing" id="QPq-Nh-KTI"/>
+                        <constraint firstAttribute="bottom" secondItem="VHU-Ym-5Pl" secondAttribute="bottom" id="ecc-rH-Uf3"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="0P5-Ex-M8r" secondAttribute="trailing" id="3vZ-LI-FDe"/>
-                <constraint firstAttribute="trailing" secondItem="43H-MU-wCC" secondAttribute="trailing" id="7rI-sc-qPV"/>
+                <constraint firstAttribute="trailing" secondItem="yqu-bz-c7M" secondAttribute="trailing" id="6F9-io-ZKi"/>
+                <constraint firstItem="yqu-bz-c7M" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" constant="-1" id="9aQ-sf-xch"/>
                 <constraint firstItem="0P5-Ex-M8r" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9ve-jV-7Ie"/>
                 <constraint firstItem="jo4-5b-KdC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="78" id="CNO-XS-KIj"/>
+                <constraint firstAttribute="bottom" secondItem="yqu-bz-c7M" secondAttribute="bottom" id="Cnm-1U-LfL"/>
                 <constraint firstItem="jo4-5b-KdC" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" constant="-20" id="E7g-Bj-3z8"/>
+                <constraint firstItem="yqu-bz-c7M" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="IoI-ro-eKt"/>
                 <constraint firstItem="0P5-Ex-M8r" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="VFM-1v-iAd"/>
-                <constraint firstAttribute="bottom" secondItem="43H-MU-wCC" secondAttribute="bottom" id="c6b-a3-gnZ"/>
-                <constraint firstItem="43H-MU-wCC" firstAttribute="top" secondItem="0P5-Ex-M8r" secondAttribute="bottom" id="df4-Mm-g3o"/>
-                <constraint firstItem="43H-MU-wCC" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="sVi-2w-QZt"/>
                 <constraint firstAttribute="trailing" secondItem="jo4-5b-KdC" secondAttribute="trailing" constant="78" id="wjK-mG-eC5"/>
             </constraints>
             <point key="canvasLocation" x="9.5" y="76.5"/>

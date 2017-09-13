@@ -166,9 +166,11 @@ extension MapVC : FeedViewModelDelegate {
         print("didFinishUpdate")
 
         // update pin variable
-        if let i = self.manager.annotations.index(where: { ($0 as! CustomAnnotation).pinContent?.key == feedContent.key }) {
-            (self.manager.annotations[i] as! CustomAnnotation).pinContent = feedContent
-        }
+//        if let i = self.manager.annotations.index(where: { ($0 as! CustomAnnotation).pinContent?.key == feedContent.key }) {
+//            (self.manager.annotations[i] as! CustomAnnotation).pinContent = feedContent
+//        }
+        
+        
         
         // update feed list display
         let feedDataDict:[String: AnyObject] = ["FeedContent": feedContent as AnyObject]
@@ -200,19 +202,19 @@ extension MapVC : FeedViewModelDelegate {
        
         
         // Add annotations to the manager.
-//        let annotations: [Annotation] = (0..<1000).map { i in
-//            let annotation = Annotation()
-//            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
-//            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-//            //annotation.type = .color(color, radius: 25)
-//            // or
-//            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
-//
-//            return annotation
-//        }
-//        self.manager.add(annotations)
+        var annotations: [Annotation] = (0..<1000).map { i in
+            let annotation = Annotation()
+            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
+            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
+            //annotation.type = .color(color, radius: 25)
+            // or
+            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
+
+            return annotation
+        }
+        self.manager.add(annotations)
         
-        var annotations:[CustomAnnotation] = [CustomAnnotation]()
+//        var annotations:[CustomAnnotation] = [CustomAnnotation]()
         for pinContent in self.feedViewModel.feedContents {
             
             let dd = CLLocationCoordinate2D(geohash: pinContent.lochash)
@@ -241,8 +243,8 @@ extension MapVC : FeedViewModelDelegate {
         
         self.manager.add(annotations)
         self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
-        
-
+//
+//
         let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
                                                 "UserLocaton": true as AnyObject ,
                                                 "isFirse": true as AnyObject]

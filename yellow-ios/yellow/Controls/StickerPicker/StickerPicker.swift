@@ -61,13 +61,13 @@ class StickerPicker: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         if pickerSet.frame  == CGRect.zero {
-            let targetRect = rectOfTopContainer
+            let targetRect = rectOfBottomContainer
             pickerSet.frame = targetRect
             topContainerWihScroll.frame = CGRect(x: 0, y: 0
                 , width: self.bounds.width, height: self.bounds.height * ratioTopHeight)
         }
     }
-    var rectOfTopContainer : CGRect  {
+    var rectOfBottomContainer : CGRect  {
         get{
             return CGRect(x: 0, y: self.bounds.height * ratioTopHeight , width: self.bounds.width
                 , height: self.bounds.height * ( 1 - ratioTopHeight))
@@ -105,7 +105,7 @@ class StickerPicker: UIControl {
         setTargetDisplayOffset(at: startIndexPath, animated: false)
     }
     fileprivate func setTargetDisplayOffset(at indexPath : IndexPath , animated : Bool = false){
-        let x = rectOfTopContainer.width * CGFloat(indexPath.item)
+        let x = rectOfBottomContainer.width * CGFloat(indexPath.item)
         let targetPoint = CGPoint(x: x, y: 0)
         isAnimatingScrollViewOffset = animated
         topContainerWihScroll.setContentOffset(targetPoint, animated: animated)
@@ -115,7 +115,6 @@ class StickerPicker: UIControl {
         if index < 0 || index > dataSet.count - 1 {
             return
         }
-        
         setTargetDisplayOffset(at: IndexPath(item: index, section: 0) , animated: false)
     }
 }

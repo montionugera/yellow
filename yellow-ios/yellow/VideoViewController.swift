@@ -81,6 +81,8 @@ class VideoViewController: UIViewController {
             //            playerController!.view.frame = view.frame
             //playerController!.view.alpha = 0.3
             //            playerController?.view.center = self.vdoContainerView.center
+            
+            
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
         }
         player?.play()

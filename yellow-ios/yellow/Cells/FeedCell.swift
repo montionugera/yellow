@@ -35,7 +35,7 @@ class FeedCell: UICollectionViewCell {
     }
     func sharedInitilization() {
         self.layer.cornerRadius = 10
-        playerManager.config.isReadyOnPlay = false
+        playerManager.config = AVPlayerConfigulation(isPlayOnReady: false, isInfinite: true)
         self.addSubview(lb_indexPath)
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.ClickLove(_:)))
         self.img_love.isUserInteractionEnabled = true
@@ -52,14 +52,10 @@ class FeedCell: UICollectionViewCell {
         if let fc = feedContent {
             self.lb_loveCount.text = "\(Int(self.lb_loveCount.text!)! + 1)"
             self.firebaseAPI.update(feedContent: fc)
-            
             Analytics.logEvent("share_image", parameters: [
                 "name": "AAAA" as NSObject,
                 "full_text": "BBB" as NSObject
                 ])
-            
-
-            
         }
     }
 }

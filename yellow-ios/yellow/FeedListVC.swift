@@ -126,25 +126,16 @@ class FeedListVC: BaseViewController {
     
 }
 extension FeedListVC: PulleyDrawerViewControllerDelegate {
-    
-    func collapsedDrawerHeight() -> CGFloat
-    {
+    func collapsedDrawerHeight() -> CGFloat{
         return 180.0
     }
-    
-    func partialRevealDrawerHeight() -> CGFloat
-    {
+    func partialRevealDrawerHeight() -> CGFloat{
         return UIScreen.main.bounds.height - 30.0
     }
-    
     func supportedDrawerPositions() -> [PulleyPosition] {
         return PulleyPosition.all
-        
     }
-    
-    func drawerPositionDidChange(drawer: PulleyViewController)
-    {
-        
+    func drawerPositionDidChange(drawer: PulleyViewController){
         if drawer.drawerPosition != .open
         {
             self.feed.isUserInteractionEnabled = false

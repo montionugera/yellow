@@ -20,8 +20,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="67" height="68"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icoStorm" translatesAutoresizingMaskIntoConstraints="NO" id="wRB-iS-dEE">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emoSmile2" translatesAutoresizingMaskIntoConstraints="NO" id="wRB-iS-dEE">
                         <rect key="frame" x="6.5" y="7" width="54" height="54"/>
+                        <color key="tintColor" red="0.61176470588235299" green="0.61176470588235299" blue="0.61176470588235299" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wRB-iS-dEE" secondAttribute="height" id="EG4-fq-ohJ"/>
                         </constraints>
@@ -41,6 +42,6 @@
         </collectionViewCell>
     </objects>
     <resources>
-        <image name="icoStorm" width="43" height="40"/>
+        <image name="emoSmile2" width="38" height="38"/>
     </resources>
 </document>

@@ -19,7 +19,7 @@ class StickerSetPickerModel: NSObject {
     }
     var iconImage : UIImage? {
         get{
-            return UIImage(named: iconName)
+            return UIImage(named: iconName)?.withRenderingMode(.alwaysTemplate)
         }
     }
 }

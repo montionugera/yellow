@@ -16,6 +16,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VideoViewController" customModule="Yellow" customModuleProvider="target">
             <connections>
+                <outlet property="stickerPicker" destination="8YH-8o-kYd" id="kVg-Ia-tEf"/>
                 <outlet property="vdoContainerView" destination="jz0-kY-r5Q" id="CVs-74-RWr"/>
                 <outlet property="view" destination="iN0-l3-epB" id="1U0-a6-xaE"/>
             </connections>
@@ -51,22 +52,30 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-kY-r5Q" userLabel="vdoContainer">
-                    <rect key="frame" x="0.0" y="72" width="375" height="377"/>
+                    <rect key="frame" x="0.0" y="60" width="375" height="375"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.90980392160000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="jz0-kY-r5Q" secondAttribute="height" multiplier="375:377" id="DLS-KL-9QR"/>
+                        <constraint firstAttribute="width" secondItem="jz0-kY-r5Q" secondAttribute="height" multiplier="1:1" id="DLS-KL-9QR"/>
                     </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YH-8o-kYd" customClass="StickerPicker" customModule="Yellow" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="435" width="375" height="232"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>
             <color key="backgroundColor" red="0.97254901960784312" green="0.97254901960784312" blue="0.97254901960784312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="gyq-rw-toN" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="5Eu-18-F6L"/>
+                <constraint firstAttribute="trailing" secondItem="8YH-8o-kYd" secondAttribute="trailing" id="CMr-3T-kXH"/>
                 <constraint firstItem="jz0-kY-r5Q" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="QUj-5W-gak"/>
+                <constraint firstAttribute="bottom" secondItem="8YH-8o-kYd" secondAttribute="bottom" id="Ubn-Hy-qFj"/>
+                <constraint firstItem="8YH-8o-kYd" firstAttribute="top" secondItem="jz0-kY-r5Q" secondAttribute="bottom" id="ZXx-L5-3tr"/>
                 <constraint firstAttribute="trailing" secondItem="gyq-rw-toN" secondAttribute="trailing" constant="1" id="az8-Sz-JKs"/>
+                <constraint firstItem="8YH-8o-kYd" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="fPh-3S-m2C"/>
                 <constraint firstAttribute="trailing" secondItem="jz0-kY-r5Q" secondAttribute="trailing" id="i3S-EU-NFE"/>
                 <constraint firstItem="YGQ-to-f6D" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="lcp-g9-n4F"/>
                 <constraint firstItem="YGQ-to-f6D" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="mEX-yI-bue"/>
-                <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="72" id="rX1-CZ-QI3"/>
+                <constraint firstItem="jz0-kY-r5Q" firstAttribute="top" secondItem="YGQ-to-f6D" secondAttribute="bottom" id="yke-9N-Whl"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>

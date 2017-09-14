@@ -5,9 +5,7 @@
 //  Created by Nattapong Unaregul on 9/13/17.
 //  Copyright © 2017 Nattapong Unaregul. All rights reserved.
 //
-
 import UIKit
-
 @objc protocol StickerSetPickerDatasource {
     @objc optional func didFinishLoadData(_ collectionView : StickerSetPicker )
 }
@@ -35,8 +33,14 @@ class StickerSetPicker: UICollectionView {
         self.register(nib, forCellWithReuseIdentifier: celIdentifier)
         self.delegate = self
         self.dataSource = self
-        self.backgroundColor = UIColor.clear
         self.contentInset = UIEdgeInsetsMake(insetVertical, insetHorizontal, insetVertical, insetHorizontal)
+        
+        self.layer.masksToBounds = false
+        self.layer.shadowColor = UIColor.lightGray.cgColor
+        self.layer.shadowOffset = CGSize(width: 0 , height: -2)
+        self.layer.shadowRadius = 5;
+        self.layer.shadowOpacity = 0.5;
+        
     }
     func reloadDataAdvance() {
         self.reloadData()
@@ -53,15 +57,15 @@ class StickerSetPicker: UICollectionView {
 extension StickerSetPicker : UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         stickerSetPickerDelegate?.stickerSetPicker?(self, didSelectItemAt: indexPath)
-//        print(#function)
+        
     }
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-//        print(#function)
+        
     }
 }
 extension StickerSetPicker : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: (self.bounds.width - insetHorizontal * 2) / 5
+        return CGSize(width: (self.bounds.width - insetHorizontal * 2) / 6
             , height: (self.bounds.height - insetVertical * 2))
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -70,11 +74,10 @@ extension StickerSetPicker : UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
-   
 }
 extension StickerSetPicker : UICollectionViewDataSource {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return models.count == 0 ? 0 : 1
+        return models == nil ? 0 : (models.count == 0 ? 0 : 1)
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return models.count

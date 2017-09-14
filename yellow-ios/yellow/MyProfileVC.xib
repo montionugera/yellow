@@ -7,8 +7,13 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="ThaiSansNeue-SemiBold.ttf">
+            <string>ThaiSansNeue-SemiBold</string>
+        </array>
+    </customFonts>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileVC" customModule="yellow" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MyProfileVC" customModule="Yellow" customModuleProvider="target">
             <connections>
                 <outlet property="logout_bt" destination="B9M-Ea-MvR" id="Yju-zk-J14"/>
                 <outlet property="name_lb" destination="kmt-o5-mfy" id="UAo-sP-OpR"/>
@@ -37,12 +42,13 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9M-Ea-MvR">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9M-Ea-MvR">
                     <rect key="frame" x="137" y="385" width="101" height="30"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="3rO-4E-MbE"/>
                         <constraint firstAttribute="width" constant="101" id="dyf-4q-Mcb"/>
                     </constraints>
+                    <fontDescription key="fontDescription" name="ThaiSansNeue-SemiBold" family="ThaiSans Neue" pointSize="22"/>
                     <state key="normal" title="Logout"/>
                     <connections>
                         <action selector="logoutClick:" destination="-1" eventType="touchUpInside" id="azl-hW-IW0"/>

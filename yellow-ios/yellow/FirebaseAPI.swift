@@ -16,6 +16,7 @@ class FirebaseAPI: NSObject {
         
         let postData = ["postDesc":feedContent.postDesc,
                         "addedByUser":feedContent.addedByUser,
+                        "addedByUserName":feedContent.addedByUserName,
                         "addedByUserURL":feedContent.addedByUserURL,
                         "mediaType":feedContent.mediaType,
                         "mediaURL":feedContent.mediaURL,

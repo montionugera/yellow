@@ -198,24 +198,38 @@ extension MapVC : FeedViewModelDelegate {
             self.manager.add(annotation)
         }
         
+        //active me
+        let userid = String(describing: UserModel.currentUser.user_id)
+        let content_uid = pinContent.addedByUser
+        if(userid == content_uid){
+            self.centerMapOnUserButtonClicked()
+            
+            let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
+                                                    "UserLocaton": true as AnyObject ,
+                                                    "isFirse": false as AnyObject]
+            // post a notification
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedList"), object: nil, userInfo: feedDataDict)
+        }
+        
     }
     func didFinishLoadDataOnInitilization() {
        
         
         // Add annotations to the manager.
-        var annotations: [Annotation] = (0..<1000).map { i in
-            let annotation = Annotation()
-            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
-            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-            //annotation.type = .color(color, radius: 25)
-            // or
-            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
-
-            return annotation
-        }
-        self.manager.add(annotations)
+//        var annotations: [Annotation] = (0..<1000).map { i in
+//            let annotation = Annotation()
+//            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
+//            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
+//            //annotation.type = .color(color, radius: 25)
+//            // or
+//            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
+//
+//            return annotation
+//        }
+//        self.manager.add(annotations)
         
-//        var annotations:[CustomAnnotation] = [CustomAnnotation]()
+        
+        var annotations:[CustomAnnotation] = [CustomAnnotation]()
         for pinContent in self.feedViewModel.feedContents {
             
             let dd = CLLocationCoordinate2D(geohash: pinContent.lochash)
@@ -244,8 +258,8 @@ extension MapVC : FeedViewModelDelegate {
         
         self.manager.add(annotations)
         self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
-//
-//
+
+        
         let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
                                                 "UserLocaton": true as AnyObject ,
                                                 "isFirse": true as AnyObject]
@@ -255,6 +269,7 @@ extension MapVC : FeedViewModelDelegate {
     func didRemoveData(indexPath: IndexPath) {
       
     }
+    
 }
 
 extension MapVC: MKMapViewDelegate {
@@ -316,17 +331,19 @@ extension MapVC: MKMapViewDelegate {
                 view?.sendSubview(toBack: imageView)
             }
             
-            if let ppContent = (annotation.annotations[0] as! CustomAnnotation).pinContent {
-                
-                let emoString = ppContent.emo
-                let emoArray = emoString.components(separatedBy: ",")
-                if(emoArray.count == 2){
-                    let colorID = emoArray[0]
-                    let emoID = emoArray[1]
-                    view?.image = MappingPinEmo.shareInstace.mappingPin(colorID: colorID)
+            if(annotation.annotations[0].isKind(of: CustomAnnotation.self)){
+                if let ppContent = (annotation.annotations[0] as! CustomAnnotation).pinContent {
                     
-                    if let bb = view?.viewWithTag(678) as? UIImageView {
-                        bb.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
+                    let emoString = ppContent.emo
+                    let emoArray = emoString.components(separatedBy: ",")
+                    if(emoArray.count == 2){
+                        let colorID = emoArray[0]
+                        let emoID = emoArray[1]
+                        view?.image = MappingPinEmo.shareInstace.mappingPin(colorID: colorID)
+                        
+                        if let bb = view?.viewWithTag(678) as? UIImageView {
+                            bb.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
+                        }
                     }
                 }
             }
@@ -473,7 +490,7 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
             default: break
             }
             frame = CGRect(origin: frame.origin, size: CGSize(width: diameter, height: diameter))
-            countLabel.text = "\(count)"
+            //countLabel.text = "\(count)"
             
             layer.borderColor = borderColor.cgColor
             layer.borderWidth = 2

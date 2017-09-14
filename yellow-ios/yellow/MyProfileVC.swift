@@ -14,6 +14,8 @@ class MyProfileVC: UIViewController {
     @IBOutlet weak var name_lb: UILabel!
     @IBOutlet weak var logout_bt: UIButton!
     
+    var main_vct:HomeVC? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -36,21 +38,23 @@ class MyProfileVC: UIViewController {
             )
         }
         
+        if UserModel.currentUser.isLogined() == true {
+
+            self.logout_bt.setTitle("Logout", for: .normal)
+        }else{
+            self.logout_bt.setTitle("Login", for: .normal)
+        }
     }
     
     @IBAction func logoutClick(_ sender: Any) {
         if UserModel.currentUser.isLogined() == true {
             UserModel.currentUser.setAsLogOut()
             self.name_lb.text = ""
+            self.profile_img.image = UIImage()
             self.logout_bt.setTitle("Login", for: .normal)
         }else{
-//            let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
-//            self.present(loginVC,animated: true , completion: nil)
 
-            DispatchQueue.main.async(execute: { () -> Void in
-                let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
-                self.present(loginVC, animated: true, completion: nil)
-            })
+            self.main_vct?.goLogin()
             
             self.logout_bt.setTitle("Logout", for: .normal)
             

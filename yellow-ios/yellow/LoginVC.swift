@@ -63,18 +63,10 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
         let credentials =
             FacebookAuthProvider.credential(withAccessToken: accessTokenString )
         
-        Auth.auth().signIn(with: credentials, completion: { (user, error) in
-
-            if error != nil{
-                print(error!)
-                
-            }
-            print(user!)
-        })
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large)"])
             .start(completionHandler:  { (connection, result, error) in
-               self.hideLoding()
+               
                 if (error != nil) {
                     let alertController = UIAlertController(title: "Yellow", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
@@ -84,6 +76,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                     alertController.addAction(okAction)
                     self.present(alertController, animated: true, completion: nil)
                     FBSDKLoginManager().logOut()
+                    self.hideLoding()
                     return
                 }else{
                     guard let resultt = result as? NSDictionary, let _ = resultt["email"] as? String,
@@ -108,25 +101,32 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                     
                     print(fb_data)
                     
-                    let user_data_save = [
-                                            "user_id" : fb_data?.object(forKey: "id") ,
-                                            "user_email" : fb_data?.object(forKey: "email") ,
-                                            "user_name" : fb_data?.object(forKey: "name") ,
-                                            "user_profile" : user_profile_pic
-                                         ]
+
+                    Auth.auth().signIn(with: credentials, completion: { (user, error) in
+                        self.hideLoding()
+                        if error != nil{
+                            print(error!)
+                            self.showAlertDefault(msg: error as! String)
+                        }
+                        print(user!)
+                        
+                        let user_data_save = [
+                            "user_id" : user?.uid ,
+                            "user_email" : fb_data?.object(forKey: "email") ,
+                            "user_name" : fb_data?.object(forKey: "name") ,
+                            "user_profile" : user_profile_pic
+                        ]
+                        
+                        UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
+                        
+                        self.dismiss(animated: true, completion: nil)
+                        
+                    })
                     
-                    UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
-                   
-                    self.dismiss(animated: true, completion: nil)
+                    
 
 
                     
-//                    self.login_now(emailSocial: fb_data?.object(forKey: "email") as! String,
-//                                   username: fb_data?.object(forKey: "name") as! String,
-//                                   gender: gender_data,
-//                                   refID: fb_data?.object(forKey: "id") as! String,
-//                                   with: "f")
-//                    
                 }
                 
             })

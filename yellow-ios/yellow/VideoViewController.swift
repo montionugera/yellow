@@ -21,12 +21,16 @@ import FirebaseStorage
 import FBSDKLoginKit
 import Firebase
 extension VideoViewController :StickerPickerDelegate {
-    func stickerPicker(selected model: StickerModel) {
+
+    func stickerPicker(selected model: StickerModel, pageDataSet: Int) {
+        print(pageDataSet)
+        currentPageIndex = pageDataSet
         let emoImage =  MappingPinEmo.shareInstace.mappingEmo(colorID: String(model.containerSetId), emoID: String(model.id))
         let pickerImage =   MappingPinEmo.shareInstace.mappingPin(colorID: String(model.containerSetId))
     }
 }
 class VideoViewController: UIViewController {
+    var currentPageIndex : Int = 0
     @IBOutlet weak var stickerPicker: StickerPicker!
     @IBOutlet var vdoContainerView: UIView!
     override var prefersStatusBarHidden: Bool {
@@ -55,7 +59,8 @@ class VideoViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        stickerPicker.performInitilization(startIndex: 0)
+        stickerPicker.performInitilization(startIndex: currentPageIndex)
+        stickerPicker.setPage(index: currentPageIndex)
         if(requireLoadNewUI){
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()

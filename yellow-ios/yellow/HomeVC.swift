@@ -80,6 +80,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
         let profileTabbarItem:UITabBarItem = UITabBarItem(title: nil, image: UIImage(named: "icoProfile"), selectedImage: UIImage(named: "icoProfile"))
         profileTabbarItem.imageInsets = UIEdgeInsetsMake(3, 0, -3, 0);
         self.myProfileVC.tabBarItem = profileTabbarItem
+        self.myProfileVC.main_vct = self
         
         let controllers = [pulleyController,self.postVC,self.myProfileVC]
         self.tabbarTC.viewControllers = controllers
@@ -87,18 +88,23 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        
+        self.goLogin()
     }
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
-        if UserModel.currentUser.isLogined() == false {
-            let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
-            self.present(loginVC,animated: true,completion: nil)
-        }
+        
         
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.Alertlocation()
     }
+    
+    func goLogin(){
+        if UserModel.currentUser.isLogined() == false {
+            let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+            self.present(loginVC,animated: true,completion: nil)
+        }
+    }
+        
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

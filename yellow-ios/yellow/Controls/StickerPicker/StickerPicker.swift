@@ -9,7 +9,7 @@
 import UIKit
 
 @objc protocol StickerPickerDelegate {
-    @objc optional func stickerPicker(selected model : StickerModel)
+    @objc optional func stickerPicker(selected model : StickerModel ,pageDataSet : Int)
 }
 
 @IBDesignable
@@ -24,6 +24,9 @@ class StickerPicker: UIControl {
     var delegate : StickerPickerDelegate?
     var dataSet : [[StickerModel]]!
     var pickerDataSet : [StickerSetPickerModel]!
+    var isAlreadySet = false
+    
+    
     fileprivate lazy var collections : [StickerCollection] = []
     fileprivate  var pickerSet : StickerSetPicker!
     let ratioTopHeight :  CGFloat = 2 / 3
@@ -72,6 +75,10 @@ class StickerPicker: UIControl {
         }
     }
     func performInitilization ( startIndex : Int? ) {
+        if isAlreadySet == true {
+            return
+        }
+        
         if dataSet == nil
             || dataSet.count == 0
             || pickerDataSet == nil
@@ -80,6 +87,7 @@ class StickerPicker: UIControl {
         {
             fatalError("no stickerSetData")
         }
+        isAlreadySet = false
         let boundSizeOfTopContainer = topContainerWihScroll.bounds
         topContainerWihScroll.contentSize = CGSize(width: boundSizeOfTopContainer.width * CGFloat(dataSet.count)
             , height: boundSizeOfTopContainer.height)
@@ -99,12 +107,19 @@ class StickerPicker: UIControl {
         let startIndexPath = IndexPath(item: startIndex ?? 0 , section: 0)
         setTargetDisplayOffset(at: startIndexPath, animated: false)
     }
-    func setTargetDisplayOffset(at indexPath : IndexPath , animated : Bool = false){
+    fileprivate func setTargetDisplayOffset(at indexPath : IndexPath , animated : Bool = false){
         let x = rectOfTopContainer.width * CGFloat(indexPath.item)
         let targetPoint = CGPoint(x: x, y: 0)
         isAnimatingScrollViewOffset = animated
         topContainerWihScroll.setContentOffset(targetPoint, animated: animated)
         pickerSet.selectItem(at: indexPath, animated: animated, scrollPosition: UICollectionViewScrollPosition.left)
+    }
+    func setPage(index : Int)  {
+        if index < 0 || index > dataSet.count - 1 {
+            return
+        }
+        
+        setTargetDisplayOffset(at: IndexPath(item: index, section: 0) , animated: false)
     }
 }
 extension StickerPicker : StickerSetPickerDatasource {
@@ -125,7 +140,8 @@ extension StickerPicker: StickerCollectionDatasource  {
 extension StickerPicker : StickerCollectionDelegate {
     func stickerCollection(_ collectionView: StickerCollection, didSelectItemAt indexPath: IndexPath, didSelectStickerModelAt model: StickerModel) {
         let model = model.clone()
-        delegate?.stickerPicker?(selected: model)
+        let pageDataSet = Int(round(self.topContainerWihScroll.contentOffset.x / self.topContainerWihScroll.bounds.width))
+        delegate?.stickerPicker?(selected: model, pageDataSet: pageDataSet)
     }
 }
 extension StickerPicker : UIScrollViewDelegate {

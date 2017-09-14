@@ -12,7 +12,7 @@ class UserModel: NSObject{
     let dataBaseKey = "UserModel"
     var raw_info :[String:AnyObject]!
     
-    var user_id : NSNumber?
+    var user_id : String?
     var user_email : String?
     var user_name : String?
     var user_profile : String?

@@ -13,6 +13,7 @@ struct FeedContent {
     let key: String
     let postDesc: String
     let addedByUser: String
+    let addedByUserName: String
     let addedByUserURL: String
     let emo: String
     let place: String
@@ -25,10 +26,11 @@ struct FeedContent {
     var postDttmStr: String
     
 
-    init(postDesc: String, addedByUser: String , addedByUserURL: String, mediaURL: String, emo: String, love: Int, place: String, mediaType: String , lochash: String, postDttmInt: Double , postDttmStr: String, key: String = "") {
+    init(postDesc: String, addedByUser: String , addedByUserName: String , addedByUserURL: String, mediaURL: String, emo: String, love: Int, place: String, mediaType: String , lochash: String, postDttmInt: Double , postDttmStr: String, key: String = "") {
         self.key = key
         self.postDesc = postDesc
         self.addedByUser = addedByUser
+        self.addedByUserName = addedByUserName
         self.addedByUserURL = addedByUserURL
         self.emo = emo
         self.love = love
@@ -46,6 +48,11 @@ struct FeedContent {
         let snapshotValue = snapshot.value as! [String: AnyObject]
         postDesc = snapshotValue["postDesc"] as! String
         addedByUser = snapshotValue["addedByUser"] as! String
+        if let addedByUserName_ = snapshotValue["addedByUserName"] {
+            addedByUserName = addedByUserName_ as! String
+        }else{
+            addedByUserName = ""
+        }
         if let addedByUserURL_ = snapshotValue["addedByUserURL"] {
             addedByUserURL = addedByUserURL_ as! String
         }else{

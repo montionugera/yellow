@@ -35,7 +35,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         self.window!.makeKeyAndVisible()
         
-    
         })
         //        self.window = UIWindow(frame: UIScreen.main.bounds)
         //        let secondVc = SecondViewController(nibName: "SecondViewController", bundle: nil)
@@ -48,15 +47,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //                print(fontName)
         //            }
         //        }
-        
-        
         return true
     }
     func setUpFacebook(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
-        
         FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
-    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.
@@ -75,10 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-        
-        
     }
-    
     func Alertlocation() {
         var is_open_setting = true
         if CLLocationManager.locationServicesEnabled() {
@@ -94,15 +86,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             print("Location services are not enabled")
             is_open_setting = true
         }
-        
         if(is_open_setting == true){
             let alertController = UIAlertController (title: appName, message: "Please open a location in setting", preferredStyle: .alert)
-            
             let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
                 guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
                     return
                 }
-                
                 if UIApplication.shared.canOpenURL(settingsUrl) {
                     if #available(iOS 10.0, *) {
                         UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
@@ -113,7 +102,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     }
                 }
             }
-            
             alertController.addAction(settingsAction)
             self.window!.rootViewController?.present(alertController, animated: true, completion: nil)
         }
@@ -124,7 +112,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        
         if sourceApplication?.lowercased().range(of:"com.facebook") != nil {
             return FBSDKApplicationDelegate.sharedInstance().application(application,
                                                                          open: url as URL!,
@@ -138,10 +125,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     @available(iOS 9.0, *)
     func application(_ application: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any]) -> Bool {
-        
         let handled = FBSDKApplicationDelegate.sharedInstance().application(application, open: url, options: options)
         return handled
-        
     }
     
     

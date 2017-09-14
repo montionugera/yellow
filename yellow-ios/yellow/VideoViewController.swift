@@ -20,39 +20,50 @@ import FirebaseStorage
 
 import FBSDKLoginKit
 import Firebase
+extension VideoViewController :StickerPickerDelegate {
 
+    func stickerPicker(selected model: StickerModel, pageDataSet: Int) {
+        print(pageDataSet)
+        currentPageIndex = pageDataSet
+        let emoImage =  MappingPinEmo.shareInstace.mappingEmo(colorID: String(model.containerSetId), emoID: String(model.id))
+        let pickerImage =   MappingPinEmo.shareInstace.mappingPin(colorID: String(model.containerSetId))
+    }
+}
 class VideoViewController: UIViewController {
-    
+    var currentPageIndex : Int = 0
+    @IBOutlet weak var stickerPicker: StickerPicker!
     @IBOutlet var vdoContainerView: UIView!
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
     private var videoURL: URL
     var player: AVPlayer?
     var playerController : AVPlayerViewController?
     var requireLoadNewUI = false
-    
     init(videoURL: URL) {
         self.videoURL = videoURL
         super.init(nibName: "VideoViewController", bundle: nil)
     }
-    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
     override func viewDidLoad() {
         super.viewDidLoad()
         requireLoadNewUI = true
+        stickerPicker.delegate = self
+        stickerPicker.dataSet = StickerDataSetGenerator.getDataSet()
+        stickerPicker.pickerDataSet = StickerDataSetGenerator.getPickerIcons()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        stickerPicker.performInitilization(startIndex: currentPageIndex)
+        stickerPicker.setPage(index: currentPageIndex)
         if(requireLoadNewUI){
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()
-            
             guard player != nil && playerController != nil else {
                 return
             }
@@ -60,16 +71,16 @@ class VideoViewController: UIViewController {
             playerController!.player = player!
             self.addChildViewController(playerController!)
             self.vdoContainerView.addSubview(playerController!.view)
-//            playerController!.view.frame = CGRect(x: 0, y: 0, width: vdoContainerView.bounds.size.width, height: vdoContainerView.bounds.size.height)
+            //            playerController!.view.frame = CGRect(x: 0, y: 0, width: vdoContainerView.bounds.size.width, height: vdoContainerView.bounds.size.height)
             
             playerController!.view.frame = CGRect(x: 0, y: (vdoContainerView.bounds.size.height/2 - view.bounds.size.height/2), width: view.bounds.size.width, height: view.bounds.size.height)
             
-//            playerController!.view.frame = view.frame
+            //            playerController!.view.frame = view.frame
             //playerController!.view.alpha = 0.3
-//            playerController?.view.center = self.vdoContainerView.center
+            //            playerController?.view.center = self.vdoContainerView.center
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
             
-           
+            
         }
         player?.play()
     }

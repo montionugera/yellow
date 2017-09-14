@@ -26,7 +26,8 @@ extension VideoViewController :StickerPickerDelegate {
         print(pageDataSet)
         currentPageIndex = pageDataSet
         let emoImage =  MappingPinEmo.shareInstace.mappingEmo(colorID: String(model.containerSetId), emoID: String(model.id))
-        let pickerImage =   MappingPinEmo.shareInstace.mappingPin(colorID: String(model.containerSetId))
+    
+        self.nextVCT(String(model.containerSetId) + "," + String(model.id) , emoImage: emoImage)
     }
 }
 class VideoViewController: UIViewController {
@@ -91,9 +92,9 @@ class VideoViewController: UIViewController {
         //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func nextVCT(_ sender: Any) {
+    @IBAction func nextVCT(_ sender: Any , emoImage : UIImage) {
         player?.pause()
-        let postprofileController : PostProfileViewController = PostProfileViewController(videoURL: self.videoURL)
+        let postprofileController : PostProfileViewController = PostProfileViewController(videoURL: self.videoURL , emoChar: sender as! String , emoImg: emoImage)
         self.navigationController?.pushViewController(postprofileController, animated: true)
     }
     

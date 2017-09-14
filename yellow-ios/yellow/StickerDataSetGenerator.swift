@@ -34,34 +34,34 @@ class StickerDataSetGenerator: NSObject {
         containerSet.append(thirdSet)
         
         var fourthSet : [StickerModel] = []
-        fourthSet.append(StickerModel(id: 1, iconName: "icoSunshine", containerSetId: 3))
-        fourthSet.append(StickerModel(id: 2, iconName: "icoRain", containerSetId: 3))
-        fourthSet.append(StickerModel(id: 3, iconName: "icoHeavyrain", containerSetId: 3))
-        fourthSet.append(StickerModel(id: 4, iconName: "icoStorm", containerSetId: 3))
-        fourthSet.append(StickerModel(id: 5, iconName: "icoCloudy", containerSetId: 3))
-        fourthSet.append(StickerModel(id: 6, iconName: "icoNight", containerSetId: 3))
+        fourthSet.append(StickerModel(id: 1, iconName: "icoSunshine", containerSetId:4))
+        fourthSet.append(StickerModel(id: 2, iconName: "icoRain", containerSetId: 4))
+        fourthSet.append(StickerModel(id: 3, iconName: "icoHeavyrain", containerSetId: 4))
+        fourthSet.append(StickerModel(id: 4, iconName: "icoStorm", containerSetId: 4))
+        fourthSet.append(StickerModel(id: 5, iconName: "icoCloudy", containerSetId: 4))
+        fourthSet.append(StickerModel(id: 6, iconName: "icoNight", containerSetId: 4))
         containerSet.append(fourthSet)
         
         var fifthSet : [StickerModel] = []
-        fifthSet.append(StickerModel(id: 1, iconName: "icoSnack", containerSetId: 4))
-        fifthSet.append(StickerModel(id: 2, iconName: "icoCoffee", containerSetId: 4))
-        fifthSet.append(StickerModel(id: 3, iconName: "icoBreakfast", containerSetId: 4))
+        fifthSet.append(StickerModel(id: 1, iconName: "icoSnack", containerSetId: 5))
+        fifthSet.append(StickerModel(id: 2, iconName: "icoCoffee", containerSetId: 5))
+        fifthSet.append(StickerModel(id: 3, iconName: "icoBreakfast", containerSetId: 5))
         containerSet.append(fifthSet)
         
         var sixthSet : [StickerModel] = []
-        sixthSet.append(StickerModel(id: 1, iconName: "icoSiren", containerSetId: 5))
-        sixthSet.append(StickerModel(id: 2, iconName: "icoCrash", containerSetId: 5))
-        sixthSet.append(StickerModel(id: 3, iconName: "icoTrafficjam", containerSetId: 5))
-        sixthSet.append(StickerModel(id: 4, iconName: "icoTrafficlight", containerSetId: 5))
-        sixthSet.append(StickerModel(id: 5, iconName: "icoUnderconstruct02", containerSetId: 5))
-        sixthSet.append(StickerModel(id: 6, iconName: "icoUnderconstruct01", containerSetId: 5))
+        sixthSet.append(StickerModel(id: 1, iconName: "icoSiren", containerSetId: 6))
+        sixthSet.append(StickerModel(id: 2, iconName: "icoCrash", containerSetId: 6))
+        sixthSet.append(StickerModel(id: 3, iconName: "icoTrafficjam", containerSetId: 6))
+        sixthSet.append(StickerModel(id: 4, iconName: "icoTrafficlight", containerSetId: 6))
+        sixthSet.append(StickerModel(id: 5, iconName: "icoUnderconstruct02", containerSetId: 6))
+        sixthSet.append(StickerModel(id: 6, iconName: "icoUnderconstruct01", containerSetId: 6))
         containerSet.append(sixthSet)
         return containerSet
     }
     static func getPickerIcons() -> [StickerSetPickerModel] {
         var models = [StickerSetPickerModel]()
         models.append(StickerSetPickerModel(iconName: "emoSmile", highLightColor: UIColor(red: 1, green: 143/255, blue: 180/255, alpha: 1 )))
-        models.append(StickerSetPickerModel(iconName: "emoTired", highLightColor: UIColor(red: 1, green: 155/255, blue: 129/255, alpha: 1 )))
+        models.append(StickerSetPickerModel(iconName: "emoTired", highLightColor: UIColor(red: 255/255, green: 115/255, blue: 129/255, alpha: 1.0)))
         models.append(StickerSetPickerModel(iconName: "emoHurt", highLightColor: UIColor(red: 238/255 , green: 68/255, blue: 94/255, alpha: 1 )))
         models.append(StickerSetPickerModel(iconName: "icoSunshine", highLightColor: UIColor(red: 138/255, green: 218/255, blue: 237/255, alpha: 1 )))
         models.append(StickerSetPickerModel(iconName: "icoSnack"

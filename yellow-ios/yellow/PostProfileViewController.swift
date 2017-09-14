@@ -105,6 +105,7 @@ class PostProfileViewController: UIViewController {
     }
     
     @IBAction func post(_ sender: Any) {
+        player?.pause()
         //Post
         
         let user = Auth.auth().currentUser!
@@ -129,7 +130,8 @@ class PostProfileViewController: UIViewController {
             
             ref = Database.database().reference()
             let postDesc = self.des_tx.text
-            let addedByUser = UserModel.currentUser.user_name
+            let addedByUser = String(describing: UserModel.currentUser.user_id)
+            let addedByUserName = UserModel.currentUser.user_name
             let addedByUserURL = UserModel.currentUser.user_profile
             let mediaType = fileExt
             let mediaURL = metadata.downloadURL()!.absoluteString
@@ -141,7 +143,8 @@ class PostProfileViewController: UIViewController {
                 let lochash = Geohash.encode(latitude: (((self.admin_lat_tx.text?.characters.count)! > 0) ? Double(self.admin_lat_tx.text!) : cc.coordinate.latitude)!,
                                 longitude: (((self.admin_long_tx.text?.characters.count)! > 0) ? Double(self.admin_long_tx.text!)! : cc.coordinate.longitude), length: 12)
                 let postData = ["postDesc":postDesc ?? "",
-                                "addedByUser":addedByUser ?? "",
+                                "addedByUser":addedByUser ,
+                                "addedByUserName":addedByUserName ?? "",
                                 "addedByUserURL":addedByUserURL ?? "",
                                 "mediaType":mediaType,
                                 "mediaURL":mediaURL,

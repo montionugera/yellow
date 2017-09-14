@@ -49,12 +49,15 @@ class FeedListVC: BaseViewController {
             if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
                 self.feedContents[i] = feedContent
                 let indexPath = IndexPath(item: i, section: 0)
-//                if let cell : FeedCell = feed.cellForItemAdvance(indexPath: indexPath) as? FeedCell {
+                if let cell : FeedCell = feed.cellForItemAdvance(indexPath: indexPath) as? FeedCell {
                     // update cell
-                    if let ff = feed {
-                        ff.reloadItems(at: [indexPath])
-                    }
-//                }
+                    cell.feedContent = feedContent
+                    cell.lb_loveCount.text = String(describing: feedContent.love)
+                    
+//                    if let ff = feed {
+//                        ff.reloadItems(at: [indexPath])
+//                    }
+                }
             }
         }
     }
@@ -131,7 +134,7 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     
     func partialRevealDrawerHeight() -> CGFloat
     {
-        return UIScreen.main.bounds.height - 100
+        return UIScreen.main.bounds.height - 30.0
     }
     
     func supportedDrawerPositions() -> [PulleyPosition] {
@@ -203,7 +206,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
         let cell : FeedCell = collectionview.dequeueReusableCellAdvance(forIndexPath: indexPath)
         let item = feedContents[indexPath.item]
         cell.feedContent = item
-        cell.lb_userName.text = item.addedByUser
+        cell.lb_userName.text = item.addedByUserName
         cell.lb_loveCount.text = "\(item.love)"
         cell.lb_title.text = item.postDesc
         cell.lb_time.text = timeAgoSinceDate(Date(timeIntervalSince1970: TimeInterval(item.postDttmInt)), currentDate: Date(), numericDates: true)

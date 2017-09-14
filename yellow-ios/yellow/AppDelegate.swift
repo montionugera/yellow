@@ -15,6 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
     var initialViewController :UIViewController?
+    let homeViewController = HomeVC()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserModel.currentUser.getAsDatabase(completionHandler: {
@@ -23,14 +24,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
             
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        let homeViewController = HomeVC()
+        
 //            let homeViewController = PostVC()
-        homeViewController.view.backgroundColor = UIColor.red
+        self.homeViewController.view.backgroundColor = UIColor.red
         
         // setup facebook
         self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
         
-        self.window!.rootViewController = homeViewController
+        self.window!.rootViewController = self.homeViewController
             
         self.window!.makeKeyAndVisible()
         
@@ -68,7 +69,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillEnterForeground(_ application: UIApplication) {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
-        
+        self.homeViewController.goLogin()
         self.Alertlocation()
     }
     

@@ -24,8 +24,7 @@ class StickerPicker: UIControl {
     var delegate : StickerPickerDelegate?
     var dataSet : [[StickerModel]]!
     var pickerDataSet : [StickerSetPickerModel]!
-    var isAlreadySet = false
-    
+    fileprivate var isAlreadyInitilization = false
     
     fileprivate lazy var collections : [StickerCollection] = []
     fileprivate  var pickerSet : StickerSetPicker!
@@ -75,19 +74,17 @@ class StickerPicker: UIControl {
         }
     }
     func performInitilization ( startIndex : Int? ) {
-        if isAlreadySet == true {
-            return
-        }
-        
         if dataSet == nil
             || dataSet.count == 0
             || pickerDataSet == nil
             || pickerDataSet.count == 0
-            || pickerDataSet.count != dataSet.count
-        {
+            || pickerDataSet.count != dataSet.count        {
             fatalError("no stickerSetData")
         }
-        isAlreadySet = false
+        if isAlreadyInitilization == true {
+            return
+        }
+        isAlreadyInitilization = true
         let boundSizeOfTopContainer = topContainerWihScroll.bounds
         topContainerWihScroll.contentSize = CGSize(width: boundSizeOfTopContainer.width * CGFloat(dataSet.count)
             , height: boundSizeOfTopContainer.height)

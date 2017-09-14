@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
-    <device id="retina4_7" orientation="portrait">
+    <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -23,7 +23,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YGQ-to-f6D">
@@ -38,7 +38,7 @@
                     </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gyq-rw-toN">
-                    <rect key="frame" x="314" y="0.0" width="60" height="60"/>
+                    <rect key="frame" x="353" y="0.0" width="60" height="60"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="60" id="F0E-oQ-JYg"/>
                         <constraint firstAttribute="height" constant="60" id="MHv-9S-saS"/>
@@ -52,14 +52,14 @@
                     </connections>
                 </button>
                 <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jz0-kY-r5Q" userLabel="vdoContainer">
-                    <rect key="frame" x="0.0" y="60" width="375" height="375"/>
+                    <rect key="frame" x="0.0" y="60" width="414" height="414"/>
                     <color key="backgroundColor" red="0.96470588239999999" green="0.90980392160000001" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="jz0-kY-r5Q" secondAttribute="height" multiplier="1:1" id="DLS-KL-9QR"/>
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8YH-8o-kYd" customClass="StickerPicker" customModule="Yellow" customModuleProvider="target">
-                    <rect key="frame" x="0.0" y="435" width="375" height="232"/>
+                    <rect key="frame" x="0.0" y="474" width="414" height="262"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
             </subviews>

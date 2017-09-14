@@ -23,8 +23,7 @@ import Firebase
 extension VideoViewController :StickerPickerDelegate {
 
     func stickerPicker(selected model: StickerModel, pageDataSet: Int) {
-        print(pageDataSet)
-        currentPageIndex = pageDataSet
+
         let emoImage =  MappingPinEmo.shareInstace.mappingEmo(colorID: String(model.containerSetId), emoID: String(model.id))
         let pickerImage =   MappingPinEmo.shareInstace.mappingPin(colorID: String(model.containerSetId))
     }
@@ -53,14 +52,18 @@ class VideoViewController: UIViewController {
         stickerPicker.delegate = self
         stickerPicker.dataSet = StickerDataSetGenerator.getDataSet()
         stickerPicker.pickerDataSet = StickerDataSetGenerator.getPickerIcons()
+        print("viewDidLoad:\(self.view.bounds)")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("viewDidLayoutSubviews:\(self.view.bounds)")
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        stickerPicker.performInitilization(startIndex: currentPageIndex)
-        stickerPicker.setPage(index: currentPageIndex)
+        stickerPicker.performInitilization(startIndex: 2)
         if(requireLoadNewUI){
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()

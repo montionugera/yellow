@@ -74,24 +74,19 @@ class VideoViewController: UIViewController {
             //playerController!.view.alpha = 0.3
             //            playerController?.view.center = self.vdoContainerView.center
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
-            
-            
         }
         player?.play()
     }
-    
     @IBAction func cancel() {
         player?.pause()
         dismiss(animated: true, completion: nil)
         //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func nextVCT(_ sender: Any) {
         player?.pause()
         let postprofileController : PostProfileViewController = PostProfileViewController(videoURL: self.videoURL)
         self.navigationController?.pushViewController(postprofileController, animated: true)
     }
-    
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {
         if self.player != nil {
             self.player!.seek(to: kCMTimeZero)

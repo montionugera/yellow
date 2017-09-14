@@ -21,18 +21,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             FirebaseApp.configure()
             AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
             self.window = UIWindow(frame: UIScreen.main.bounds)
-            //        let homeViewController = HomeVC()
-            ////            let homeViewController = PostVC()
-            //        homeViewController.view.backgroundColor = UIColor.red
-            //
-            //        // setup facebook
-            //        self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
-            let path = "https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4"
-            let url = URL(string: path)
-            if let url = url {
-                let video = VideoViewController(videoURL: url)
-                self.window!.rootViewController = video
-            }
+            let homeViewController = HomeVC()
+            //            let homeViewController = PostVC()
+            homeViewController.view.backgroundColor = UIColor.red
+            self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
+            //            let path = "https://www.html5rocks.com/en/tutorials/video/basics/devstories.mp4"
+            //            let url = URL(string: path)
+            //            if let url = url {
+            //                let video = VideoViewController(videoURL: url)
+            //                self.window!.rootViewController = video
+            //            }
+            self.window!.rootViewController = homeViewController
             self.window!.makeKeyAndVisible()
         })
         //        self.window = UIWindow(frame: UIScreen.main.bounds)

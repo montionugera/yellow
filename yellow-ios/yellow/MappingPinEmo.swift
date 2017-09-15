@@ -15,7 +15,6 @@ class MappingPinEmo: NSObject {
         }
         return Static.instance
     }
-    
     //MARK:Map Page
     func mappingPin(colorID: String) -> UIImage {
         let color_id = Int(colorID)!
@@ -37,11 +36,7 @@ class MappingPinEmo: NSObject {
         default:
             return UIImage(named: "pinGreen")!
         }
-
     }
-    
-    
-    
     func mappingEmo(colorID: String , emoID: String ) -> UIImage {
         let color_id = Int(colorID)!
         let emo_id = Int(emoID)!

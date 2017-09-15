@@ -63,7 +63,6 @@ class VideoViewController: UIViewController {
     }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        stickerPicker.performInitilization(startIndex: 2)
         if(requireLoadNewUI){
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()

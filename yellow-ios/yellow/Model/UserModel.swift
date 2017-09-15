@@ -17,6 +17,8 @@ class UserModel: NSObject{
     var user_name : String?
     var user_profile : String?
     
+    var fcmToken_id : String?
+    
     class var currentUser: UserModel {
         struct Static {
             static let instance = UserModel()

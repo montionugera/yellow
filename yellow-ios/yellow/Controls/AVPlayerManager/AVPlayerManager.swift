@@ -10,20 +10,16 @@ import UIKit
 import AVFoundation
 import AVKit
 struct AVPlayerConfigulation {
-    var isReadyOnPlay : Bool = true
+    var isPlayOnReady : Bool = false
+    var isInfinite : Bool = false
 }
 @IBDesignable
 class AVPlayerManager: UIControl {
-    
-    var isPlaying: Bool {
-        return ((avPlayer.rate != 0) && (avPlayer.error == nil))
-    }
-    
     fileprivate var _config : AVPlayerConfigulation? = nil
     var config : AVPlayerConfigulation {
         get {
             if _config == nil {
-                _config = AVPlayerConfigulation(isReadyOnPlay: true)
+                _config = AVPlayerConfigulation(isPlayOnReady: false,isInfinite : false)
             }
             return _config!
         }set{
@@ -34,11 +30,8 @@ class AVPlayerManager: UIControl {
     var playerItemContext : UnsafeMutableRawPointer?
     let avLayer : AVPlayerLayer = AVPlayerLayer()
     var playerItem : AVPlayerItem?
-    var observer : AnyObject?
+    var observerCenter : Any?
     var amountOfTimeToPlay : Int?
-    
-    var asset : AVAsset?
-    
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInitilization()
@@ -61,42 +54,58 @@ class AVPlayerManager: UIControl {
         guard  let url = URL(string: urlPath) else {
             return
         }
-        asset = AVAsset(url: url)
-        let assetKeys = ["playable"]
-        self.playerItem = AVPlayerItem(asset: asset!,
+        let asset = AVAsset(url: url)
+        let assetKeys = [
+            "playable"
+        ]
+        self.playerItem = AVPlayerItem(asset: asset,
                                        automaticallyLoadedAssetKeys: assetKeys)
+        //            self.playerItem?.addObserver(self,
+        //                                         forKeyPath: #keyPath(AVPlayerItem.status),
+        //                                         options: [.old, .new],
+        //                                         context: &self.playerItemContext)
         self.avPlayer.replaceCurrentItem(with: self.playerItem)
         
+        if config.isInfinite {
+            if let observerCenter =  observerCenter{
+                NotificationCenter.default.removeObserver(observerCenter)
+            }
+            self.observerCenter =  NotificationCenter.default.addObserver(self, selector: #selector(self.playerItemDidReachEnd)
+                , name: NSNotification.Name.AVPlayerItemDidPlayToEndTime
+                , object: self.avPlayer.currentItem)
+        }
     }
-    //    func prepareAndPlay(urlPath : String,amountOfTime : Int? = nil)  {
-    //        guard  let url = URL(string: urlPath) else {
-    //            return
-    //        }
-    //        self.amountOfTimeToPlay = amountOfTime
-    //        DispatchQueue.global(qos: .userInitiated).async {
-    //            let asset = AVAsset(url: url)
-    //            let assetKeys = [
-    //                "playable"
-    //            ]
-    //            self.playerItem = AVPlayerItem(asset: asset,
-    //                                           automaticallyLoadedAssetKeys: assetKeys)
-    //            //            self.playerItem?.addObserver(self,
-    //            //                                         forKeyPath: #keyPath(AVPlayerItem.status),
-    //            //                                         options: [.old, .new],
-    //            //                                         context: &self.playerItemContext)
-    //            self.avPlayer.replaceCurrentItem(with: self.playerItem)
-    //        }
-    //    }
+    @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {
+        if self.avPlayer.currentItem != nil {
+            self.avPlayer.seek(to: kCMTimeZero)
+            self.avPlayer.play()
+        }
+    }
+    
+    func prepareAndPlay(urlPath : String,amountOfTime : Int? = nil)  {
+        guard  let url = URL(string: urlPath) else {
+            return
+        }
+        self.amountOfTimeToPlay = amountOfTime
+        DispatchQueue.global(qos: .userInitiated).async {
+            let asset = AVAsset(url: url)
+            let assetKeys = [
+                "playable"
+            ]
+            self.playerItem = AVPlayerItem(asset: asset,
+                                           automaticallyLoadedAssetKeys: assetKeys)
+            
+            self.avPlayer.replaceCurrentItem(with: self.playerItem)
+        }
+    }
     func play(amountOfTime : Int? = nil)  {
-        if isPlaying == false {
-            avPlayer.play()
-            if let amountOfTime = amountOfTime {
-                let specificTime = CMTime(seconds: Double(amountOfTime), preferredTimescale: CMTimeScale(bigEndian: 64))
-                let timeValue = NSValue(time: specificTime)
-                self.avPlayer.addBoundaryTimeObserver(forTimes: [timeValue], queue: DispatchQueue.global(qos: .userInteractive))
-                {[weak self] time in
-                    self?.avPlayer.pause()
-                }
+        avPlayer.play()
+        if let amountOfTime = amountOfTime {
+            let specificTime = CMTime(seconds: Double(amountOfTime), preferredTimescale: CMTimeScale(bigEndian: 64))
+            let timeValue = NSValue(time: specificTime)
+            self.avPlayer.addBoundaryTimeObserver(forTimes: [timeValue], queue: DispatchQueue.global(qos: .userInteractive))
+            {[weak self] time in
+                self?.avPlayer.pause()
             }
         }
     }
@@ -107,10 +116,12 @@ class AVPlayerManager: UIControl {
         releaseObserver()
     }
     func releaseObserver() {
-        //        avPlayer.pause()
-        asset?.cancelLoading()
+        avPlayer.pause()
         avPlayer.replaceCurrentItem(with: nil)
-        observer = nil
+        if let observerCenter = observerCenter {
+            NotificationCenter.default.removeObserver(observerCenter)
+            self.observerCenter = nil
+        }
         playerItemContext = nil
         //        playerItem?.removeObserver(self, forKeyPath: #keyPath(AVPlayerItem.status))
     }
@@ -134,7 +145,7 @@ class AVPlayerManager: UIControl {
             }
             switch status {
             case .readyToPlay:
-                if config.isReadyOnPlay {
+                if config.isPlayOnReady {
                     play(amountOfTime: self.amountOfTimeToPlay)
                 }
                 break;

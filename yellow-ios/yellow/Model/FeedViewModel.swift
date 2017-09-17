@@ -27,7 +27,8 @@ class FeedViewModel: NSObject {
         firebaseAPI.storageRef.observeSingleEvent(of: .value, with: {[weak self] (snapshot) in
             guard let the = self else {
                 return
-            }
+            }   
+            the.feedContents.removeAll()
             for item in snapshot.children {
                 
                 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)

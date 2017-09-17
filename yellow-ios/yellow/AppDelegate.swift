@@ -19,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         UserModel.currentUser.getAsDatabase(completionHandler: {
+
         
         FirebaseApp.configure()
         AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
@@ -35,6 +36,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
         self.window!.makeKeyAndVisible()
         
+
         })
         //        self.window = UIWindow(frame: UIScreen.main.bounds)
         //        let secondVc = SecondViewController(nibName: "SecondViewController", bundle: nil)
@@ -72,39 +74,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
     }
     func Alertlocation() {
-        var is_open_setting = true
-        if CLLocationManager.locationServicesEnabled() {
-            switch(CLLocationManager.authorizationStatus()) {
-            case .notDetermined, .restricted, .denied:
-                print("No access")
-                is_open_setting = true
-            case .authorizedAlways, .authorizedWhenInUse:
-                print("Access")
-                is_open_setting = false
-            }
-        } else {
-            print("Location services are not enabled")
-            is_open_setting = true
-        }
-        if(is_open_setting == true){
-            let alertController = UIAlertController (title: appName, message: "Please open a location in setting", preferredStyle: .alert)
-            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
-                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
-                    return
-                }
-                if UIApplication.shared.canOpenURL(settingsUrl) {
-                    if #available(iOS 10.0, *) {
-                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
-                            print("Settings opened: \(success)") // Prints true
-                        })
-                    } else {
-                        UIApplication.shared.openURL(settingsUrl)
-                    }
-                }
-            }
-            alertController.addAction(settingsAction)
-            self.window!.rootViewController?.present(alertController, animated: true, completion: nil)
-        }
+//        var is_open_setting = true
+//        if CLLocationManager.locationServicesEnabled() {
+//            switch(CLLocationManager.authorizationStatus()) {
+//            case .notDetermined, .restricted, .denied:
+//                print("No access")
+//                is_open_setting = true
+//            case .authorizedAlways, .authorizedWhenInUse:
+//                print("Access")
+//                is_open_setting = false
+//            }
+//        } else {
+//            print("Location services are not enabled")
+//            is_open_setting = true
+//        }
+//        if(is_open_setting == true){
+//            let alertController = UIAlertController (title: appName, message: "Please open a location in setting", preferredStyle: .alert)
+//            let settingsAction = UIAlertAction(title: "Settings", style: .default) { (_) -> Void in
+//                guard let settingsUrl = URL(string: UIApplicationOpenSettingsURLString) else {
+//                    return
+//                }
+//                if UIApplication.shared.canOpenURL(settingsUrl) {
+//                    if #available(iOS 10.0, *) {
+//                        UIApplication.shared.open(settingsUrl, completionHandler: { (success) in
+//                            print("Settings opened: \(success)") // Prints true
+//                        })
+//                    } else {
+//                        UIApplication.shared.openURL(settingsUrl)
+//                    }
+//                }
+//            }
+//            alertController.addAction(settingsAction)
+//            self.window!.rootViewController?.present(alertController, animated: true, completion: nil)
+//        }
     }
     
     func applicationWillTerminate(_ application: UIApplication) {

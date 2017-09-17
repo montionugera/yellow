@@ -23,8 +23,7 @@ import Firebase
 extension VideoViewController :StickerPickerDelegate {
 
     func stickerPicker(selected model: StickerModel, pageDataSet: Int) {
-        print(pageDataSet)
-        currentPageIndex = pageDataSet
+
         let emoImage =  MappingPinEmo.shareInstace.mappingEmo(colorID: String(model.containerSetId), emoID: String(model.id))
     
         self.nextVCT(String(model.containerSetId) + "," + String(model.id) , emoImage: emoImage)
@@ -54,14 +53,18 @@ class VideoViewController: UIViewController {
         stickerPicker.delegate = self
         stickerPicker.dataSet = StickerDataSetGenerator.getDataSet()
         stickerPicker.pickerDataSet = StickerDataSetGenerator.getPickerIcons()
+        print("viewDidLoad:\(self.view.bounds)")
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        print("viewDidLayoutSubviews:\(self.view.bounds)")
+    }
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        stickerPicker.performInitilization(startIndex: currentPageIndex)
-        stickerPicker.setPage(index: currentPageIndex)
+        stickerPicker.performInitilization(startIndex: 2)
         if(requireLoadNewUI){
             player = AVPlayer(url: videoURL)
             playerController = AVPlayerViewController()
@@ -79,25 +82,22 @@ class VideoViewController: UIViewController {
             //            playerController!.view.frame = view.frame
             //playerController!.view.alpha = 0.3
             //            playerController?.view.center = self.vdoContainerView.center
+            
+            
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
-            
-            
         }
         player?.play()
     }
-    
     @IBAction func cancel() {
         player?.pause()
         dismiss(animated: true, completion: nil)
         //self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
-    
     @IBAction func nextVCT(_ sender: Any , emoImage : UIImage) {
         player?.pause()
         let postprofileController : PostProfileViewController = PostProfileViewController(videoURL: self.videoURL , emoChar: sender as! String , emoImg: emoImage)
         self.navigationController?.pushViewController(postprofileController, animated: true)
     }
-    
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {
         if self.player != nil {
             self.player!.seek(to: kCMTimeZero)

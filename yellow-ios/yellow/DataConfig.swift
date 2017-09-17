@@ -18,4 +18,4 @@ let thaiSansNeueUltraBold: String = "ThaiSansNeue-UltraBold"
 let fontSizeMedium: CGFloat = 18.0
 
 var currentLocationYellow: CLLocation?
-
+var currentPlaceYellow: String?

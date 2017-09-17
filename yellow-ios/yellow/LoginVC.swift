@@ -14,6 +14,8 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
 
     @IBOutlet weak var fbLogin_view: FBSDKLoginButton!
     
+    weak var mapvc_main: MapVC?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -119,7 +121,11 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
                         
-                        self.dismiss(animated: true, completion: nil)
+                        self.dismiss(animated: true, completion: {
+                            if self.mapvc_main != nil {
+                                self.mapvc_main?.fetchContent()
+                            }
+                        })
                         
                     })
                     

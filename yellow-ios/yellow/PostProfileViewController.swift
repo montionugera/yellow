@@ -14,7 +14,7 @@ import FBSDKLoginKit
 import Firebase
 import IHKeyboardAvoiding
 
-class PostProfileViewController: UIViewController {
+class PostProfileViewController: BaseViewController {
 
     @IBOutlet weak var inputContainer: UIView!
     @IBOutlet var vdoContainerView: UIView!
@@ -120,6 +120,8 @@ class PostProfileViewController: UIViewController {
     
     @IBAction func post(_ sender: Any) {
         player?.pause()
+        
+        self.showLoding()
         //Post
         
         let user = Auth.auth().currentUser!
@@ -164,19 +166,26 @@ class PostProfileViewController: UIViewController {
                                 "mediaURL":mediaURL,
                                 "love":love,
                                 "emo": (self.emoChar.characters.count > 0)  ? self.emoChar : "1,1",
-                                "place": "",
+                                "place": currentPlaceYellow ?? "",
                                 "postDttmInt": Date().timeIntervalSince1970,
                                 "postDttmStr": getStandardAppDateString(dttm: Date()),
                                 "lochash":lochash] as [String : Any]
                 
                 let postRef = ref.child("posts")
                 let newPostRef = postRef.childByAutoId()
-                newPostRef.setValue(postData)
+                newPostRef.setValue(postData) { (error, ref) -> Void in
+                    self.hideLoding()
+                    if error != nil {
+                        self.showAlertDefault(msg: String(describing: error))
+                    } else {
+                        // move to rootView
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
         
-        // move to rootView
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
     }
     
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {

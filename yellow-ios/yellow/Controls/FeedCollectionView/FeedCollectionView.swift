@@ -181,7 +181,7 @@ class FeedCollectionView: UICollectionView {
         self.performBatchUpdates({
             //Once it done hit first cell
         }) { (isDone) in
-            self.delegateFeedTarget?.feedHitPoint(collectionView: self, at: IndexPath(row: 0, section: 0))
+//            self.delegateFeedTarget?.feedHitPoint(collectionView: self, at: IndexPath(row: 0, section: 0))
         }
     }
     func sharedInitilization()  {

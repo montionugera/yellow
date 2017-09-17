@@ -138,7 +138,6 @@ class MappingPinEmo: NSObject {
         }
         
     }
-    
     //MARK:Feed List Page
     func mappingTopBar(colorID: String) -> UIImage {
         let color_id = Int(colorID)!
@@ -160,7 +159,6 @@ class MappingPinEmo: NSObject {
         default:
             return UIImage(named: "bgYellow")!
         }
-        
     }
     func mappingBGColor(colorID: String) -> UIColor {
         let color_id = Int(colorID)!

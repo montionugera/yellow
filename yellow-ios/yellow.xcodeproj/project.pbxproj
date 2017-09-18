@@ -842,7 +842,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "cc7325fc-5e35-4062-a61e-462ef6113129";
+				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
 				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -865,7 +865,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "cc7325fc-5e35-4062-a61e-462ef6113129";
+				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
 				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;

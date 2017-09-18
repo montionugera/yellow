@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
     var window: UIWindow?
     var initialViewController :UIViewController?
     let homeViewController = HomeVC()
+    var timeInterval:TimeInterval?
+    
     func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
         let firebaseAPI = FirebaseAPI()
         let user = UserModel.currentUser
@@ -69,6 +71,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
         //                print(fontName)
         //            }
         //        }
+        
+        
+        timeInterval = Date().timeIntervalSince1970
+        
         return true
     }
     func setUpFacebook(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?){
@@ -88,6 +94,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
         // Called as part of the transition from the background to the active state; here you can undo many of the changes made on entering the background.
         self.homeViewController.goLogin()
         self.Alertlocation()
+        
+        // check > 24 hr , code duplicate will remove later
+        if(self.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(timeInterval!)) , currentDate: Date()) == true){
+            self.homeViewController.fecthNewData()
+            timeInterval = Date().timeIntervalSince1970
+        }
+        
+        
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -151,6 +165,45 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
         return handled
     }
     
+   
+    func timeAgo24Hr(_ date:Date,currentDate:Date) -> Bool {
+        let calendar = Calendar.current
+        let now = currentDate
+        let earliest = (now as NSDate).earlierDate(date)
+        let latest = (earliest == now) ? date : now
+        let components:DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.minute , NSCalendar.Unit.hour , NSCalendar.Unit.day , NSCalendar.Unit.weekOfYear , NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.second], from: earliest, to: latest, options: NSCalendar.Options())
+        
+        if (components.year! >= 2) {
+            return true
+        } else if (components.year! >= 1){
+            return true
+        } else if (components.month! >= 2) {
+            return true
+        } else if (components.month! >= 1){
+            return true
+        } else if (components.weekOfYear! >= 2) {
+            return true
+        } else if (components.weekOfYear! >= 1){
+            return true
+        } else if (components.day! >= 2) {
+            return true
+        } else if (components.day! >= 1){
+            return true
+        } else if (components.hour! >= 2) {
+            return false
+        } else if (components.hour! >= 1){
+            return false
+        } else if (components.minute! >= 2) {
+            return false
+        } else if (components.minute! >= 1){
+            return false
+        } else if (components.second! >= 3) {
+            return false
+        } else {
+            return false
+        }
+        
+    }
     
 }
 extension AppDelegate: UNUserNotificationCenterDelegate {

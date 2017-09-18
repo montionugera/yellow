@@ -105,7 +105,13 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
             self.present(loginVC,animated: true,completion: nil)
         }
     }
-        
+    
+    func fecthNewData(){
+        if UserModel.currentUser.isLogined() == true {
+            self.mapVC.fetchContent()
+        }
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

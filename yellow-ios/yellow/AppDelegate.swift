@@ -9,34 +9,48 @@
 import UIKit
 import FBSDKCoreKit
 import Firebase
+import FirebaseInstanceID
+import FirebaseMessaging
+import UserNotifications
 import CoreLocation
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-    
+class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
     var window: UIWindow?
     var initialViewController :UIViewController?
     let homeViewController = HomeVC()
-    
+    func messaging(_ messaging: Messaging, didRefreshRegistrationToken fcmToken: String) {
+        print("didRefreshRegistrationToken fcmToken:\(fcmToken)")
+    }
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("MessagingAppData:\(remoteMessage.appData)")
+    }
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        UserModel.currentUser.getAsDatabase(completionHandler: {
-
         
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(options: authOptions, completionHandler: { (isDone, error) in
+            })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        application.registerForRemoteNotifications()
         FirebaseApp.configure()
-        AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
-            
-        self.window = UIWindow(frame: UIScreen.main.bounds)
-        
-//            let homeViewController = PostVC()
-        self.homeViewController.view.backgroundColor = UIColor.red
-        
-        // setup facebook
-        self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
-        
-        self.window!.rootViewController = self.homeViewController
-            
-        self.window!.makeKeyAndVisible()
-        
-
+        print("fcmToken:\(Messaging.messaging().fcmToken)")
+        UserModel.currentUser.getAsDatabase(completionHandler: {
+            AnalyticsConfiguration.shared().setAnalyticsCollectionEnabled(true)
+            self.window = UIWindow(frame: UIScreen.main.bounds)
+            self.homeViewController.view.backgroundColor = UIColor.red
+            // setup facebook
+            self.setUpFacebook(application,didFinishLaunchingWithOptions: launchOptions)
+            //let path = "http://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+            //let url = URL(string: path)
+            //let videoVC = VideoViewController(videoURL: url!)
+            self.window!.rootViewController = self.homeViewController
+            self.window!.makeKeyAndVisible()
         })
         //        self.window = UIWindow(frame: UIScreen.main.bounds)
         //        let secondVc = SecondViewController(nibName: "SecondViewController", bundle: nil)
@@ -132,5 +146,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     
+}
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        //if response.notification.request.content.userInfo.isEmpty {
+        //  let userInfo = response.notification.request.content.userInfo
+        //}
+        //        print("attachment:\(response.notification.request.content.attachments[0].url)")
+        //        let image = UIImage(contentsOfFile: response.notification.request.content.attachments[0].url.absoluteString)
+        let url = response.notification.request.content.attachments[0].url
+        let userInfo = response.notification.request.content.userInfo
+    }
+    @available(iOS 10.0, *)
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        completionHandler([.alert,.sound,.badge])
+    }
 }
 

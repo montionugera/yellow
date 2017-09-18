@@ -5,13 +5,10 @@
 //  Created by Nattapong Unaregul on 9/12/17.
 //  Copyright © 2017 Nattapong Unaregul. All rights reserved.
 //
-
 import UIKit
-
 @objc protocol StickerPickerDelegate {
     @objc optional func stickerPicker(selected model : StickerModel ,pageDataSet : Int)
 }
-
 @IBDesignable
 class StickerPicker: UIControl {
     lazy var  queue  : OperationQueue = {
@@ -23,9 +20,11 @@ class StickerPicker: UIControl {
     fileprivate var isAnimatingScrollViewOffset : Bool = false
     var delegate : StickerPickerDelegate?
     var dataSet : [[StickerModel]]!
-    var pickerDataSet : [StickerSetPickerModel]!
-    fileprivate var isAlreadyInitilization = false
-    
+    var pickerDataSet : [StickerSetPickerModel]!{
+        didSet {
+            pickerSet.models = pickerDataSet
+        }
+    }
     fileprivate lazy var collections : [StickerCollection] = []
     fileprivate  var pickerSet : StickerSetPicker!
     let ratioTopHeight :  CGFloat = 2 / 3
@@ -48,6 +47,7 @@ class StickerPicker: UIControl {
         topContainerWihScroll.isPagingEnabled = true
         let layout = UICollectionViewFlowLayout()
         pickerSet = StickerSetPicker(frame: CGRect.zero , collectionViewLayout: layout)
+        topContainerWihScroll.backgroundColor = UIColor.white
         pickerSet.backgroundColor = UIColor.white
         pickerSet.stickerSetPickerDatasource = self
         pickerSet.stickerSetPickerDelegate = self
@@ -61,10 +61,37 @@ class StickerPicker: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         if pickerSet.frame  == CGRect.zero {
+            #if !TARGET_INTERFACE_BUILDER
+                if dataSet == nil
+                    || dataSet.count == 0
+                    || pickerDataSet == nil
+                    || pickerDataSet.count == 0
+                    || pickerDataSet.count != dataSet.count        {
+                    return
+                }
+            #endif
             let targetRect = rectOfBottomContainer
             pickerSet.frame = targetRect
-            topContainerWihScroll.frame = CGRect(x: 0, y: 0
-                , width: self.bounds.width, height: self.bounds.height * ratioTopHeight)
+            topContainerWihScroll.frame = CGRect(x: 0, y: 0 , width: self.bounds.width, height: self.bounds.height * ratioTopHeight)
+            #if !TARGET_INTERFACE_BUILDER
+                let boundSizeOfTopContainer = topContainerWihScroll.bounds
+                topContainerWihScroll.contentSize = CGSize(width: boundSizeOfTopContainer.width * CGFloat(dataSet.count)
+                    , height: boundSizeOfTopContainer.height)
+                for (index,_) in dataSet.enumerated() {
+                    let targetRect = CGRect(x:CGFloat(index) *  boundSizeOfTopContainer.width , y: 0, width: boundSizeOfTopContainer.width, height: boundSizeOfTopContainer.height)
+                    let layout = UICollectionViewFlowLayout()
+                    let collection = StickerCollection(frame: targetRect, collectionViewLayout: layout)
+                    collection.models = dataSet[index]
+                    collection.stickerDataSource = self
+                    collection.stickerDelegate = self
+                    collections.append(collection)
+                    topContainerWihScroll.addSubview(collection)
+                    collection.reloadDataAdvance()
+                }
+                pickerSet.reloadDataAdvance()
+                let startIndexPath = IndexPath(item: 0 , section: 0)
+                setTargetDisplayOffset(at: startIndexPath, animated: false)
+            #endif
         }
     }
     var rectOfBottomContainer : CGRect  {
@@ -72,37 +99,6 @@ class StickerPicker: UIControl {
             return CGRect(x: 0, y: self.bounds.height * ratioTopHeight , width: self.bounds.width
                 , height: self.bounds.height * ( 1 - ratioTopHeight))
         }
-    }
-    func performInitilization ( startIndex : Int? ) {
-        if dataSet == nil
-            || dataSet.count == 0
-            || pickerDataSet == nil
-            || pickerDataSet.count == 0
-            || pickerDataSet.count != dataSet.count        {
-            fatalError("no stickerSetData")
-        }
-        if isAlreadyInitilization == true {
-            return
-        }
-        isAlreadyInitilization = true
-        let boundSizeOfTopContainer = topContainerWihScroll.bounds
-        topContainerWihScroll.contentSize = CGSize(width: boundSizeOfTopContainer.width * CGFloat(dataSet.count)
-            , height: boundSizeOfTopContainer.height)
-        for (index,_) in dataSet.enumerated() {
-            let targetRect = CGRect(x:CGFloat(index) *  boundSizeOfTopContainer.width , y: 0, width: boundSizeOfTopContainer.width, height: boundSizeOfTopContainer.height)
-            let layout = UICollectionViewFlowLayout()
-            let collection = StickerCollection(frame: targetRect, collectionViewLayout: layout)
-            collection.models = dataSet[index]
-            collection.stickerDataSource = self
-            collection.stickerDelegate = self
-            collections.append(collection)
-            topContainerWihScroll.addSubview(collection)
-            collection.reloadDataAdvance()
-        }
-        pickerSet.models = pickerDataSet
-        pickerSet.reloadDataAdvance()
-        let startIndexPath = IndexPath(item: startIndex ?? 0 , section: 0)
-        setTargetDisplayOffset(at: startIndexPath, animated: false)
     }
     fileprivate func setTargetDisplayOffset(at indexPath : IndexPath , animated : Bool = false){
         let x = rectOfBottomContainer.width * CGFloat(indexPath.item)

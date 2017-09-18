@@ -144,7 +144,7 @@ class PostProfileViewController: BaseViewController {
             var ref: DatabaseReference!
             ref = Database.database().reference()
             let postDesc = self.des_tx.text
-            let addedByUser = String(describing: UserModel.currentUser.user_id)
+            let addedByUser = UserModel.currentUser.user_id ?? ""
             let addedByUserName = UserModel.currentUser.user_name
             let addedByUserURL = UserModel.currentUser.user_profile
             let mediaType = fileExt

@@ -123,6 +123,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                             "user_email" : fb_data?.object(forKey: "email") ,
                             "user_name" : fb_name ,
                             "user_profile" : user_profile_pic,
+                            "user_link" : user_link
                         ]
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
         

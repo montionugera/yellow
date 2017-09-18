@@ -57,6 +57,7 @@
 		BE170D081F68357C00CF6D20 /* SecondViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D071F68357C00CF6D20 /* SecondViewModel.swift */; };
 		BE170D0A1F6835A500CF6D20 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BE170D091F6835A500CF6D20 /* SecondViewController.xib */; };
 		BE170D0C1F68363300CF6D20 /* FeedItemModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */; };
+		BE2D597C1F6FD2D300E07FB6 /* ImageRoundCorner.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE2D597B1F6FD2D300E07FB6 /* ImageRoundCorner.swift */; };
 		BED73CCD1F6A47C200E2798A /* StickerDataSetGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BED73CCC1F6A47C200E2798A /* StickerDataSetGenerator.swift */; };
 		BEF69AC81F69479F00FF8720 /* StickerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BEF69ABF1F69479F00FF8720 /* StickerCell.swift */; };
 		BEF69AC91F69479F00FF8720 /* StickerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BEF69AC01F69479F00FF8720 /* StickerCell.xib */; };
@@ -78,8 +79,8 @@
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
-		CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
+		CD571EC51F457E6F00ECB9C8 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		CD571EC61F457E6F00ECB9C8 /* (null) in Resources */ = {isa = PBXBuildFile; };
 		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
 		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
 		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
@@ -153,6 +154,7 @@
 		BE170D071F68357C00CF6D20 /* SecondViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewModel.swift; sourceTree = "<group>"; };
 		BE170D091F6835A500CF6D20 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
 		BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FeedItemModel.swift; sourceTree = "<group>"; };
+		BE2D597B1F6FD2D300E07FB6 /* ImageRoundCorner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageRoundCorner.swift; sourceTree = "<group>"; };
 		BE5B19B81F6A90F40077DC17 /* Yellow.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Yellow.entitlements; sourceTree = "<group>"; };
 		BED73CCC1F6A47C200E2798A /* StickerDataSetGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerDataSetGenerator.swift; sourceTree = "<group>"; };
 		BEF69ABF1F69479F00FF8720 /* StickerCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StickerCell.swift; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 		BE0443001F6279FB00A85AFC /* Controls */ = {
 			isa = PBXGroup;
 			children = (
+				BE2D597A1F6FD28600E07FB6 /* ImageRoundCorner */,
 				BEF69ABE1F69479F00FF8720 /* StickerPicker */,
 				BE0443021F62818F00A85AFC /* AVPlayerManager */,
 				BE0443011F62816600A85AFC /* FeedCollectionView */,
@@ -346,6 +349,14 @@
 				BE170D0B1F68363300CF6D20 /* FeedItemModel.swift */,
 			);
 			path = ControlsTester;
+			sourceTree = "<group>";
+		};
+		BE2D597A1F6FD28600E07FB6 /* ImageRoundCorner */ = {
+			isa = PBXGroup;
+			children = (
+				BE2D597B1F6FD2D300E07FB6 /* ImageRoundCorner.swift */,
+			);
+			path = ImageRoundCorner;
 			sourceTree = "<group>";
 		};
 		BEF69ABE1F69479F00FF8720 /* StickerPicker */ = {
@@ -564,7 +575,7 @@
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
 				51C728421F6265DC0058596F /* ThaiSansNeue-Light.ttf in Resources */,
-				CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* (null) in Resources */,
 				51C728401F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf in Resources */,
 				51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
@@ -659,9 +670,9 @@
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
 				51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */,
 				BE170D061F68355600CF6D20 /* SecondViewController.swift in Sources */,
 				BE170D0C1F68363300CF6D20 /* FeedItemModel.swift in Sources */,
@@ -675,6 +686,7 @@
 				CD3DB4771F45664D00A0F0F8 /* AppDelegate.swift in Sources */,
 				512502831F6681C900E0665C /* Serailizable.swift in Sources */,
 				5152466A1F654B49002D7DB1 /* MappingPinEmo.swift in Sources */,
+				BE2D597C1F6FD2D300E07FB6 /* ImageRoundCorner.swift in Sources */,
 				CD06B6421F4EB10E00FD0C51 /* SwiftyRecordButton.swift in Sources */,
 				51F6A8491F5D31BF0023DC1C /* Utilities.swift in Sources */,
 				CD1383411F53AAE300CB049E /* SwiftyCamButton.swift in Sources */,

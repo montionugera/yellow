@@ -32,11 +32,10 @@ class FeedCell: UICollectionViewCell {
     @IBOutlet weak var lb_title: UILabel!
     @IBOutlet weak var lb_location: UILabel!
     @IBOutlet weak var lb_time: UILabel!
-    @IBOutlet weak var img_userProfile: UIImageView!
-    @IBOutlet weak var img_emo: UIImageView!
+    @IBOutlet weak var img_userProfile: ImageRoundCorner!
+    @IBOutlet weak var img_emo: ImageRoundCorner!
     @IBOutlet weak var img_love: UIImageView!
     @IBOutlet weak var lb_loveCount: UILabel!
-    
     var firebaseAPI : FirebaseAPI!
     var feedContent : FeedContent!
     weak var operation : Operation?
@@ -58,14 +57,15 @@ class FeedCell: UICollectionViewCell {
         playerManager.releaseObserver()
         operation?.cancel()
         operation = nil
-    }
+        }
     @IBAction func ClickLove(_ sender: UITapGestureRecognizer) {
         if let fc = feedContent {
             self.lb_loveCount.text = "\(Int(self.lb_loveCount.text!)! + 1)"
             self.firebaseAPI.update(feedContent: fc)
-
-            Analytics.logEvent("like", parameters: [
-                "name": UserModel.currentUser.user_name ?? "" ])
+            Analytics.logEvent("like",
+                parameters: [
+                "name": UserModel.currentUser.user_name ?? ""
+                ,"post_id" : fc.key])
         }
     }
 }

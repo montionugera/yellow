@@ -215,15 +215,13 @@ extension FeedListVC : FeedCollectionViewDelegate {
         if item.addedByUserURL.characters.count > 0 {
             cell.img_userProfile.af_setImage(
                 withURL: URL(string: item.addedByUserURL)!,
-                placeholderImage:  nil,
-                filter: AspectScaledToFillSizeWithRoundedCornersFilter(
+                placeholderImage:  nil
+                ,filter: AspectScaledToFillSizeWithRoundedCornersFilter(
                     size: cell.img_userProfile.frame.size,
                     radius: cell.img_userProfile.frame.size.width/2
                 )
             )
         }
-        
-        
         let emoString = item.emo
         let emoArray = emoString.components(separatedBy: ",")
         if(emoArray.count == 2){

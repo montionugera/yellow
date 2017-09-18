@@ -16,7 +16,7 @@ class UserModel: NSObject{
     var user_email : String?
     var user_name : String?
     var user_profile : String?
-    
+    var user_link : String?
     var fcmToken_id : String?
     
     class var currentUser: UserModel {
@@ -81,7 +81,7 @@ class UserModel: NSObject{
         self.user_email = nil
         self.user_name = nil
         self.user_profile = nil
-        
+        self.user_link = nil
         self.raw_info = nil
 
     }

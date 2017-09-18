@@ -44,7 +44,7 @@ class MapVC: UIViewController {
 
     func fetchContent(){
         if (CLLocationManager.locationServicesEnabled()) {
-            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.requestAlwaysAuthorization()
             self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.distanceFilter = 50.0
             self.locationManager.delegate = self
@@ -221,11 +221,11 @@ extension MapVC : FeedViewModelDelegate {
             let annotation = CustomAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(dd.latitude, dd.longitude)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-            annotation.type = .color(color, radius: 25)
+            //            annotation.type = .color(color, radius: 25)
             annotation.pinContent = pinContent
             // or
-            //            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
-
+            annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
+            annotation.pinContent = pinContent
             self.manager.add(annotation)
         }
         
@@ -286,7 +286,7 @@ extension MapVC : FeedViewModelDelegate {
             annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
             annotations.append(annotation)
         }
-        
+        self.manager.removeAll()
         self.manager.add(annotations)
         self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
 

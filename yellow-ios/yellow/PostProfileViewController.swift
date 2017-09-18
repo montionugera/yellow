@@ -14,13 +14,13 @@ import FBSDKLoginKit
 import Firebase
 import IHKeyboardAvoiding
 
-class PostProfileViewController: UIViewController {
+class PostProfileViewController: BaseViewController {
 
     @IBOutlet weak var inputContainer: UIView!
     @IBOutlet var vdoContainerView: UIView!
     
     @IBOutlet weak var des_tx: UITextField!
-    @IBOutlet weak var emo_bt: UITextField!
+    @IBOutlet weak var emo_bt: UIButton!
     
     @IBOutlet weak var admin_lat_tx: UITextField!
     @IBOutlet weak var admin_long_tx: UITextField!
@@ -30,13 +30,18 @@ class PostProfileViewController: UIViewController {
         return true
     }
     
+    private var emoChar: String
+    private var emoImg: UIImage
     private var videoURL: URL
+    
     var player: AVPlayer?
     var playerController : AVPlayerViewController?
     var requireLoadNewUI = false
     
-    init(videoURL: URL) {
+    init(videoURL: URL , emoChar: String , emoImg: UIImage) {
         self.videoURL = videoURL
+        self.emoChar = emoChar
+        self.emoImg = emoImg
         super.init(nibName: "PostProfileViewController", bundle: nil)
     }
     
@@ -53,8 +58,16 @@ class PostProfileViewController: UIViewController {
         self.des_tx.leftView = paddingView
         self.des_tx.leftViewMode = .always
         
+        self.emo_bt.setImage(self.emoImg, for: .normal)
+        let emoString = self.emoChar
+        let emoArray = emoString.components(separatedBy: ",")
+        if(emoArray.count == 2){
+            let colorID = emoArray[0]
+            self.emo_bt.tintColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+        }
+        
         let em = UserModel.currentUser.user_email
-        if(em == "ek_dan@hotmail.com" || em == "fio_fiore10234@hotmail.com" || em == "yellowerth@gmail.com" || em == "orapat.ch@gmail.com" || em == "montionugera@gmail.com" || em == "v.laotrakul.fb@gmail.com"){
+        if(em == "ek_dan@hotmail.com" || em == "fio_fiore10234@hotmail.com" || em == "yellowerth@gmail.com" || em == "orapat.ch@gmail.com" || em == "montionugera@gmail.com" || em == "v.laotrakul.fb@gmail.com" || em == "yellowerth@gmail.com"){
             self.admin_view.isHidden = false
         }
         
@@ -93,6 +106,7 @@ class PostProfileViewController: UIViewController {
         }
         player?.play()
     }
+
     
     @IBAction func backNav() {
         self.navigationController?.popViewController(animated: true)
@@ -106,6 +120,8 @@ class PostProfileViewController: UIViewController {
     
     @IBAction func post(_ sender: Any) {
         player?.pause()
+        
+        self.showLoding()
         //Post
         
         let user = Auth.auth().currentUser!
@@ -149,20 +165,27 @@ class PostProfileViewController: UIViewController {
                                 "mediaType":mediaType,
                                 "mediaURL":mediaURL,
                                 "love":love,
-                                "emo": "1,1",
-                                "place": "",
+                                "emo": (self.emoChar.characters.count > 0)  ? self.emoChar : "1,1",
+                                "place": currentPlaceYellow ?? "",
                                 "postDttmInt": Date().timeIntervalSince1970,
                                 "postDttmStr": getStandardAppDateString(dttm: Date()),
                                 "lochash":lochash] as [String : Any]
                 
                 let postRef = ref.child("posts")
                 let newPostRef = postRef.childByAutoId()
-                newPostRef.setValue(postData)
+                newPostRef.setValue(postData) { (error, ref) -> Void in
+                    self.hideLoding()
+                    if error != nil {
+                        self.showAlertDefault(msg: String(describing: error))
+                    } else {
+                        // move to rootView
+                        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+                    }
+                }
             }
         }
         
-        // move to rootView
-        self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
+        
     }
     
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {

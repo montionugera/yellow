@@ -14,6 +14,8 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
     let firebaseAPI = FirebaseAPI()
     @IBOutlet weak var fbLogin_view: FBSDKLoginButton!
     
+    weak var mapvc_main: MapVC?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,7 +65,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
             FacebookAuthProvider.credential(withAccessToken: accessTokenString )
         
         
-        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large)"])
+        FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large),link"])
             .start(completionHandler:  { (connection, result, error) in
                 
                 if (error != nil) {
@@ -94,9 +96,24 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         let picData = fb_data?.object(forKey: "picture") as! [String : AnyObject]
                         user_profile_pic = picData["data"]?["url"] as! String
                     }
+                    var user_link = ""
+                    if fb_data?.object(forKey: "link") != nil {
+                        user_link = fb_data?.object(forKey: "link") as! String
+                    }
+                    
+                    var fb_name = ""
+                    if fb_data?.object(forKey: "name") != nil {
+                        fb_name = fb_data?.object(forKey: "name") as! String
+                    }
+                    // fix admin name yellow
+                    if(fb_name == "Mark Johnson"){
+                        fb_name = "Yellow"
+                    }
+                    
                     Auth.auth().signIn(with: credentials, completion: { (user, error) in
                         guard let user = user else {return}
                         self.hideLoding()
+                        
                         if error != nil{
                             print(error!)
                             self.showAlertDefault(msg: error as! String)
@@ -104,13 +121,24 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         let user_data_save = [
                             "user_id" : user.uid ,
                             "user_email" : fb_data?.object(forKey: "email") ,
-                            "user_name" : fb_data?.object(forKey: "name") ,
+                            "user_name" : fb_name ,
                             "user_profile" : user_profile_pic,
                         ]
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
-                        let user_data_save_on_fcm : [String:Any] = ["fcmTokens" : Messaging.messaging().fcmToken]
+        
+                        let user_data_save_on_fcm : [String:Any] = [
+                            "fcmTokens" : Messaging.messaging().fcmToken! ,
+                            "fblink" : user_link
+                        ]
                         self.firebaseAPI.userRef.child(user.uid).setValue(user_data_save_on_fcm)
-                        self.dismiss(animated: true, completion: nil)
+                        //print("tylerDebug:\(Messaging.messaging().fcmToken)")
+                        
+                        self.dismiss(animated: true, completion: {
+                            if self.mapvc_main != nil {
+                                self.mapvc_main?.fetchContent()
+                            }
+                        })
+
                     })
                 }
             })

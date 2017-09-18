@@ -78,8 +78,8 @@
 		CD3DB47C1F45664D00A0F0F8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47A1F45664D00A0F0F8 /* Main.storyboard */; };
 		CD3DB47E1F45664D00A0F0F8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47D1F45664D00A0F0F8 /* Assets.xcassets */; };
 		CD3DB4811F45664D00A0F0F8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CD3DB47F1F45664D00A0F0F8 /* LaunchScreen.storyboard */; };
-		CD571EC51F457E6F00ECB9C8 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		CD571EC61F457E6F00ECB9C8 /* (null) in Resources */ = {isa = PBXBuildFile; };
+		CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */ = {isa = PBXBuildFile; };
 		CD571ECB1F457EC000ECB9C8 /* PostVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571EC91F457EC000ECB9C8 /* PostVC.swift */; };
 		CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD571ECA1F457EC000ECB9C8 /* PostVC.xib */; };
 		CD571ECF1F457ED800ECB9C8 /* MyProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD571ECD1F457ED800ECB9C8 /* MyProfileVC.swift */; };
@@ -564,7 +564,7 @@
 				CD571ECC1F457EC000ECB9C8 /* PostVC.xib in Resources */,
 				CD571ED81F45837400ECB9C8 /* MapVC.xib in Resources */,
 				51C728421F6265DC0058596F /* ThaiSansNeue-Light.ttf in Resources */,
-				CD571EC61F457E6F00ECB9C8 /* (null) in Resources */,
+				CD571EC61F457E6F00ECB9C8 /* BuildFile in Resources */,
 				51C728401F6265DC0058596F /* ThaiSansNeue-ExtraLightItal.ttf in Resources */,
 				51C7283F1F6265DC0058596F /* ThaiSansNeue-ExtraLight.ttf in Resources */,
 				CDDC923F1F4D262100A7EDE7 /* GoogleService-Info.plist in Resources */,
@@ -619,7 +619,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		7C7E73D05B393A43BEE0D0C9 /* [CP] Copy Pods Resources */ = {
@@ -659,9 +659,9 @@
 				CDDC92441F4D2AEE00A7EDE7 /* PostContent.swift in Sources */,
 				CD24F4C51F46D97A001FBA86 /* LoginVC.swift in Sources */,
 				CD0FE6301F4EB221007049B2 /* VideoViewController.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
 				519B64501F567F22008AB0EA /* FirebaseAPI.swift in Sources */,
-				CD571EC51F457E6F00ECB9C8 /* (null) in Sources */,
+				CD571EC51F457E6F00ECB9C8 /* BuildFile in Sources */,
 				51C728501F628D0F0058596F /* PulleyPassthroughScrollView.swift in Sources */,
 				BE170D061F68355600CF6D20 /* SecondViewController.swift in Sources */,
 				BE170D0C1F68363300CF6D20 /* FeedItemModel.swift in Sources */,

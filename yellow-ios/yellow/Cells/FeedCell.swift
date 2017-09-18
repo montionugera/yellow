@@ -33,6 +33,7 @@ class FeedCell: UICollectionViewCell {
     @IBOutlet weak var lb_location: UILabel!
     @IBOutlet weak var lb_time: UILabel!
     @IBOutlet weak var img_userProfile: UIImageView!
+    @IBOutlet weak var img_emo: UIImageView!
     @IBOutlet weak var img_love: UIImageView!
     @IBOutlet weak var lb_loveCount: UILabel!
     

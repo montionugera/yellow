@@ -20,6 +20,7 @@
                 <outlet property="admin_long_tx" destination="uXs-eJ-kcQ" id="Mkq-wo-XYf"/>
                 <outlet property="admin_view" destination="sZf-vb-uTn" id="dJp-Hh-c9f"/>
                 <outlet property="des_tx" destination="gXR-CC-hhu" id="lzz-oN-3G7"/>
+                <outlet property="emo_bt" destination="2ja-PI-Xmy" id="lNC-pR-Ppb"/>
                 <outlet property="inputContainer" destination="D6o-zD-6F8" id="Tzy-Zy-gFJ"/>
                 <outlet property="vdoContainerView" destination="65H-1i-Bhb" id="YVu-7I-Xel"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -90,7 +91,6 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ja-PI-Xmy">
                             <rect key="frame" x="12" y="12" width="40" height="40"/>
-                            <color key="backgroundColor" red="0.85490196939999996" green="0.25098040700000002" blue="0.4784313738" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="EvN-J2-dhw"/>
                                 <constraint firstAttribute="width" constant="40" id="zlq-hj-vkX"/>

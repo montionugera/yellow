@@ -85,6 +85,16 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="alw-JS-AfU">
+                        <rect key="frame" x="27" y="29" width="30" height="30"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="15"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -108,6 +118,7 @@
             </constraints>
             <size key="customSize" width="377" height="506"/>
             <connections>
+                <outlet property="img_emo" destination="alw-JS-AfU" id="i8L-eP-Mlt"/>
                 <outlet property="img_love" destination="CNh-QJ-Ab9" id="soo-Zd-TfK"/>
                 <outlet property="img_userProfile" destination="mtG-By-AIO" id="ZPn-5l-SEC"/>
                 <outlet property="lb_location" destination="COc-7L-7hj" id="Jeb-eV-edF"/>

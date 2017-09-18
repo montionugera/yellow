@@ -37,13 +37,15 @@ class MapVC: UIViewController {
         mapView.showsCompass = false
         mapView.delegate = self
 
-//        let pinchRecognizer = UIPinchGestureRecognizer(target: self, action: #selector(scale))
-//        pinchRecognizer.delegate = self
-//        mapView.addGestureRecognizer(pinchRecognizer)
+        fetchContent()
         
+    
+    }
+
+    func fetchContent(){
         if (CLLocationManager.locationServicesEnabled()) {
-            self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.distanceFilter = 50.0
             self.locationManager.delegate = self
             self.locationManager.startMonitoringSignificantLocationChanges()
@@ -53,12 +55,16 @@ class MapVC: UIViewController {
         
         feedViewModel.delegate = self
         feedViewModel.initilization()
-    
     }
-
+    
     func addMapTrackingButton(){
+        if let bb = self.mapView.viewWithTag(4537) as? UIButton {
+            bb.removeFromSuperview()
+        }
+        
         let image = UIImage(named: "btReCenter") as UIImage?
         let button   = UIButton(type: UIButtonType.custom) as UIButton
+        button.tag = 4537
         button.frame = CGRect(x: UIScreen.main.bounds.width - 55, y: 25, width: 44, height: 47)
         button.setImage(image, for: .normal)
         button.backgroundColor = UIColor.clear
@@ -152,13 +158,38 @@ extension MapVC : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last!
         if(currentLocationYellow == nil){
-            let span = MKCoordinateSpanMake(0.75, 0.75)
+//            let span = MKCoordinateSpanMake(0.75, 0.75)
+            let span = MKCoordinateSpanMake(0.1, 0.1)
             let viewRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: span)
             mapView.setRegion(viewRegion, animated: true)
         }
         
         
         currentLocationYellow = userLocation
+        
+        
+        CLGeocoder().reverseGeocodeLocation(userLocation, completionHandler: {(placemarks, error) -> Void in
+            print(locations)
+            
+            if error != nil {
+                print("Reverse geocoder failed with error" + (error?.localizedDescription)!)
+                return
+            }
+            
+            if (placemarks?.count)! > 0 {
+                let pm = placemarks?[0]
+                currentPlaceYellow = pm?.locality
+                print("locality ****" , pm?.locality ?? "no")
+//                print("subLocality ****" ,pm?.subLocality ?? "no")
+//                print("subThoroughfare ****" ,pm?.subThoroughfare ?? "no")
+//                print("administrativeArea ****" ,pm?.administrativeArea ?? "no")
+//                print("country ****" ,pm?.country ?? "no")
+            }
+            else {
+                print("Problem with the data received from geocoder")
+            }
+        })
+        
     }
 }
 

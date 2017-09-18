@@ -88,12 +88,12 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        self.goLogin()
+        
     }
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
         
-        
+        self.goLogin()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         appDelegate.Alertlocation()
     }
@@ -101,6 +101,7 @@ class HomeVC: UIViewController,UITabBarControllerDelegate  {
     func goLogin(){
         if UserModel.currentUser.isLogined() == false {
             let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
+            loginVC.mapvc_main = self.mapVC
             self.present(loginVC,animated: true,completion: nil)
         }
     }

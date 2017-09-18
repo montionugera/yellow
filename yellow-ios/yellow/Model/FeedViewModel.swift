@@ -27,16 +27,17 @@ class FeedViewModel: NSObject {
         firebaseAPI.storageRef.observeSingleEvent(of: .value, with: {[weak self] (snapshot) in
             guard let the = self else {
                 return
-            }
+            }   
+            the.feedContents.removeAll()
             for item in snapshot.children {
                 
                 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
                 
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
 
-//                if(self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false){
+                if(self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false){
                     the.feedContents.append(feedContent)
-//                }
+                }
 //                print(item)
             }
             
@@ -118,7 +119,7 @@ class FeedViewModel: NSObject {
         } else if (components.day! >= 2) {
             return true
         } else if (components.day! >= 1){
-            return true
+            return false
         } else if (components.hour! >= 2) {
             return false
         } else if (components.hour! >= 1){

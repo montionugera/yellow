@@ -38,6 +38,8 @@ class FeedListVC: BaseViewController {
             }
             if(isFirse == false){
                 setTopbarColor(feedContent: feedContents[0],isUserLocation: isUserLocation)
+            }else{
+                self.title_lb.isHidden = false
             }
             
             self.feedContents = feedContents
@@ -75,9 +77,6 @@ class FeedListVC: BaseViewController {
     
     
     func setTopbarColor(feedContent :FeedContent , isUserLocation : Bool){
-        if(isUserLocation == false){
-            self.title_lb.text = feedContent.postDesc
-        }
         
         let emoString = feedContent.emo
         let emoArray = emoString.components(separatedBy: ",")
@@ -88,15 +87,19 @@ class FeedListVC: BaseViewController {
                 colorID = "0"
             }
             
-            UIView.animate(withDuration: 0.3, animations: {
+            UIView.animate(withDuration: 0.2, animations: {
                 self.view.alpha = 0.0
             }, completion: { (finish) in
                 
                 self.topbar_bg.image = MappingPinEmo.shareInstace.mappingTopBar(colorID: colorID)
                 self.backgroundViewUnderFeedView.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+                
+                if(isUserLocation == false){
+                    self.title_lb.text = feedContent.place
+                }
                 self.title_lb.isHidden = false
                 
-                UIView.animate(withDuration: 0.5, animations: {
+                UIView.animate(withDuration: 0.4, animations: {
                     self.view.alpha = 1.0
                 }, completion: { (finish) in
                     
@@ -140,6 +143,12 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
         if drawer.drawerPosition != .open
         {
             self.feed.isUserInteractionEnabled = false
+            
+            for cell in self.feed.visibleCells as! [FeedCell] {
+                cell.playerManager.pause()
+                cell.operation?.cancel()
+            }
+            
         }else{
             self.feed.isUserInteractionEnabled = true
         }
@@ -213,6 +222,19 @@ extension FeedListVC : FeedCollectionViewDelegate {
                 )
             )
         }
+        
+        
+        let emoString = item.emo
+        let emoArray = emoString.components(separatedBy: ",")
+        if(emoArray.count == 2){
+            let colorID = emoArray[0]
+            let emoID = emoArray[1]
+            cell.img_emo.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
+            cell.img_emo.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
+            
+        }
+        
+        
         let operation = BlockOperation {
             cell.playerManager.prepare(urlPath: item.mediaURL)
         }

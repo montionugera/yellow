@@ -67,7 +67,7 @@ class PostProfileViewController: BaseViewController {
         }
         
         let em = UserModel.currentUser.user_email
-        if(em == "ek_dan@hotmail.com" || em == "fio_fiore10234@hotmail.com" || em == "yellowerth@gmail.com" || em == "orapat.ch@gmail.com" || em == "montionugera@gmail.com" || em == "v.laotrakul.fb@gmail.com"){
+        if(em == "ek_dan@hotmail.com" || em == "fio_fiore10234@hotmail.com" || em == "yellowerth@gmail.com" || em == "orapat.ch@gmail.com" || em == "montionugera@gmail.com" || em == "v.laotrakul.fb@gmail.com" || em == "yellowerth@gmail.com"){
             self.admin_view.isHidden = false
         }
         

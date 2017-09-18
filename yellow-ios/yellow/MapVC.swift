@@ -44,8 +44,8 @@ class MapVC: UIViewController {
 
     func fetchContent(){
         if (CLLocationManager.locationServicesEnabled()) {
-            self.locationManager.requestAlwaysAuthorization()
-            self.locationManager.desiredAccuracy = kCLLocationAccuracyHundredMeters
+            self.locationManager.requestWhenInUseAuthorization()
+            self.locationManager.desiredAccuracy = kCLLocationAccuracyBest
             self.locationManager.distanceFilter = 50.0
             self.locationManager.delegate = self
             self.locationManager.startMonitoringSignificantLocationChanges()

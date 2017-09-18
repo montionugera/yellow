@@ -100,9 +100,20 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                     if fb_data?.object(forKey: "link") != nil {
                         user_link = fb_data?.object(forKey: "link") as! String
                     }
+                    
+                    var fb_name = ""
+                    if fb_data?.object(forKey: "name") != nil {
+                        fb_name = fb_data?.object(forKey: "name") as! String
+                    }
+                    // fix admin name yellow
+                    if(fb_name == "Mark Johnson"){
+                        fb_name = "Yellow"
+                    }
+                    
                     Auth.auth().signIn(with: credentials, completion: { (user, error) in
                         guard let user = user else {return}
                         self.hideLoding()
+                        
                         if error != nil{
                             print(error!)
                             self.showAlertDefault(msg: error as! String)
@@ -110,14 +121,14 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         let user_data_save = [
                             "user_id" : user.uid ,
                             "user_email" : fb_data?.object(forKey: "email") ,
-                            "user_name" : fb_data?.object(forKey: "name") ,
+                            "user_name" : fb_name ,
                             "user_profile" : user_profile_pic,
                         ]
                         //#mark input firebase FBID TOKEN, UID
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
                         
                         let user_data_save_on_fcm : [String:Any] = [
-                            "fcmTokens" : Messaging.messaging().fcmToken ,
+                            "fcmTokens" : Messaging.messaging().fcmToken! ,
                             "fblink" : user_link
                         ]
                         self.firebaseAPI.userRef.child(user.uid).setValue(user_data_save_on_fcm)

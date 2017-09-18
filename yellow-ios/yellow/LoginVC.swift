@@ -124,9 +124,8 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                             "user_name" : fb_name ,
                             "user_profile" : user_profile_pic,
                         ]
-                        //#mark input firebase FBID TOKEN, UID
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
-                        
+        
                         let user_data_save_on_fcm : [String:Any] = [
                             "fcmTokens" : Messaging.messaging().fcmToken! ,
                             "fblink" : user_link
@@ -139,7 +138,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                                 self.mapvc_main?.fetchContent()
                             }
                         })
-  
+
                     })
                 }
             })

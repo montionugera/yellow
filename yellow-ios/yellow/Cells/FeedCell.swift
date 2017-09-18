@@ -10,13 +10,23 @@ import UIKit
 import Firebase
 
 class FeedCell: UICollectionViewCell {
-    
+    static func getRecommendHeight() -> CGFloat {
+        switch UIScreen.main.bounds.height {
+        case 568.0:
+            return 420
+        case 667:
+            return 470
+        case 736:
+            return 470
+        default:
+            return 470
+        }
+    }
     lazy var lb_indexPath : UILabel = {
         let lb = UILabel()
         lb.textColor = UIColor.red
         return lb
     }()
-    
     @IBOutlet weak var playerManager: AVPlayerManager!
     @IBOutlet weak var lb_userName: UILabel!
     @IBOutlet weak var lb_title: UILabel!
@@ -53,10 +63,9 @@ class FeedCell: UICollectionViewCell {
         if let fc = feedContent {
             self.lb_loveCount.text = "\(Int(self.lb_loveCount.text!)! + 1)"
             self.firebaseAPI.update(feedContent: fc)
-            Analytics.logEvent("share_image", parameters: [
-                "name": "AAAA" as NSObject,
-                "full_text": "BBB" as NSObject
-                ])
+
+            Analytics.logEvent("like", parameters: [
+                "name": UserModel.currentUser.user_name ?? "" ])
         }
     }
 }

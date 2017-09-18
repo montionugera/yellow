@@ -15,7 +15,7 @@ import Firebase
 import IHKeyboardAvoiding
 
 class PostProfileViewController: BaseViewController {
-
+    
     @IBOutlet weak var inputContainer: UIView!
     @IBOutlet var vdoContainerView: UIView!
     
@@ -48,7 +48,6 @@ class PostProfileViewController: BaseViewController {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -101,12 +100,12 @@ class PostProfileViewController: BaseViewController {
             //            playerController?.view.center = self.vdoContainerView.center
             NotificationCenter.default.addObserver(self, selector: #selector(playerItemDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: self.player!.currentItem)
             
-             KeyboardAvoiding.avoidingView = self.inputContainer
+            KeyboardAvoiding.avoidingView = self.inputContainer
             
         }
         player?.play()
     }
-
+    
     
     @IBAction func backNav() {
         self.navigationController?.popViewController(animated: true)
@@ -114,7 +113,7 @@ class PostProfileViewController: BaseViewController {
     
     @IBAction func cancel() {
         player?.pause()
-//        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
     }
     
@@ -143,7 +142,6 @@ class PostProfileViewController: BaseViewController {
             }
             // Metadata contains file metadata such as size, content-type, and download URL.
             var ref: DatabaseReference!
-            
             ref = Database.database().reference()
             let postDesc = self.des_tx.text
             let addedByUser = String(describing: UserModel.currentUser.user_id)
@@ -152,12 +150,9 @@ class PostProfileViewController: BaseViewController {
             let mediaType = fileExt
             let mediaURL = metadata.downloadURL()!.absoluteString
             let love = 0
-            
-            
             if let cc = currentLocationYellow {
-                
                 let lochash = Geohash.encode(latitude: (((self.admin_lat_tx.text?.characters.count)! > 0) ? Double(self.admin_lat_tx.text!) : cc.coordinate.latitude)!,
-                                longitude: (((self.admin_long_tx.text?.characters.count)! > 0) ? Double(self.admin_long_tx.text!)! : cc.coordinate.longitude), length: 12)
+                                             longitude: (((self.admin_long_tx.text?.characters.count)! > 0) ? Double(self.admin_long_tx.text!)! : cc.coordinate.longitude), length: 12)
                 let postData = ["postDesc":postDesc ?? "",
                                 "addedByUser":addedByUser ,
                                 "addedByUserName":addedByUserName ?? "",
@@ -178,23 +173,20 @@ class PostProfileViewController: BaseViewController {
                     if error != nil {
                         self.showAlertDefault(msg: String(describing: error))
                     } else {
-                        // move to rootView
+                        Analytics.logEvent("post", parameters: [
+                            "userName":  UserModel.currentUser.user_name ?? "" ])
                         self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
                     }
                 }
             }
         }
-        
-        
     }
-    
     @objc fileprivate func playerItemDidReachEnd(_ notification: Notification) {
         if self.player != nil {
             self.player!.seek(to: kCMTimeZero)
             self.player!.play()
         }
     }
-
 }
 
 extension PostProfileViewController: UITextFieldDelegate {
@@ -204,7 +196,7 @@ extension PostProfileViewController: UITextFieldDelegate {
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-
+        
         
     }
     func textFieldDidEndEditing(_ textField: UITextField){

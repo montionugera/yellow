@@ -7,6 +7,9 @@
 //
 import UIKit
 
+
+
+
 @objc protocol FeedCollectionViewDelegate {
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int
     func feedNumberOfItemsInSection(_ collectionview : UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -39,6 +42,9 @@ enum ScrollFeedDirection : Int  {
 }
 extension FeedCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        
+        
         return  delegateFeedLayout.feedCollectionView(collectionView, layout: collectionViewLayout
             , contentRemainingSize: CGSize(width: self.bounds.width - insetLeft - insetRight , height: self.bounds.height - insetTop - insetBottom )
             , sizeForItemAt: indexPath)
@@ -86,6 +92,7 @@ extension FeedCollectionView : UICollectionViewDataSourcePrefetching {
 }
 @IBDesignable
 class FeedCollectionView: UICollectionView {
+
     @IBInspectable
     var ratioHeightHit : CGFloat = 0.45
     var scrollFeedDirection : ScrollFeedDirection = .none
@@ -187,6 +194,7 @@ class FeedCollectionView: UICollectionView {
     func sharedInitilization()  {
         self.delegate = self
         self.dataSource = self
+        
         if #available(iOS 10, *) {
             self.prefetchDataSource = self
         }
@@ -198,7 +206,10 @@ class FeedCollectionView: UICollectionView {
         } else {
             self.addSubview(refreshFeedControl)
         }
+        
     }
+
+    
     func refresh(sender : AnyObject) {
         if refreshFeedControl.isRefreshing {
             delegateFeed.feedRefresh()

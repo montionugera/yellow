@@ -107,13 +107,9 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                             "user_name" : fb_data?.object(forKey: "name") ,
                             "user_profile" : user_profile_pic,
                         ]
-                        //#mark input firebase FBID TOKEN, UID
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
-                        let user_data_save_on_fcm : [String:Any] = [
-                            "fcmTokens" : Messaging.messaging().fcmToken
-                        ]
+                        let user_data_save_on_fcm : [String:Any] = ["fcmTokens" : Messaging.messaging().fcmToken]
                         self.firebaseAPI.userRef.child(user.uid).setValue(user_data_save_on_fcm)
-                        //print("tylerDebug:\(Messaging.messaging().fcmToken)")
                         self.dismiss(animated: true, completion: nil)
                     })
                 }

@@ -10,7 +10,7 @@ import UIKit
 import AlamofireImage
 
 class FeedListVC: BaseViewController {
-    
+    var recommendedHeightOfCell : CGFloat = 0.0
     @IBOutlet weak var backgroundViewUnderFeedView: UIView!
     @IBOutlet weak var feed: FeedCollectionView!
     @IBOutlet weak var title_lb: UILabel!
@@ -18,6 +18,7 @@ class FeedListVC: BaseViewController {
     var feedContents : [FeedContent] = []
     override func viewDidLoad() {
         super.viewDidLoad()
+        recommendedHeightOfCell = FeedCell.getRecommendHeight()
         feed.registerAdvance(FeedCell.self, nib: UINib(nibName: "FeedCell", bundle: nil))
         feed.delegateFeed = self
         feed.delegateFeedLayout = self
@@ -54,9 +55,9 @@ class FeedListVC: BaseViewController {
                     cell.feedContent = feedContent
                     cell.lb_loveCount.text = String(describing: feedContent.love)
                     
-//                    if let ff = feed {
-//                        ff.reloadItems(at: [indexPath])
-//                    }
+                    //                    if let ff = feed {
+                    //                        ff.reloadItems(at: [indexPath])
+                    //                    }
                 }
             }
         }
@@ -177,7 +178,7 @@ extension FeedListVC : FeedDataSourcePrefetching {
     }
     func feed(_ collectionView: FeedCollectionView, cancelPrefetchingForItemsAt indexPaths: [IndexPath]) {
         for i in indexPaths {
-
+            
         }
     }
 }
@@ -298,7 +299,7 @@ extension FeedListVC : FeedCollectionViewDelegate {
 }
 extension FeedListVC : FeedCollectionViewDelegateFlowLayout {
     func feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, contentRemainingSize: CGSize, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: contentRemainingSize.width, height: contentRemainingSize.height * 1.1 )
+        return CGSize(width: contentRemainingSize.width, height: recommendedHeightOfCell )
     }
     func  feedCollectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         return 15

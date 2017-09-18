@@ -45,10 +45,15 @@ class AVPlayerManager: UIControl {
         sharedInitilization()
     }
     func sharedInitilization()  {
-        avLayer.frame = self.bounds
         avLayer.player  = avPlayer
         avLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
         self.layer.addSublayer(avLayer)
+    }
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        if  avLayer.frame == CGRect.zero {
+            avLayer.frame = self.bounds
+        }
     }
     func prepare(urlPath : String)  {
         guard  let url = URL(string: urlPath) else {

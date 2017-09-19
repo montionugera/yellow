@@ -10,6 +10,6 @@ import Foundation
 let dateFormatter = DateFormatter()
 
 func getStandardAppDateString(dttm: Date)->String{
-    dateFormatter.dateFormat = "EEEE, h a"
+    dateFormatter.dateFormat = "MM-dd-yyyy HH:mm:ss"
     return dateFormatter.string(from: dttm)
 }

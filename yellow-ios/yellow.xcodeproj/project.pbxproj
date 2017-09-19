@@ -531,7 +531,7 @@
 						CreatedOnToolsVersion = 8.3.3;
 						DevelopmentTeam = 8J8JM2E96L;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Push = {
 								enabled = 1;
@@ -836,16 +836,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = yellow/Yellow.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nattapong Laksomya (565REL992L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nattapong Laksomya (565REL992L)";
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SHOPPENING Company Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = yellow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
-				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -859,16 +859,16 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = yellow/Yellow.entitlements;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Nattapong Laksomya (565REL992L)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Nattapong Laksomya (565REL992L)";
-				DEVELOPMENT_TEAM = 8J8JM2E96L;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SHOPPENING Company Limited";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = yellow/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
-				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

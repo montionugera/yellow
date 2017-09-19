@@ -23,29 +23,27 @@ class FeedViewModel: NSObject {
         super.init()
     }
     func initilization()  {
+        print("tylerDebug: initilization")
         firebaseAPI = FirebaseAPI()
+        self.feedContents.removeAll()
         firebaseAPI.storageRef.observeSingleEvent(of: .value, with: {[weak self] (snapshot) in
             guard let the = self else {
                 return
             }
             
-            the.feedContents.removeAll()
             for item in snapshot.children {
                 
                 //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
                 
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
-
                 if(self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false){
                     the.feedContents.append(feedContent)
                 }
-//                print(item)
+                //                print(item)
             }
-            
+            print("tylerDebug feedContents.count:\(the.feedContents.count)")
             // sort date time
             the.feedContents.sort { $0.postDttmInt > $1.postDttmInt }
-            
-            
             the.initialDataHasBeenLoaded = true
             the.delegate?.didFinishLoadDataOnInitilization()
         })
@@ -62,7 +60,7 @@ class FeedViewModel: NSObject {
                     return
                 }
                 let value = snapshot.value as! Dictionary<String, AnyObject> // 2
-//                print("Edit\(value)")
+                //                print("Edit\(value)")
                 
                 let feedContent = FeedContent(snapshot:snapshot)
                 
@@ -83,14 +81,20 @@ class FeedViewModel: NSObject {
                 return
             }
             if the.initialDataHasBeenLoaded {
-                
-                print("onAdd:\(snapshot)")
                 let feedContent = FeedContent(snapshot:snapshot)
-                the.feedContents.append(feedContent)
-                // sort date time
-                the.feedContents.sort { $0.postDttmInt > $1.postDttmInt }
                 
-                the.delegate?.didAppendData(indexPath: IndexPath(item: the.feedContents.count - 1 , section: 0) , feedContent: feedContent)
+                let repeatedModel =  the.feedContents.filter({ (f) -> Bool in
+                    f.key == feedContent.key
+                })
+                if repeatedModel.count == 0
+                    &&
+                    (self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false)
+                    {
+                        the.feedContents.append(feedContent)
+                        // sort date time
+                        //                the.feedContents.sort { $0.postDttmInt > $1.postDttmInt }
+                        the.delegate?.didAppendData(indexPath: IndexPath(item: the.feedContents.count - 1 , section: 0) , feedContent: feedContent)
+                    }
             }
         })
     }

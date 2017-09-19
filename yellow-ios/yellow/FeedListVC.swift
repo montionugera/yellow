@@ -46,7 +46,6 @@ class FeedListVC: BaseViewController {
             feed.reloadDataAdvance()
         }
     }
-    
     func updateFeedLike(_ notification: NSNotification) {
         if let feedContent = notification.userInfo?["FeedContent"] as? FeedContent {
             if let i = self.feedContents.index(where: { $0.key == feedContent.key }) {
@@ -231,8 +230,6 @@ extension FeedListVC : FeedCollectionViewDelegate {
             cell.img_emo.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
             
         }
-        
-        
         let operation = BlockOperation {
             cell.playerManager.prepare(urlPath: item.mediaURL)
         }

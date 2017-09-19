@@ -32,32 +32,32 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="mtG-By-AIO" customClass="ImageRoundCorner" customModule="Yellow" customModuleProvider="target">
-                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <rect key="frame" x="8" y="10" width="40" height="40"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="mtG-By-AIO" secondAttribute="height" multiplier="1:1" id="F1H-1v-7ci"/>
                             <constraint firstAttribute="width" constant="40" id="Ofi-Xo-3bD"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hiG-eq-dnk">
-                        <rect key="frame" x="72" y="10" width="242" height="26"/>
+                        <rect key="frame" x="70" y="10" width="261" height="26"/>
                         <fontDescription key="fontDescription" name="ThaiSansNeue-Bold" family="ThaiSans Neue" pointSize="20"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kaf-Tb-kEE">
-                        <rect key="frame" x="72" y="34" width="255" height="23.5"/>
+                        <rect key="frame" x="70" y="34" width="260" height="23.5"/>
                         <fontDescription key="fontDescription" name="ThaiSansNeue-Light" family="ThaiSans Neue" pointSize="18"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COc-7L-7hj">
-                        <rect key="frame" x="336" y="15.5" width="30" height="18.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COc-7L-7hj">
+                        <rect key="frame" x="339" y="15.5" width="30" height="18.5"/>
                         <fontDescription key="fontDescription" name="ThaiSansNeue-Light" family="ThaiSans Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" text="loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-Go-jfR">
-                        <rect key="frame" x="335" y="37.5" width="31" height="18.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" text="loading" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SKf-Go-jfR">
+                        <rect key="frame" x="338" y="37.5" width="31" height="18.5"/>
                         <fontDescription key="fontDescription" name="ThaiSansNeue-Regular" family="ThaiSans Neue" pointSize="14"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -88,7 +88,7 @@
                         </subviews>
                     </stackView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alw-JS-AfU" customClass="ImageRoundCorner" customModule="Yellow" customModuleProvider="target">
-                        <rect key="frame" x="30" y="25" width="34" height="34"/>
+                        <rect key="frame" x="28" y="25" width="34" height="34"/>
                         <color key="backgroundColor" red="0.97254901959999995" green="0.97254901959999995" blue="0.97254901959999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="alw-JS-AfU" secondAttribute="height" multiplier="1:1" id="TvF-Br-6mq"/>
@@ -100,7 +100,7 @@
             <constraints>
                 <constraint firstItem="alw-JS-AfU" firstAttribute="leading" secondItem="mtG-By-AIO" secondAttribute="centerX" id="0nd-Xa-d06"/>
                 <constraint firstItem="waF-gm-jdw" firstAttribute="top" secondItem="C5L-PK-Nr9" secondAttribute="bottom" constant="15" id="4lC-Rg-ras"/>
-                <constraint firstItem="mtG-By-AIO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="60P-Ry-RHG"/>
+                <constraint firstItem="mtG-By-AIO" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="60P-Ry-RHG"/>
                 <constraint firstItem="mtG-By-AIO" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="6xp-Rm-vN5"/>
                 <constraint firstItem="C5L-PK-Nr9" firstAttribute="top" secondItem="mtG-By-AIO" secondAttribute="bottom" constant="14.5" id="Pwk-Yv-X0Y"/>
                 <constraint firstItem="hiG-eq-dnk" firstAttribute="top" secondItem="mtG-By-AIO" secondAttribute="top" id="RMr-U1-aR8"/>
@@ -109,15 +109,15 @@
                 <constraint firstItem="hiG-eq-dnk" firstAttribute="leading" secondItem="mtG-By-AIO" secondAttribute="trailing" constant="22" id="XGL-mG-dTw"/>
                 <constraint firstItem="waF-gm-jdw" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Xbc-bV-NGl"/>
                 <constraint firstItem="C5L-PK-Nr9" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aSu-nB-xmI"/>
-                <constraint firstAttribute="trailing" secondItem="COc-7L-7hj" secondAttribute="trailing" constant="11" id="fMR-Zs-CG5"/>
+                <constraint firstAttribute="trailing" secondItem="COc-7L-7hj" secondAttribute="trailing" constant="8" id="fMR-Zs-CG5"/>
                 <constraint firstItem="SKf-Go-jfR" firstAttribute="baseline" secondItem="kaf-Tb-kEE" secondAttribute="baseline" id="gR4-wg-mEd"/>
                 <constraint firstItem="alw-JS-AfU" firstAttribute="width" secondItem="mtG-By-AIO" secondAttribute="width" multiplier="0.85" id="gxs-0g-Fsn"/>
                 <constraint firstItem="kaf-Tb-kEE" firstAttribute="leading" secondItem="hiG-eq-dnk" secondAttribute="leading" id="mB2-62-Pef"/>
                 <constraint firstItem="alw-JS-AfU" firstAttribute="top" secondItem="mtG-By-AIO" secondAttribute="centerY" constant="-5" id="mGF-P3-bhm"/>
                 <constraint firstItem="kaf-Tb-kEE" firstAttribute="baseline" secondItem="mtG-By-AIO" secondAttribute="baseline" id="omn-NP-oOv"/>
                 <constraint firstItem="COc-7L-7hj" firstAttribute="baseline" secondItem="hiG-eq-dnk" secondAttribute="baseline" id="swV-Fb-b9n"/>
-                <constraint firstAttribute="trailing" secondItem="SKf-Go-jfR" secondAttribute="trailing" constant="11" id="tnw-ot-X7I"/>
-                <constraint firstItem="hiG-eq-dnk" firstAttribute="trailing" secondItem="COc-7L-7hj" secondAttribute="trailing" constant="-52" id="wEv-yB-1Cc"/>
+                <constraint firstAttribute="trailing" secondItem="SKf-Go-jfR" secondAttribute="trailing" constant="8" id="tnw-ot-X7I"/>
+                <constraint firstItem="COc-7L-7hj" firstAttribute="leading" secondItem="hiG-eq-dnk" secondAttribute="trailing" constant="8" id="wEv-yB-1Cc"/>
             </constraints>
             <size key="customSize" width="377" height="506"/>
             <connections>

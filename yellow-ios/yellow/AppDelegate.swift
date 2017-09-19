@@ -100,8 +100,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
             self.homeViewController.fecthNewData()
             timeInterval = Date().timeIntervalSince1970
         }
-        
-        
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
@@ -167,6 +165,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
     
    
     func timeAgo24Hr(_ date:Date,currentDate:Date) -> Bool {
+        
         let calendar = Calendar.current
         let now = currentDate
         let earliest = (now as NSDate).earlierDate(date)
@@ -202,7 +201,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
         } else {
             return false
         }
-        
+        return false
     }
     
 }
@@ -214,8 +213,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         //}
         //        print("attachment:\(response.notification.request.content.attachments[0].url)")
         //        let image = UIImage(contentsOfFile: response.notification.request.content.attachments[0].url.absoluteString)
-        let url = response.notification.request.content.attachments[0].url
-        let userInfo = response.notification.request.content.userInfo
+//        let url = response.notification.request.content.attachments[0].url
+//        let userInfo = response.notification.request.content.userInfo
     }
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {

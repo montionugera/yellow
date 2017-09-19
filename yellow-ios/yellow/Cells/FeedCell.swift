@@ -5,10 +5,8 @@
 //  Created by Nattapong Unaregul on 9/6/17.
 //  Copyright © 2017 Nattapong Unaregul. All rights reserved.
 //
-
 import UIKit
 import Firebase
-
 class FeedCell: UICollectionViewCell {
     static func getRecommendHeight() -> CGFloat {
         switch UIScreen.main.bounds.height {

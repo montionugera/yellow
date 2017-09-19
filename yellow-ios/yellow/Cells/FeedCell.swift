@@ -15,7 +15,7 @@ class FeedCell: UICollectionViewCell {
         case 667:
             return 470
         case 736:
-            return 470
+            return 510
         default:
             return 470
         }

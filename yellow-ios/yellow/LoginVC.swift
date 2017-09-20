@@ -67,17 +67,17 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large),link"])
             .start(completionHandler:  { (connection, result, error) in
-                
                 if (error != nil) {
                     self.showUIAlertViewController(error: error?.localizedDescription)
                     FBSDKLoginManager().logOut()
                     self.hideLoding()
                     return
                 }else{
-                    guard let resultt = result as? NSDictionary, let _ = resultt["email"] as? String,
+                    guard let resultt = result as? NSDictionary,
                         let _ = resultt["name"] as? String,
                         let _ = resultt["id"]  as? String
                         else {
+                            FBSDKLoginManager().logOut()
                             self.hideLoding()
                             return
                     }

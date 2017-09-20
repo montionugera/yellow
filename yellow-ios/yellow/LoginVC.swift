@@ -69,13 +69,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
             .start(completionHandler:  { (connection, result, error) in
                 
                 if (error != nil) {
-                    let alertController = UIAlertController(title: "Yellow", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
-                    {   (result : UIAlertAction) -> Void in
-                        
-                    }
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
+                    self.showUIAlertViewController(error: error?.localizedDescription)
                     FBSDKLoginManager().logOut()
                     self.hideLoding()
                     return
@@ -114,8 +108,12 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
             
                     
                     Auth.auth().signIn(with: credentials, completion: { (user, error) in
-                        guard let user = user else {return}
-                        self.hideLoding()
+                        guard let user = user else {
+                            self.showUIAlertViewController(error: error?.localizedDescription)
+                            FBSDKLoginManager().logOut()
+                            self.hideLoding()
+                            return
+                        }
                         
                         if error != nil{
                             print(error!)
@@ -138,15 +136,27 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         //print("tylerDebug:\(Messaging.messaging().fcmToken)")
                         
                         self.dismiss(animated: true, completion: {
+                            self.hideLoding()
                             if self.mapvc_main != nil {
                                 self.mapvc_main?.fetchContent()
                             }
                         })
-
+                        
                     })
                 }
             })
     }
+    
+    func showUIAlertViewController(error : String?){
+        let alertController = UIAlertController(title: "Yellow", message: error, preferredStyle: UIAlertControllerStyle.alert)
+        let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
+        {   (result : UIAlertAction) -> Void in
+            
+        }
+        alertController.addAction(okAction)
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
         
     }

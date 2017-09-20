@@ -105,20 +105,15 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         fb_name = "Yellow"
                     }
                     
-            
-                    
                     Auth.auth().signIn(with: credentials, completion: { (user, error) in
-                        guard let user = user else {
-                            self.showUIAlertViewController(error: error?.localizedDescription)
+                        guard let user = user , error == nil else {
                             FBSDKLoginManager().logOut()
                             self.hideLoding()
+                            self.showAlertDefault(msg: error?.localizedDescription ?? "")
+                            
                             return
                         }
-                        
-                        if error != nil{
-                            print(error!)
-                            self.showAlertDefault(msg: error as! String)
-                        }
+
                         let user_data_save = [
                             "user_id" : user.uid ,
                             "user_email" : fb_data?.object(forKey: "email") ,

@@ -29,6 +29,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate ,MessagingDelegate {
         ]
         firebaseAPI.userRef.child(user.user_id ?? "").setValue(user_data_save_on_fcm)
     }
+    func application(_ application: UIApplication, didRegister notificationSettings: UIUserNotificationSettings) {
+        
+    }
     func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
         print("MessagingAppData:\(remoteMessage.appData)")
     }

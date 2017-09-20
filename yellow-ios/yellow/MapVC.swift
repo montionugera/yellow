@@ -14,7 +14,7 @@ import CoreLocation
 import AlamofireImage
 import Firebase
 class MapVC: UIViewController {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     
     var firebaseAPI : FirebaseAPI!
@@ -25,7 +25,7 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         
         // When zoom level is quite close to the pins, disable clustering in order to show individual pins and allow the user to interact with them via callouts.
@@ -36,12 +36,10 @@ class MapVC: UIViewController {
         mapView.showsUserLocation = true
         mapView.showsCompass = false
         mapView.delegate = self
-
-        fetchContent()
-        
-    
+        if UserModel.currentUser.isLogined() {
+            fetchContent()
+        }
     }
-
     func fetchContent(){
         if (CLLocationManager.locationServicesEnabled()) {
             self.locationManager.requestAlwaysAuthorization()
@@ -52,7 +50,6 @@ class MapVC: UIViewController {
             self.locationManager.startUpdatingLocation()
             addMapTrackingButton()
         }
-        
         feedViewModel.delegate = self
         feedViewModel.initilization()
     }
@@ -74,7 +71,7 @@ class MapVC: UIViewController {
     func centerMapOnUserButtonClicked() {
         self.mapView.setUserTrackingMode( MKUserTrackingMode.follow, animated: true)
     }
-
+    
     override func viewDidAppear(_ animated: Bool){
         super.viewDidAppear(animated)
     }
@@ -84,16 +81,16 @@ class MapVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destinationViewController.
+     // Pass the selected object to the new view controller.
+     }
+     */
     
 }
 
@@ -105,42 +102,42 @@ extension MapVC : UIGestureRecognizerDelegate {
         
         let aMapView = gesture.view as! MKMapView;
         
-//        for annotation in aMapView.annotations {
-//            if(annotation .isKind(of: MKUserLocation)){
-//                return
-//            }
-//        }
-//        
-//        for (id <MKAnnotation>annotation in aMapView.annotations) {
-//            // if it's the user location, just return nil.
-//            if ([annotation isKindOfClass:[MKUserLocation class]])
-//            return;
-//            
-//            // handle our custom annotations
-//            //
-//            if ([annotation isKindOfClass:[MKPointAnnotation class]])
-//            {
-//                // try to retrieve an existing pin view first
-//                MKAnnotationView *pinView = [aMapView viewForAnnotation:annotation];
-//                //Format the pin view
-//                [self formatAnnotationView:pinView forMapView:aMapView];
-//            }
-//        }
+        //        for annotation in aMapView.annotations {
+        //            if(annotation .isKind(of: MKUserLocation)){
+        //                return
+        //            }
+        //        }
+        //
+        //        for (id <MKAnnotation>annotation in aMapView.annotations) {
+        //            // if it's the user location, just return nil.
+        //            if ([annotation isKindOfClass:[MKUserLocation class]])
+        //            return;
+        //
+        //            // handle our custom annotations
+        //            //
+        //            if ([annotation isKindOfClass:[MKPointAnnotation class]])
+        //            {
+        //                // try to retrieve an existing pin view first
+        //                MKAnnotationView *pinView = [aMapView viewForAnnotation:annotation];
+        //                //Format the pin view
+        //                [self formatAnnotationView:pinView forMapView:aMapView];
+        //            }
+        //        }
         
-//        - (void)formatAnnotationView:(MKAnnotationView *)pinView forMapView:(MKMapView *)aMapView {
-//            if (pinView)
-//            {
-//                double zoomLevel = [aMapView zoomLevel];
-//                double scale = -1 * sqrt((double)(1 - pow((zoomLevel/20.0), 2.0))) + 1.1; // This is a circular scale function where at zoom level 0 scale is 0.1 and at zoom level 20 scale is 1.1
-//                
-//                // Option #1
-//                pinView.transform = CGAffineTransformMakeScale(scale, scale);
-//                
-//                // Option #2
-//                UIImage *pinImage = [UIImage imageNamed:@"YOUR_IMAGE_NAME_HERE"];
-//                pinView.image = [pinImage resizedImage:CGSizeMake(pinImage.size.width * scale, pinImage.size.height * scale) interpolationQuality:kCGInterpolationHigh];
-//            }
-//        }
+        //        - (void)formatAnnotationView:(MKAnnotationView *)pinView forMapView:(MKMapView *)aMapView {
+        //            if (pinView)
+        //            {
+        //                double zoomLevel = [aMapView zoomLevel];
+        //                double scale = -1 * sqrt((double)(1 - pow((zoomLevel/20.0), 2.0))) + 1.1; // This is a circular scale function where at zoom level 0 scale is 0.1 and at zoom level 20 scale is 1.1
+        //
+        //                // Option #1
+        //                pinView.transform = CGAffineTransformMakeScale(scale, scale);
+        //
+        //                // Option #2
+        //                UIImage *pinImage = [UIImage imageNamed:@"YOUR_IMAGE_NAME_HERE"];
+        //                pinView.image = [pinImage resizedImage:CGSizeMake(pinImage.size.width * scale, pinImage.size.height * scale) interpolationQuality:kCGInterpolationHigh];
+        //            }
+        //        }
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
@@ -158,7 +155,7 @@ extension MapVC : CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation = locations.last!
         if(currentLocationYellow == nil){
-//            let span = MKCoordinateSpanMake(0.75, 0.75)
+            //            let span = MKCoordinateSpanMake(0.75, 0.75)
             let span = MKCoordinateSpanMake(0.1, 0.1)
             let viewRegion = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude), span: span)
             mapView.setRegion(viewRegion, animated: true)
@@ -180,10 +177,10 @@ extension MapVC : CLLocationManagerDelegate {
                 let pm = placemarks?[0]
                 currentPlaceYellow = pm?.locality
                 print("locality ****" , pm?.locality ?? "no")
-//                print("subLocality ****" ,pm?.subLocality ?? "no")
-//                print("subThoroughfare ****" ,pm?.subThoroughfare ?? "no")
-//                print("administrativeArea ****" ,pm?.administrativeArea ?? "no")
-//                print("country ****" ,pm?.country ?? "no")
+                //                print("subLocality ****" ,pm?.subLocality ?? "no")
+                //                print("subThoroughfare ****" ,pm?.subThoroughfare ?? "no")
+                //                print("administrativeArea ****" ,pm?.administrativeArea ?? "no")
+                //                print("country ****" ,pm?.country ?? "no")
             }
             else {
                 print("Problem with the data received from geocoder")
@@ -196,11 +193,11 @@ extension MapVC : CLLocationManagerDelegate {
 extension MapVC : FeedViewModelDelegate {
     func didFinishUpdate(indexPath: IndexPath, feedContent: FeedContent) {
         print("didFinishUpdate")
-
+        
         // update pin variable
-//        if let i = self.manager.annotations.index(where: { ($0 as! CustomAnnotation).pinContent?.key == feedContent.key }) {
-//            (self.manager.annotations[i] as! CustomAnnotation).pinContent = feedContent
-//        }
+        //        if let i = self.manager.annotations.index(where: { ($0 as! CustomAnnotation).pinContent?.key == feedContent.key }) {
+        //            (self.manager.annotations[i] as! CustomAnnotation).pinContent = feedContent
+        //        }
         
         
         
@@ -244,52 +241,54 @@ extension MapVC : FeedViewModelDelegate {
         
     }
     func didFinishLoadDataOnInitilization() {
-       
+        
         
         // Add annotations to the manager.
-//        var annotations: [Annotation] = (0..<1000).map { i in
-//            let annotation = Annotation()
-//            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
-//            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-//            //annotation.type = .color(color, radius: 25)
-//            // or
-//            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
-//
-//            return annotation
-//        }
-//        self.manager.add(annotations)
+        //        var annotations: [Annotation] = (0..<1000).map { i in
+        //            let annotation = Annotation()
+        //            annotation.coordinate = CLLocationCoordinate2D(latitude: drand48() * 80 - 40, longitude: drand48() * 80 - 40)
+        //            let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
+        //            //annotation.type = .color(color, radius: 25)
+        //            // or
+        //            annotation.type = .image(UIImage(named: "pin")?.filled(with: color)) // custom image
+        //
+        //            return annotation
+        //        }
+        //        self.manager.add(annotations)
         
         
         var annotations:[CustomAnnotation] = [CustomAnnotation]()
         for pinContent in self.feedViewModel.feedContents {
             
             let dd = CLLocationCoordinate2D(geohash: pinContent.lochash)
-//            print(dd.latitude)
-//            print(dd.longitude)
+            //            print(dd.latitude)
+            //            print(dd.longitude)
             //        if let l = CLLocationCoordinate2D(geohash: "u4pruydqqvj") {
             //            print(l)
             //            // l.latitude == 57.64911063015461
             //            // l.longitude == 10.407439693808556
             //        }
-
+            
             
             //var feedContents : [FeedContent] = [FeedContent]()
             
-//            pinContent.
+            //            pinContent.
             let annotation = CustomAnnotation()
             annotation.title = pinContent.postDesc
             annotation.coordinate = CLLocationCoordinate2DMake(dd.latitude, dd.longitude)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
-//            annotation.type = .color(color, radius: 25)
+            //            annotation.type = .color(color, radius: 25)
             annotation.pinContent = pinContent
             // or
             annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
             annotations.append(annotation)
         }
+        print("tylerDebug annotation's count:\(self.manager.annotations.count)")
+        //        self.mapView.removeAnnotations([])
         self.manager.removeAll()
         self.manager.add(annotations)
         self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
-
+        
         
         let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
                                                 "UserLocaton": true as AnyObject ,
@@ -298,7 +297,7 @@ extension MapVC : FeedViewModelDelegate {
         NotificationCenter.default.post(name: NSNotification.Name(rawValue: "updateFeedList"), object: nil, userInfo: feedDataDict)
     }
     func didRemoveData(indexPath: IndexPath) {
-      
+        
     }
     
 }
@@ -328,15 +327,15 @@ extension MapVC: MKMapViewDelegate {
                         )
                     )
                     
-//                    let rectShape = CAShapeLayer()
-//                    rectShape.bounds = imageView.frame
-//                    rectShape.position = imageView.center
-//                    rectShape.path = UIBezierPath(roundedRect: imageView.bounds
-//                        , byRoundingCorners: [.allCorners ],
-//                          cornerRadii: CGSize(width: imageView.bounds.size.width/2, height: imageView.bounds.size.height/2)).cgPath
-//                    
-//                    imageView.layer.backgroundColor = UIColor.green.cgColor
-//                    imageView.layer.mask = rectShape
+                    //                    let rectShape = CAShapeLayer()
+                    //                    rectShape.bounds = imageView.frame
+                    //                    rectShape.position = imageView.center
+                    //                    rectShape.path = UIBezierPath(roundedRect: imageView.bounds
+                    //                        , byRoundingCorners: [.allCorners ],
+                    //                          cornerRadii: CGSize(width: imageView.bounds.size.width/2, height: imageView.bounds.size.height/2)).cgPath
+                    //
+                    //                    imageView.layer.backgroundColor = UIColor.green.cgColor
+                    //                    imageView.layer.mask = rectShape
                     
                     annotationView.addSubview(imageView)
                 }
@@ -386,16 +385,16 @@ extension MapVC: MKMapViewDelegate {
             var view = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
             if let view = view {
                 view.annotation = annotation
-            
+                
             } else {
                 view = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
                 
                 let imageView = UIImageView(frame:CGRect(x:9,y: 7, width: 20,height: 20))
                 imageView.tag = 54321
                 view?.addSubview(imageView)
-            
+                
             }
-        
+            
             if let ppContent = annotation.pinContent {
                 
                 let emoString = ppContent.emo
@@ -426,20 +425,20 @@ extension MapVC: MKMapViewDelegate {
         
         if let cluster = annotation as? ClusterAnnotation {
             var zoomRect = MKMapRectNull
-                
+            
             for annotation in cluster.annotations {
                 let ppContent = (annotation as! CustomAnnotation).pinContent
-//                let annotationPoint = MKMapPointForCoordinate(annotation.coordinate)
-//                let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0)
-//                if MKMapRectIsNull(zoomRect) {
-//                    zoomRect = pointRect
-//                } else {
-//                    zoomRect = MKMapRectUnion(zoomRect, pointRect)
-//                }
+                //                let annotationPoint = MKMapPointForCoordinate(annotation.coordinate)
+                //                let pointRect = MKMapRectMake(annotationPoint.x, annotationPoint.y, 0, 0)
+                //                if MKMapRectIsNull(zoomRect) {
+                //                    zoomRect = pointRect
+                //                } else {
+                //                    zoomRect = MKMapRectUnion(zoomRect, pointRect)
+                //                }
                 feedContents.append(ppContent!)
                 
             }
-//            mapView.setVisibleMapRect(zoomRect, animated: true)
+            //            mapView.setVisibleMapRect(zoomRect, animated: true)
             print(">>> : " , cluster.annotations.count)
         }else{
             if annotation.isEqual(mapView.userLocation) {
@@ -492,15 +491,15 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
     }
     
     override func configure(with type: ClusterAnnotationType) {
-//        super.configure(with: type)
+        //        super.configure(with: type)
         
         guard let annotation = annotation as? ClusterAnnotation else { return }
         
         switch type {
         case let .image(image):
             let count = annotation.annotations.count
-//            self.countLabel.text = "\(count)"
-//            self.countLabel.textColor = UIColor.black
+            //            self.countLabel.text = "\(count)"
+            //            self.countLabel.textColor = UIColor.black
             
             backgroundColor = .clear
             self.image = image
@@ -531,9 +530,9 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
     private func createBadge(cc : Int) {
         if let bb = self.viewWithTag(12345) as? BadgeSwift {
             bb.removeFromSuperview()
-//            print("removeBagd")
+            //            print("removeBagd")
         }
-    
+        
         let badge = BadgeSwift()
         badge.tag = 12345
         self.addSubview(badge)
@@ -593,7 +592,7 @@ class BorderedClusterAnnotationView: ClusterAnnotationView {
         
         self.addConstraints(constraints)
     }
-  
+    
     
 }
 
@@ -605,6 +604,6 @@ extension MapVC: PulleyPrimaryContentControllerDelegate {
     
     func drawerChangedDistanceFromBottom(drawer: PulleyViewController, distance: CGFloat)
     {
-
+        
     }
 }

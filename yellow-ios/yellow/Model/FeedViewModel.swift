@@ -23,31 +23,25 @@ class FeedViewModel: NSObject {
         super.init()
     }
     func initilization()  {
-        print("tylerDebug: initilization")
         firebaseAPI = FirebaseAPI()
         self.feedContents.removeAll()
         firebaseAPI.storageRef.observeSingleEvent(of: .value, with: {[weak self] (snapshot) in
             guard let the = self else {
                 return
             }
-            
             for item in snapshot.children {
-                
-                //                let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
-                
+                //let (data,value)  =   FBSnapShotToDictForClassMapping(any: item)
                 let feedContent = FeedContent(snapshot:item as! DataSnapshot)
                 if(self?.timeAgo24Hr( Date(timeIntervalSince1970: TimeInterval(feedContent.postDttmInt)) , currentDate: Date()) == false){
                     the.feedContents.append(feedContent)
                 }
                 //                print(item)
             }
-            print("tylerDebug feedContents.count:\(the.feedContents.count)")
             // sort date time
             the.feedContents.sort { $0.postDttmInt > $1.postDttmInt }
             the.initialDataHasBeenLoaded = true
             the.delegate?.didFinishLoadDataOnInitilization()
         })
-        
         firebaseAPI.storageRef.observe(.childChanged, with: {[weak self] (snapshot) in
             guard let the = self else {
                 return
@@ -101,14 +95,12 @@ class FeedViewModel: NSObject {
     deinit {
         print("deinit In ViewModel")
     }
-    
     func timeAgo24Hr(_ date:Date,currentDate:Date) -> Bool {
         let calendar = Calendar.current
         let now = currentDate
         let earliest = (now as NSDate).earlierDate(date)
         let latest = (earliest == now) ? date : now
         let components:DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.minute , NSCalendar.Unit.hour , NSCalendar.Unit.day , NSCalendar.Unit.weekOfYear , NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.second], from: earliest, to: latest, options: NSCalendar.Options())
-        
         if (components.year! >= 2) {
             return true
         } else if (components.year! >= 1){

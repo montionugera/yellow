@@ -283,7 +283,6 @@ extension MapVC : FeedViewModelDelegate {
             annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
             annotations.append(annotation)
         }
-        print("tylerDebug annotation's count:\(self.manager.annotations.count)")
         //        self.mapView.removeAnnotations([])
         self.manager.removeAll()
         self.manager.add(annotations)

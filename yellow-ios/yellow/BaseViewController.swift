@@ -24,14 +24,17 @@ class BaseViewController: UIViewController {
     func showLoding(){
         if SVProgressHUD.isVisible() {
             
-            DispatchQueue.global(qos: .background).async {
+//            DispatchQueue.global(qos: .userInteractive).async {
                 // Background Thread
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
-                }
-            }
-        }
+//                DispatchQueue.main.async {
+//                    SVProgressHUD.dismiss()
+//                }
+//            }
+//        }
         
+//            SVProgressHUD.dismiss()
+    
+        }
         SVProgressHUD.setDefaultAnimationType(SVProgressHUDAnimationType.flat)
         SVProgressHUD.setDefaultMaskType(SVProgressHUDMaskType.black)
         SVProgressHUD.setRingThickness(3)
@@ -39,14 +42,12 @@ class BaseViewController: UIViewController {
     }
     
     func hideLoding(){
-        if SVProgressHUD.isVisible() {
-            DispatchQueue.global(qos: .background).async {
-                // Background Thread
-                DispatchQueue.main.async {
-                    SVProgressHUD.dismiss()
-                }
+//        DispatchQueue.global(qos: .userInteractive).async {
+            // Background Thread
+            DispatchQueue.main.async {
+                SVProgressHUD.dismiss()
             }
-        }
+//        }
     }
     
     //MARK:Base Alert Dialog
@@ -62,4 +63,3 @@ class BaseViewController: UIViewController {
     }
 
 }
-

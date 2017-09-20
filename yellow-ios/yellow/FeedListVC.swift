@@ -228,7 +228,6 @@ extension FeedListVC : FeedCollectionViewDelegate {
             let emoID = emoArray[1]
             cell.img_emo.backgroundColor = MappingPinEmo.shareInstace.mappingBGColor(colorID: colorID)
             cell.img_emo.image = MappingPinEmo.shareInstace.mappingEmo(colorID: colorID, emoID: emoID)
-            
         }
         let operation = BlockOperation {
             cell.playerManager.prepare(urlPath: item.mediaURL)
@@ -242,7 +241,8 @@ extension FeedListVC : FeedCollectionViewDelegate {
         let now = currentDate
         let earliest = (now as NSDate).earlierDate(date)
         let latest = (earliest == now) ? date : now
-        let components:DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.minute , NSCalendar.Unit.hour , NSCalendar.Unit.day , NSCalendar.Unit.weekOfYear , NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.second], from: earliest, to: latest, options: NSCalendar.Options())
+        let components:DateComponents = (calendar as NSCalendar).components([NSCalendar.Unit.minute , NSCalendar.Unit.hour , NSCalendar.Unit.day , NSCalendar.Unit.weekOfYear , NSCalendar.Unit.month , NSCalendar.Unit.year , NSCalendar.Unit.second]
+            , from: earliest, to: latest, options: NSCalendar.Options())
         
         if (components.year! >= 2) {
             return "\(components.year!) years ago"

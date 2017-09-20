@@ -99,7 +99,6 @@ class AVPlayerManager: UIControl {
             ]
             self.playerItem = AVPlayerItem(asset: asset,
                                            automaticallyLoadedAssetKeys: assetKeys)
-            
             self.avPlayer.replaceCurrentItem(with: self.playerItem)
         }
     }

@@ -84,6 +84,7 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                         let _ = resultt["name"] as? String,
                         let _ = resultt["id"]  as? String
                         else {
+                            self.hideLoding()
                             return
                     }
                     let fb_data = result as? NSDictionary
@@ -109,6 +110,8 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                     if(fb_name == "Mark Johnson"){
                         fb_name = "Yellow"
                     }
+                    
+            
                     
                     Auth.auth().signIn(with: credentials, completion: { (user, error) in
                         guard let user = user else {return}

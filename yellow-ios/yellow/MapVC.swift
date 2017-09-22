@@ -25,14 +25,11 @@ class MapVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // Do any additional setup after loading the view.
-        
         // When zoom level is quite close to the pins, disable clustering in order to show individual pins and allow the user to interact with them via callouts.
         manager.zoomLevel = 20
-        manager.minimumCountForCluster = 3
+        manager.minimumCountForCluster = 4
         manager.shouldRemoveInvisibleAnnotations = false
-        
         mapView.showsUserLocation = true
         mapView.showsCompass = false
         mapView.delegate = self
@@ -210,11 +207,9 @@ extension MapVC : FeedViewModelDelegate {
     func didAppendData(indexPath: IndexPath , feedContent: FeedContent) {
         let pinContent = feedContent
         if (pinContent != nil) {
-            
             let dd = CLLocationCoordinate2D(geohash: feedContent.lochash)
             //var feedContents : [FeedContent] = [FeedContent]()
-            
-            //            pinContent.
+            //pinContent.
             let annotation = CustomAnnotation()
             annotation.coordinate = CLLocationCoordinate2DMake(dd.latitude, dd.longitude)
             let color = UIColor(red: 255/255, green: 149/255, blue: 0/255, alpha: 1)
@@ -224,8 +219,8 @@ extension MapVC : FeedViewModelDelegate {
             annotation.type = .image(UIImage(named: "pinGreen")) //?.filled(with: color)) // custom image
             annotation.pinContent = pinContent
             self.manager.add(annotation)
+            self.mapView.addAnnotation(annotation)
         }
-        
         //active me
         let userid = String(describing: UserModel.currentUser.user_id)
         let content_uid = pinContent.addedByUser
@@ -241,8 +236,6 @@ extension MapVC : FeedViewModelDelegate {
         
     }
     func didFinishLoadDataOnInitilization() {
-        
-        
         // Add annotations to the manager.
         //        var annotations: [Annotation] = (0..<1000).map { i in
         //            let annotation = Annotation()
@@ -255,11 +248,8 @@ extension MapVC : FeedViewModelDelegate {
         //            return annotation
         //        }
         //        self.manager.add(annotations)
-        
-        
         var annotations:[CustomAnnotation] = [CustomAnnotation]()
         for pinContent in self.feedViewModel.feedContents {
-            
             let dd = CLLocationCoordinate2D(geohash: pinContent.lochash)
             //            print(dd.latitude)
             //            print(dd.longitude)
@@ -268,11 +258,8 @@ extension MapVC : FeedViewModelDelegate {
             //            // l.latitude == 57.64911063015461
             //            // l.longitude == 10.407439693808556
             //        }
-            
-            
             //var feedContents : [FeedContent] = [FeedContent]()
-            
-            //            pinContent.
+            //pinContent.
             let annotation = CustomAnnotation()
             annotation.title = pinContent.postDesc
             annotation.coordinate = CLLocationCoordinate2DMake(dd.latitude, dd.longitude)
@@ -284,11 +271,11 @@ extension MapVC : FeedViewModelDelegate {
             annotations.append(annotation)
         }
         //        self.mapView.removeAnnotations([])
+        
+        print("tylerDebug feedContents.count:\(self.feedViewModel.feedContents.count)")
         self.manager.removeAll()
         self.manager.add(annotations)
         self.manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
-        
-        
         let feedDataDict:[String: AnyObject] = ["FeedContents": self.feedViewModel.feedContents as AnyObject ,
                                                 "UserLocaton": true as AnyObject ,
                                                 "isFirse": true as AnyObject]
@@ -353,13 +340,10 @@ extension MapVC: MKMapViewDelegate {
                 view.configure(with: type)
             } else {
                 view = BorderedClusterAnnotationView(annotation: annotation, reuseIdentifier: identifier, type: type, borderColor: .white)
-                
                 let imageView = UIImageView(frame:CGRect(x:9,y: 7, width: 20,height: 20))
                 imageView.tag = 678
                 view?.addSubview(imageView)
-                view?.sendSubview(toBack: imageView)
             }
-            
             if(annotation.annotations[0].isKind(of: CustomAnnotation.self)){
                 if let ppContent = (annotation.annotations[0] as! CustomAnnotation).pinContent {
                     
@@ -412,16 +396,13 @@ extension MapVC: MKMapViewDelegate {
             return view
         }
     }
-    
     func mapView(_ mapView: MKMapView, regionDidChangeAnimated animated: Bool) {
         manager.reload(mapView, visibleMapRect: mapView.visibleMapRect)
     }
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         guard let annotation = view.annotation else { return }
-        
         var feedContents : [FeedContent] = [FeedContent]()
         var isUserLocaton = false
-        
         if let cluster = annotation as? ClusterAnnotation {
             var zoomRect = MKMapRectNull
             

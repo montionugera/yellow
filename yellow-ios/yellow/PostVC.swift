@@ -105,14 +105,12 @@ class PostVC: SwiftyCamViewController, SwiftyCamViewControllerDelegate, SwiftyCa
     
     @objc private func toggleFlashAction(_ sender: Any) {
         flashEnabled = !flashEnabled
-        
         if flashEnabled == true {
             flashButton.setImage(#imageLiteral(resourceName: "flash"), for: UIControlState())
         } else {
             flashButton.setImage(#imageLiteral(resourceName: "flashOutline"), for: UIControlState())
         }
     }
-    
     private func addButtons() {
         let cancelButton = UIButton(frame: CGRect(x: 15.0, y: 15.0, width: 40.0, height: 40.0))
         cancelButton.setImage(#imageLiteral(resourceName: "cancel"), for: UIControlState())

@@ -6,10 +6,6 @@
 //  Copyright © 2017 Nattapong Unaregul. All rights reserved.
 //
 import UIKit
-
-
-
-
 @objc protocol FeedCollectionViewDelegate {
     func feedNumberOfSections (in collectionView: UICollectionView ) -> Int
     func feedNumberOfItemsInSection(_ collectionview : UICollectionView, numberOfItemsInSection section: Int) -> Int
@@ -25,7 +21,8 @@ import UIKit
 @objc protocol FeedTargetHitDelegate {
     @objc   optional func feedHitPoint(cell : UICollectionViewCell)
     @objc optional func feedPassPoint(cell : UICollectionViewCell)
-    func feedHitPoint(collectionView : FeedCollectionView,at indexPath : IndexPath )
+    func feedHit(collectionView : FeedCollectionView,at indexPath : IndexPath )
+    func feedMiss(collectionView : FeedCollectionView,at indexPath : IndexPath )
 }
 protocol FeedDataSourcePrefetching {
     func feed(_ collectionView: FeedCollectionView, prefetchItemsAt indexPaths: [IndexPath])
@@ -89,7 +86,7 @@ extension FeedCollectionView : UICollectionViewDataSourcePrefetching {
 }
 @IBDesignable
 class FeedCollectionView: UICollectionView {
-
+    
     @IBInspectable
     var ratioHeightHit : CGFloat = 0.45
     var scrollFeedDirection : ScrollFeedDirection = .none
@@ -185,7 +182,7 @@ class FeedCollectionView: UICollectionView {
         self.performBatchUpdates({
             //Once it done hit first cell
         }) { (isDone) in
-//            self.delegateFeedTarget?.feedHitPoint(collectionView: self, at: IndexPath(row: 0, section: 0))
+            //            self.delegateFeedTarget?.feedHitPoint(collectionView: self, at: IndexPath(row: 0, section: 0))
         }
     }
     func sharedInitilization()  {
@@ -205,7 +202,7 @@ class FeedCollectionView: UICollectionView {
         }
         
     }
-
+    
     
     func refresh(sender : AnyObject) {
         if refreshFeedControl.isRefreshing {
@@ -305,15 +302,16 @@ extension FeedCollectionView : UIScrollViewDelegate {
     func hitAtPortionOfTheScreenHeight() {
         let scrollSpeed = abs(self.contentOffset.y - previousScrollViewOffset)
         previousScrollViewOffset = self.contentOffset.y
-        if  scrollSpeed <= 25 && !isBottomTopScreen {
-            DispatchQueue.global(qos: .userInteractive).async {
-                if let hitIndexPath = self.indexPathForItem(at: self.portionHitPosition) {
-                    self.currentHitIndexPath = hitIndexPath
-                    DispatchQueue.main.async {
-                        self.delegateFeedTarget?.feedHitPoint(collectionView: self, at: hitIndexPath)
-                    }
-                }
+        print(scrollSpeed)
+        if  scrollSpeed <= 15 && !isBottomTopScreen {
+            //            DispatchQueue.global(qos: .userInteractive).async {
+            if let hitIndexPath = self.indexPathForItem(at: self.portionHitPosition) {
+                self.currentHitIndexPath = hitIndexPath
+                //                    DispatchQueue.main.async {
+                self.delegateFeedTarget?.feedHit(collectionView: self, at: hitIndexPath)
+                //                    }
             }
+            //            }
         }
     }
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {

@@ -17,26 +17,14 @@ class SecondViewController: UIViewController {
         feed.registerAdvance(FeedCell.self, nib: UINib(nibName: "FeedCell", bundle: nil))
         feed.delegateFeed = self
         feed.delegateFeedLayout = self
-        feed.delegateFeedTarget = self
+//        feed.delegateFeedTarget = self
         viewModel.initilization()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
 }
-extension SecondViewController : FeedTargetHitDelegate {
-//    func feedHitPoint(cell: UICollectionViewCell) {
-//        let cell = cell as! FeedCell
-//        cell.playerManager.play(amountOfTime: 5)
-//    }
-//    func feedPassPoint(cell: UICollectionViewCell) {
-//        let cell = cell as! FeedCell
-//        cell.playerManager.pause()
-//    }
-    func feedHitPoint(collectionView: FeedCollectionView, at indexPath: IndexPath) {
-        
-    }
-}
+
 extension SecondViewController : SecondViewModelDelegate {
     func didFinishLoadData(hasData: Bool) {
         if hasData {

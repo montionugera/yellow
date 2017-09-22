@@ -138,7 +138,7 @@ class PostProfileViewController: BaseViewController {
         // Upload the file to the path "images/dummy.mov"
         let _ = mediaRef.putFile(from:self.videoURL, metadata: nil) { (metadata, error) in
             guard let metadata = metadata else {
-                // Uh-oh, an error occurred!
+                print("tylerDebug:errorPost")
                 return
             }
             // Metadata contains file metadata such as size, content-type, and download URL.
@@ -166,7 +166,6 @@ class PostProfileViewController: BaseViewController {
                                 "postDttmInt": Date().timeIntervalSince1970,
                                 "postDttmStr": getStandardAppDateString(dttm: Date()),
                                 "lochash":lochash] as [String : Any]
-                
                 let postRef = ref.child("posts")
                 let newPostRef = postRef.childByAutoId()
                 newPostRef.setValue(postData) { (error, ref) -> Void in

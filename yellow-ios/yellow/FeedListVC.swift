@@ -154,7 +154,7 @@ extension FeedListVC: PulleyDrawerViewControllerDelegate {
     }
 }
 extension FeedListVC : FeedTargetHitDelegate {
-    func feedHitPoint(collectionView: FeedCollectionView, at indexPath: IndexPath) {
+    func feedHit(collectionView: FeedCollectionView, at indexPath: IndexPath) {
         if let targetCell = collectionView.cellForItemAdvance(indexPath: indexPath) as? FeedCell {
             targetCell.playerManager.play()
             let anotherCells =  collectionView.visibleCells.filter { (cell) -> Bool in
@@ -167,7 +167,9 @@ extension FeedListVC : FeedTargetHitDelegate {
             }
         }
     }
-    
+    func feedMiss(collectionView: FeedCollectionView, at indexPath: IndexPath) {
+        
+    }
     //    func feedHitPoint(cell: UICollectionViewCell) {
     //        let cell = cell as! FeedCell
     //        cell.playerManager.play()

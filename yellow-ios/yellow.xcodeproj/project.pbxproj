@@ -837,7 +837,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = yellow/Yellow.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SHOPPENING Company Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8J8JM2E96L;
 				INFOPLIST_FILE = yellow/Info.plist;
@@ -845,8 +845,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
-				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
+				PROVISIONING_PROFILE = "cbb77c98-a0f4-4c9f-8e35-810eae96f110";
+				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -861,7 +861,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = yellow/Yellow.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Distribution: SHOPPENING Company Limited";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = 8J8JM2E96L;
 				INFOPLIST_FILE = yellow/Info.plist;
@@ -869,8 +869,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.product23.yellow;
 				PRODUCT_NAME = Yellow;
-				PROVISIONING_PROFILE = "8ce6be89-d2f0-4a11-a0ca-97ad1f1ce78c";
-				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise_Dev;
+				PROVISIONING_PROFILE = "cbb77c98-a0f4-4c9f-8e35-810eae96f110";
+				PROVISIONING_PROFILE_SPECIFIER = Yellow_Enterprise;
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 				SWIFT_VERSION = 3.0;
 			};

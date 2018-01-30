@@ -21,12 +21,9 @@ class MyProfileVC: UIViewController {
         // Do any additional setup after loading the view.
 
     }
-
     override func viewWillAppear(_ animated: Bool){
         super.viewWillAppear(animated)
-        
         self.name_lb.text = UserModel.currentUser.user_name
-        
         if let profile_url = UserModel.currentUser.user_profile {
             self.profile_img.af_setImage(
                 withURL: URL(string: profile_url)!,
@@ -37,7 +34,6 @@ class MyProfileVC: UIViewController {
                 )
             )
         }
-        
         if UserModel.currentUser.isLogined() == true {
 
             self.logout_bt.setTitle("Logout", for: .normal)
@@ -45,7 +41,6 @@ class MyProfileVC: UIViewController {
             self.logout_bt.setTitle("Login", for: .normal)
         }
     }
-    
     @IBAction func logoutClick(_ sender: Any) {
         if UserModel.currentUser.isLogined() == true {
             UserModel.currentUser.setAsLogOut()

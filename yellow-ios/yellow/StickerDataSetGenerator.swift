@@ -22,7 +22,6 @@ class StickerDataSetGenerator: NSObject {
         secondSet.append(StickerModel(id: 1, iconName: "emoTired", containerSetId: 2))
         secondSet.append(StickerModel(id: 2, iconName: "emoAmaze", containerSetId: 2))
         secondSet.append(StickerModel(id: 3, iconName: "emoSleep", containerSetId: 2))
-        secondSet.append(StickerModel(id: 4, iconName: "emoTired", containerSetId: 2))
         containerSet.append(secondSet)
         
         var thirdSet : [StickerModel] = []
@@ -30,7 +29,6 @@ class StickerDataSetGenerator: NSObject {
         thirdSet.append(StickerModel(id: 2, iconName: "emoBoring", containerSetId: 3))
         thirdSet.append(StickerModel(id: 3, iconName: "emoUnlike", containerSetId: 3))
         thirdSet.append(StickerModel(id: 4, iconName: "emoAngry", containerSetId: 3))
-        thirdSet.append(StickerModel(id: 5, iconName: "emoHurt", containerSetId: 3))
         containerSet.append(thirdSet)
         
         var fourthSet : [StickerModel] = []

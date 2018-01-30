@@ -67,7 +67,6 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
         
         FBSDKGraphRequest(graphPath: "/me", parameters: ["fields":"email,name,first_name,last_name,picture.type(large),link"])
             .start(completionHandler:  { (connection, result, error) in
-                
                 if (error != nil) {
                     let alertController = UIAlertController(title: "Yellow", message: error?.localizedDescription, preferredStyle: UIAlertControllerStyle.alert)
                     let okAction = UIAlertAction(title: "OK", style: UIAlertActionStyle.default)
@@ -129,7 +128,6 @@ class LoginVC: BaseViewController,FBSDKLoginButtonDelegate {
                             "user_link" : user_link
                         ]
                         UserModel.currentUser.saveAsDatabase(dict: user_data_save as [String : AnyObject])
-        
                         let user_data_save_on_fcm : [String:Any] = [
                             "fcmTokens" : Messaging.messaging().fcmToken! ,
                             "fblink" : user_link
